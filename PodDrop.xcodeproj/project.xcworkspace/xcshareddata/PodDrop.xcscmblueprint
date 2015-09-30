@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "9201D453F88DA54B2AD0F3F3FB136A367CE9B42D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "0B5521C8A344B1CACB7E58AE3CB3FB4A1582F4C9" : 0,
+    "9201D453F88DA54B2AD0F3F3FB136A367CE9B42D" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "CC2B269B-4D52-49C1-B987-FD91A75E5447",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "0B5521C8A344B1CACB7E58AE3CB3FB4A1582F4C9" : "",
+    "9201D453F88DA54B2AD0F3F3FB136A367CE9B42D" : "PodDrop\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "PodDrop",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "PodDrop.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/hamt3ch\/CISE4930.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0B5521C8A344B1CACB7E58AE3CB3FB4A1582F4C9"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/iOSDevCon1\/iOS_Project.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9201D453F88DA54B2AD0F3F3FB136A367CE9B42D"
+    }
+  ]
+}
