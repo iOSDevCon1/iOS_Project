@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02FCA4521BBF310D00E5BEF5 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FCA4511BBF310D00E5BEF5 /* GameScene.swift */; settings = {ASSET_TAGS = (); }; };
 		A8D9E3651BBCA958005B2719 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D9E3641BBCA958005B2719 /* AppDelegate.swift */; };
 		A8D9E3671BBCA958005B2719 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = A8D9E3661BBCA958005B2719 /* art.scnassets */; };
 		A8D9E3691BBCA958005B2719 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D9E3681BBCA958005B2719 /* GameViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02FCA4511BBF310D00E5BEF5 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameScene.swift; path = ../GameScene.swift; sourceTree = "<group>"; };
 		A8D9E3611BBCA958005B2719 /* PodDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PodDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8D9E3641BBCA958005B2719 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8D9E3661BBCA958005B2719 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 		A8D9E3631BBCA958005B2719 /* PodDrop */ = {
 			isa = PBXGroup;
 			children = (
+				02FCA4511BBF310D00E5BEF5 /* GameScene.swift */,
 				A8D9E3641BBCA958005B2719 /* AppDelegate.swift */,
 				A8D9E3661BBCA958005B2719 /* art.scnassets */,
 				A8D9E3681BBCA958005B2719 /* GameViewController.swift */,
@@ -190,6 +193,7 @@
 		A8D9E3591BBCA958005B2719 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = HAM;
 				TargetAttributes = {
@@ -262,6 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02FCA4521BBF310D00E5BEF5 /* GameScene.swift in Sources */,
 				A8D9E3691BBCA958005B2719 /* GameViewController.swift in Sources */,
 				A8D9E3651BBCA958005B2719 /* AppDelegate.swift in Sources */,
 			);
@@ -490,6 +495,7 @@
 				A8D9E38D1BBCA958005B2719 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A8D9E38E1BBCA958005B2719 /* Build configuration list for PBXNativeTarget "PodDropTests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +504,7 @@
 				A8D9E3901BBCA958005B2719 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A8D9E3911BBCA958005B2719 /* Build configuration list for PBXNativeTarget "PodDropUITests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +513,7 @@
 				A8D9E3931BBCA958005B2719 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
