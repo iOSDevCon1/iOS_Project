@@ -5,7 +5,7 @@ xcode_scheme: PodDrop
 xcode_sdk: iphonesimulator
 
 script:
-xcodebuild clean build test -project PodDrop.xcodeproj -scheme PodDrop -sdk iphonesimulator
+- xcodebuild clean build test -project PodDrop.xcodeproj -scheme PodDrop -sdk iphonesimulator
 
 notifications:
   email: false
