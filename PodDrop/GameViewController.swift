@@ -16,8 +16,6 @@ class GameViewController: UIViewController {
             skView.multipleTouchEnabled = false
             
             // Create and configure the scene.
-            NSLog("width %f", skView.bounds.size.width)
-            NSLog("height %f", skView.bounds.size.height)
             scene = GameScene(size: skView.bounds.size)
             scene.scaleMode = .AspectFit
             // Present the scene.
