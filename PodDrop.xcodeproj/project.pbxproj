@@ -101,10 +101,10 @@
 		A8D9E3631BBCA958005B2719 /* PodDrop */ = {
 			isa = PBXGroup;
 			children = (
-				02FCA4511BBF310D00E5BEF5 /* GameScene.swift */,
 				A8D9E3641BBCA958005B2719 /* AppDelegate.swift */,
 				A8D9E3661BBCA958005B2719 /* art.scnassets */,
 				A8D9E3681BBCA958005B2719 /* GameViewController.swift */,
+				02FCA4511BBF310D00E5BEF5 /* GameScene.swift */,
 				A8D9E36A1BBCA958005B2719 /* Main.storyboard */,
 				A8D9E36D1BBCA958005B2719 /* Assets.xcassets */,
 				A8D9E36F1BBCA958005B2719 /* LaunchScreen.storyboard */,

@@ -21,9 +21,10 @@ class GameScene: SKScene {
         
         anchorPoint = CGPoint(x: 0, y: 1.0)
         
-        let background = SKSpriteNode(imageNamed: "background")
-        background.position = CGPoint(x: 0, y: 0)
-        background.anchorPoint = CGPoint(x: 0, y: 1.0)
+        let background = SKSpriteNode(imageNamed: "milkyWay")
+        background.position = CGPoint(x: size.width/2, y: -(size.height/2))
+        background.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        background.alpha = 0.1
         addChild(background)
     }
 

@@ -12,10 +12,11 @@
                         <viewControllerLayoutGuide type="top" id="6Z9-fY-sVN"/>
                         <viewControllerLayoutGuide type="bottom" id="m2b-WO-zcZ"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleAspectFill" id="lCL-5P-3J0" customClass="SKView">
+                    <view key="view" contentMode="scaleToFill" id="lCL-5P-3J0" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
