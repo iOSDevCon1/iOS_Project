@@ -15,18 +15,10 @@
 		A8D9E36E1BBCA958005B2719 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8D9E36D1BBCA958005B2719 /* Assets.xcassets */; };
 		A8D9E3711BBCA958005B2719 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8D9E36F1BBCA958005B2719 /* LaunchScreen.storyboard */; };
 		A8D9E37C1BBCA958005B2719 /* PodDropTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D9E37B1BBCA958005B2719 /* PodDropTests.swift */; };
-		A8D9E3871BBCA958005B2719 /* PodDropUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D9E3861BBCA958005B2719 /* PodDropUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		A8D9E3781BBCA958005B2719 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A8D9E3591BBCA958005B2719 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A8D9E3601BBCA958005B2719;
-			remoteInfo = PodDrop;
-		};
-		A8D9E3831BBCA958005B2719 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A8D9E3591BBCA958005B2719 /* Project object */;
 			proxyType = 1;
@@ -48,9 +40,6 @@
 		A8D9E3771BBCA958005B2719 /* PodDropTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PodDropTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8D9E37B1BBCA958005B2719 /* PodDropTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodDropTests.swift; sourceTree = "<group>"; };
 		A8D9E37D1BBCA958005B2719 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A8D9E3821BBCA958005B2719 /* PodDropUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PodDropUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A8D9E3861BBCA958005B2719 /* PodDropUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodDropUITests.swift; sourceTree = "<group>"; };
-		A8D9E3881BBCA958005B2719 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,13 +57,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A8D9E37F1BBCA958005B2719 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -83,7 +65,6 @@
 			children = (
 				A8D9E3631BBCA958005B2719 /* PodDrop */,
 				A8D9E37A1BBCA958005B2719 /* PodDropTests */,
-				A8D9E3851BBCA958005B2719 /* PodDropUITests */,
 				A8D9E3621BBCA958005B2719 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -93,7 +74,6 @@
 			children = (
 				A8D9E3611BBCA958005B2719 /* PodDrop.app */,
 				A8D9E3771BBCA958005B2719 /* PodDropTests.xctest */,
-				A8D9E3821BBCA958005B2719 /* PodDropUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -120,15 +100,6 @@
 				A8D9E37D1BBCA958005B2719 /* Info.plist */,
 			);
 			path = PodDropTests;
-			sourceTree = "<group>";
-		};
-		A8D9E3851BBCA958005B2719 /* PodDropUITests */ = {
-			isa = PBXGroup;
-			children = (
-				A8D9E3861BBCA958005B2719 /* PodDropUITests.swift */,
-				A8D9E3881BBCA958005B2719 /* Info.plist */,
-			);
-			path = PodDropUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,24 +140,6 @@
 			productReference = A8D9E3771BBCA958005B2719 /* PodDropTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A8D9E3811BBCA958005B2719 /* PodDropUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A8D9E3911BBCA958005B2719 /* Build configuration list for PBXNativeTarget "PodDropUITests" */;
-			buildPhases = (
-				A8D9E37E1BBCA958005B2719 /* Sources */,
-				A8D9E37F1BBCA958005B2719 /* Frameworks */,
-				A8D9E3801BBCA958005B2719 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A8D9E3841BBCA958005B2719 /* PBXTargetDependency */,
-			);
-			name = PodDropUITests;
-			productName = PodDropUITests;
-			productReference = A8D9E3821BBCA958005B2719 /* PodDropUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -201,11 +154,6 @@
 						CreatedOnToolsVersion = 7.0;
 					};
 					A8D9E3761BBCA958005B2719 = {
-						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = GDB3SZ2MTH;
-						TestTargetID = A8D9E3601BBCA958005B2719;
-					};
-					A8D9E3811BBCA958005B2719 = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = GDB3SZ2MTH;
 						TestTargetID = A8D9E3601BBCA958005B2719;
@@ -227,7 +175,6 @@
 			targets = (
 				A8D9E3601BBCA958005B2719 /* PodDrop */,
 				A8D9E3761BBCA958005B2719 /* PodDropTests */,
-				A8D9E3811BBCA958005B2719 /* PodDropUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -245,13 +192,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A8D9E3751BBCA958005B2719 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A8D9E3801BBCA958005B2719 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -279,14 +219,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A8D9E37E1BBCA958005B2719 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A8D9E3871BBCA958005B2719 /* PodDropUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -294,11 +226,6 @@
 			isa = PBXTargetDependency;
 			target = A8D9E3601BBCA958005B2719 /* PodDrop */;
 			targetProxy = A8D9E3781BBCA958005B2719 /* PBXContainerItemProxy */;
-		};
-		A8D9E3841BBCA958005B2719 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A8D9E3601BBCA958005B2719 /* PodDrop */;
-			targetProxy = A8D9E3831BBCA958005B2719 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -456,31 +383,6 @@
 			};
 			name = Release;
 		};
-		A8D9E3921BBCA958005B2719 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				INFOPLIST_FILE = PodDropUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = HAM.PodDropUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = PodDrop;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		A8D9E3931BBCA958005B2719 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = PodDropUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = HAM.PodDropUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = PodDrop;
-				USES_XCTRUNNER = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -507,15 +409,6 @@
 			buildConfigurations = (
 				A8D9E38F1BBCA958005B2719 /* Debug */,
 				A8D9E3901BBCA958005B2719 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A8D9E3911BBCA958005B2719 /* Build configuration list for PBXNativeTarget "PodDropUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A8D9E3921BBCA958005B2719 /* Debug */,
-				A8D9E3931BBCA958005B2719 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
