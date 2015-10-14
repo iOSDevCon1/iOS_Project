@@ -26,6 +26,14 @@ class GameScene: SKScene {
         background.anchorPoint = CGPoint(x: 0, y: 1.0)
         background.alpha = 0.1
         addChild(background)
+        
+        //adding ball to view
+        let pod = SKSpriteNode(imageNamed: "pod.png")
+        pod.position = CGPoint(x: 250, y: -250)
+        pod.size.height = self.frame.height/6
+        pod.size.width = self.frame.height/12
+
+        addChild(pod)
     }
 
     
