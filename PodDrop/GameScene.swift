@@ -13,6 +13,7 @@ import SpriteKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
+    
     // different categories for items that we need to detect when theres a
     // contact between them
     let podCategory:        UInt32 = 1 << 0
@@ -21,8 +22,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let pfBoundaryCategory: UInt32 = 1 << 3
     
     var background: SKSpriteNode!
-    
-    var pod = SKSpriteNode()
+    var pod: SKSpriteNode!
     
     required init(coder aDecoder: NSCoder){
         fatalError("NSCoder not supported!")
@@ -33,7 +33,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // we want only the pod to be affected by gravity so we can just
         // apply a force to the pod.
-        self.physicsWorld.gravity = CGVectorMake(0, 0);
+        //self.physicsWorld.gravity = CGVectorMake(0, 0);
         
         // for now this scene will detect contact between different categories
         self.physicsWorld.contactDelegate = self;
@@ -46,11 +46,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func addPod(canvasSize: CGSize){
         //adding ball to view
         let pod = SKSpriteNode(imageNamed: "pod.png")
-        pod.position = CGPoint(x: 250, y: -250)
+        pod.position = CGPoint(x: canvasSize.width/2, y: canvasSize.height)
         pod.size.height = canvasSize.height/6
         pod.size.width = canvasSize.height/12
-        pod.physicsBody = SKPhysicsBody(rectangleOfSize: pod.texture!.size())
-        addChild(pod)
+        pod.physicsBody = SKPhysicsBody(circleOfRadius: pod.size.width/2)
+        pod.physicsBody?.linearDamping = 0;
+         pod.physicsBody?.friction = 0;
+         pod.physicsBody?.restitution = 0;
+        
+        let gravity = CGVectorMake(0, -8);
+        pod.physicsBody?.applyImpulse(gravity);
+        
+        addChild(pod);
+        
+        
+        
     }
     
     func setBackground(canvasSize: CGSize, imageNamed: String){

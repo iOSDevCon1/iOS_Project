@@ -30,7 +30,8 @@ class Platform: SKSpriteNode {
         super.init(texture: nil, color: UIColor.clearColor(), size: size);
         
         self.physicsBody = SKPhysicsBody(rectangleOfSize: size);
-        self.physicsBody?.linearDamping = 0;
+        self.physicsBody?.dynamic = false;
+        
         
         self.addChild(leftPlatform);
         self.addChild(rightPlatform);
