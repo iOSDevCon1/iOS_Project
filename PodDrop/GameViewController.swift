@@ -20,6 +20,8 @@ class GameViewController: UIViewController {
             scene.scaleMode = .AspectFit
             // Present the scene.
             skView.presentScene(scene)
+            
+            
         }
         
     }

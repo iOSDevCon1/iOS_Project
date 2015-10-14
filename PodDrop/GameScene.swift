@@ -12,6 +12,8 @@ import SpriteKit
 
 class GameScene: SKScene {
     
+    var pod = SKSpriteNode()
+    
     required init(coder aDecoder: NSCoder){
         fatalError("NSCoder not supported!")
     }
@@ -26,9 +28,17 @@ class GameScene: SKScene {
         background.anchorPoint = CGPoint(x: 0, y: 1.0)
         background.alpha = 0.1
         addChild(background)
+        
+        //adding ball to view
+        let pod = SKSpriteNode(imageNamed: "pod.png")
+        pod.position = CGPoint(x: 250, y: -250)
+        pod.size.height = self.frame.height/6
+        pod.size.width = self.frame.height/12
+        pod.physicsBody = SKPhysicsBody(rectangleOfSize: pod.texture!.size())
+        addChild(pod)
+   
     }
 
-    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
