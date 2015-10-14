@@ -37,9 +37,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self;
         setBackground(size, imageNamed: "milkyWay");
         addPlatforms(size);
-        
-        
+        addPod(size);
 
+    }
+    
+    func addPod(canvasSize: CGSize){
+        //adding ball to view
+        let pod = SKSpriteNode(imageNamed: "pod.png")
+        pod.position = CGPoint(x: 250, y: -250)
+        pod.size.height = canvasSize.height/6
+        pod.size.width = canvasSize.height/12
+        pod.physicsBody = SKPhysicsBody(rectangleOfSize: pod.texture!.size())
+        addChild(pod)
     }
     
     func setBackground(canvasSize: CGSize, imageNamed: String){
