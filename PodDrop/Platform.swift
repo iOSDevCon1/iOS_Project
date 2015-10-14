@@ -18,11 +18,12 @@ class Platform: SKSpriteNode {
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         
         let platformSize = CGSize(width: size.width/1.5, height: size.height);
+        var myPoint = CGPointMake(-platformSize.width/2,0);
         leftPlatform = SKSpriteNode(texture: texture, color: color, size: platformSize);
-        
+        leftPlatform.position = myPoint;
         rightPlatform = SKSpriteNode(texture: texture, color: color, size: platformSize);
         
-        let myPoint = CGPointMake(size.width,0);
+        myPoint = CGPointMake(size.width/4,0);
         rightPlatform.position = myPoint;
         
         

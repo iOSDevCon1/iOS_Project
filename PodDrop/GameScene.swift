@@ -60,13 +60,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func addPlatforms( canvasSize: CGSize ){
         let myVector = CGVectorMake(0, 20);
-        let numberOfPlatforms = CGFloat(1);
+        let numberOfPlatforms = CGFloat(4);
         for(var i = CGFloat(0); i<numberOfPlatforms; i++){
             let platform = Platform(texture:nil, color:UIColor.whiteColor(), size: CGSize.init(width: canvasSize.width, height: canvasSize.height/42));
             
-            platform.position = CGPoint(x:CGFloat.init(arc4random())%(canvasSize.width/3), y:i*canvasSize.height/numberOfPlatforms)
+            //platform.position = CGPoint(x:CGFloat.init(arc4random())%(canvasSize.width/3), y:i*canvasSize.height/numberOfPlatforms)
             
-            //platform.position = CGPoint(x: canvasSize.width/3, y: 0)
+            platform.position = CGPoint(x: canvasSize.width/3, y: 0)
             addChild(platform)
             platform.physicsBody?.applyImpulse(myVector);
         }
