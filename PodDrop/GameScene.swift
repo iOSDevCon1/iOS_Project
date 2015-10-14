@@ -22,6 +22,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var background: SKSpriteNode!
     
+    var pod = SKSpriteNode()
+    
     required init(coder aDecoder: NSCoder){
         fatalError("NSCoder not supported!")
     }
