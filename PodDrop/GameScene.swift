@@ -3,14 +3,24 @@
 //  PodDrop
 //
 //  Created by Ari on 10/2/15.
-//  Copyright © 2015 HAM. All rights reserved.
+//  Copyright © 2015 IOSDevCon1. All rights reserved.
 //
 
 import Foundation
 import SpriteKit
 
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
+    
+    
+    // different categories for items that we need to detect when theres a
+    // contact between them
+    let podCategory:        UInt32 = 1 << 0
+    let obstacleCategory:   UInt32 = 1 << 1
+    let platformCategory:   UInt32 = 1 << 2
+    let pfBoundaryCategory: UInt32 = 1 << 3
+    
+    var background: SKSpriteNode!
     
     required init(coder aDecoder: NSCoder){
         fatalError("NSCoder not supported!")
@@ -19,15 +29,51 @@ class GameScene: SKScene {
     override init(size:CGSize){
         super.init(size:size)
         
-        anchorPoint = CGPoint(x: 0, y: 1.0)
+        // we want only the pod to be affected by gravity so we can just
+        // apply a force to the pod.
+        self.physicsWorld.gravity = CGVectorMake(0, 0);
         
-        let background = SKSpriteNode(imageNamed: "milkyWay")
-        background.position = CGPoint(x: 0, y: 0)
-        background.anchorPoint = CGPoint(x: 0, y: 1.0)
-        background.alpha = 0.1
-        addChild(background)
-    }
+        // for now this scene will detect contact between different categories
+        self.physicsWorld.contactDelegate = self;
+        setBackground(size, imageNamed: "milkyWay");
+        addPlatforms(size);
+        
+        
 
+    }
+    
+    func setBackground(canvasSize: CGSize, imageNamed: String){
+        if(background==nil){
+            background = SKSpriteNode(imageNamed:imageNamed);
+            addChild(background);
+        } else {
+            background.texture = SKTexture(imageNamed: imageNamed);
+        }
+        background.size = canvasSize;
+        background.position = CGPoint(x: canvasSize.width/2, y: canvasSize.height/2);
+        background.alpha = 0.1;
+        
+        
+    }
+    
+
+    
+    func addPlatforms( canvasSize: CGSize ){
+        let myVector = CGVectorMake(0, 20);
+        let numberOfPlatforms = CGFloat(1);
+        for(var i = CGFloat(0); i<numberOfPlatforms; i++){
+            let platform = Platform(texture:nil, color:UIColor.whiteColor(), size: CGSize.init(width: canvasSize.width, height: canvasSize.height/42));
+            
+            platform.position = CGPoint(x:CGFloat.init(arc4random())%(canvasSize.width/3), y:i*canvasSize.height/numberOfPlatforms)
+            
+            //platform.position = CGPoint(x: canvasSize.width/3, y: 0)
+            addChild(platform)
+            platform.physicsBody?.applyImpulse(myVector);
+        }
+        
+        
+    
+    }
     
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
