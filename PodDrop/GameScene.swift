@@ -57,10 +57,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let gravity = CGVectorMake(0, -8);
         pod.physicsBody?.applyImpulse(gravity);
         
-        addChild(pod);
-        
-        
-        
+        addChild(pod);  
     }
     
     func setBackground(canvasSize: CGSize, imageNamed: String){
@@ -80,16 +77,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     
     func addPlatforms( canvasSize: CGSize ){
-        let myVector = CGVectorMake(0, 20);
+        //let myVector = CGVectorMake(0, 20);
+        let moveUp = SKAction.moveToY(size.height, duration: 10);
         let numberOfPlatforms = CGFloat(4);
         for(var i = CGFloat(0); i<numberOfPlatforms; i++){
             let platform = Platform(texture:nil, color:UIColor.whiteColor(), size: CGSize.init(width: canvasSize.width, height: canvasSize.height/42));
             
-            //platform.position = CGPoint(x:CGFloat.init(arc4random())%(canvasSize.width/3), y:i*canvasSize.height/numberOfPlatforms)
+            platform.position = CGPoint(x:CGFloat.init(arc4random())%(canvasSize.width/3), y:i*canvasSize.height/numberOfPlatforms)
             
-            platform.position = CGPoint(x: canvasSize.width/3, y: 0)
+            //platform.position = CGPoint(x: 30, y: 0)
+            platform.runAction(moveUp);
             addChild(platform)
-            platform.physicsBody?.applyImpulse(myVector);
         }
         
         
