@@ -149,6 +149,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     }
     
+    func translatePod(translation: CGPoint) {
+        NSLog("TRANSLATING POD \(translation.x)")
+        if let position = pod?.position{
+            let newPosition = CGPoint(x: position.x + translation.x, y: position.y)
+            pod.position = newPosition
+        }
+    }
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        var translation: CGPoint!
+        for touch: AnyObject in touches{
+            let positionInScene = touch.locationInNode(self)
+            let previousPosition = touch.previousLocationInNode(self)
+            translation = CGPoint(x: positionInScene.x - previousPosition.x, y: positionInScene.y - previousPosition.y)
+        }
+        //let touch = (touches as? UITouch).anyObject()
+       
+        
+        translatePod(translation)
+    }
+    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
