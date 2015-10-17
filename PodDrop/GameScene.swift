@@ -37,6 +37,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // for now this scene will detect contact between different categories
         self.physicsWorld.contactDelegate = self;
+        
+        addBoundaries(size);
         setBackground(size, imageNamed: "milkyWay");
         addPlatforms(size);
         addPod(size);
@@ -50,6 +52,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         pod.size.height = canvasSize.height/6
         pod.size.width = canvasSize.height/12
         pod.physicsBody = SKPhysicsBody(circleOfRadius: pod.size.width/2)
+        pod.physicsBody?.collisionBitMask = pfBoundaryCategory;
         pod.physicsBody?.linearDamping = 0;
          pod.physicsBody?.friction = 0;
          pod.physicsBody?.restitution = 0;
@@ -74,6 +77,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    // These SpriteNode boundaries are used primarily to detect
+    // collisions with the edges of the screen.
+    func addBoundaries(size: CGSize){
+        let categories: [UInt32] = [pfBoundaryCategory, podCategory]
+        
+        // Initialize boundaries with given name, parent size, and bitmask categories
+        
+        // Position bottomBoundary at y: 0.0
+        let bottomBoundary = Boundary(name: "bottom", size: size, categories: categories)
+        bottomBoundary.anchorPoint = CGPointMake(0.5, 0.0); //bottom center anchor
+        bottomBoundary.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMinY(self.frame));
+        
+        // Position topBoundary at y: 1.0
+        let topBoundary = Boundary(name: "top", size: size, categories: categories)
+        topBoundary.anchorPoint = CGPointMake(0.5, 1.0); //top center anchor
+        topBoundary.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMaxY(self.frame));
+
+        
+        addChild(bottomBoundary)
+        addChild(topBoundary)
+    }
 
     
     func addPlatforms( canvasSize: CGSize ){

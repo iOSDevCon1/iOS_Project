@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		020FEA811BD2CE3000B97B00 /* Boundary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020FEA801BD2CE3000B97B00 /* Boundary.swift */; settings = {ASSET_TAGS = (); }; };
 		02FCA4521BBF310D00E5BEF5 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FCA4511BBF310D00E5BEF5 /* GameScene.swift */; settings = {ASSET_TAGS = (); }; };
 		14B715841BCDC4FA00E74BCE /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B715831BCDC4FA00E74BCE /* Platform.swift */; settings = {ASSET_TAGS = (); }; };
 		A8D9E3651BBCA958005B2719 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D9E3641BBCA958005B2719 /* AppDelegate.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		020FEA801BD2CE3000B97B00 /* Boundary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Boundary.swift; sourceTree = "<group>"; };
 		02FCA4511BBF310D00E5BEF5 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		14B715831BCDC4FA00E74BCE /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		A8D9E3611BBCA958005B2719 /* PodDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PodDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +87,7 @@
 				A8D9E3681BBCA958005B2719 /* GameViewController.swift */,
 				02FCA4511BBF310D00E5BEF5 /* GameScene.swift */,
 				14B715831BCDC4FA00E74BCE /* Platform.swift */,
+				020FEA801BD2CE3000B97B00 /* Boundary.swift */,
 				A8D9E36A1BBCA958005B2719 /* Main.storyboard */,
 				A8D9E36D1BBCA958005B2719 /* Assets.xcassets */,
 				A8D9E36F1BBCA958005B2719 /* LaunchScreen.storyboard */,
@@ -208,6 +211,7 @@
 				A8D9E3691BBCA958005B2719 /* GameViewController.swift in Sources */,
 				14B715841BCDC4FA00E74BCE /* Platform.swift in Sources */,
 				A8D9E3651BBCA958005B2719 /* AppDelegate.swift in Sources */,
+				020FEA811BD2CE3000B97B00 /* Boundary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
