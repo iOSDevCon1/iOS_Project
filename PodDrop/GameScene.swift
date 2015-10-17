@@ -38,6 +38,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // for now this scene will detect contact between different categories
         self.physicsWorld.contactDelegate = self;
         
+        
         addBoundaries(size);
         setBackground(size, imageNamed: "milkyWay");
         addPlatforms(size);
@@ -47,7 +48,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func addPod(canvasSize: CGSize){
         //adding ball to view
-        let pod = SKSpriteNode(imageNamed: "pod.png")
+        pod = SKSpriteNode(imageNamed: "pod.png")
         pod.position = CGPoint(x: canvasSize.width/2, y: canvasSize.height)
         pod.size.height = canvasSize.height/6
         pod.size.width = canvasSize.height/12
@@ -150,10 +151,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func translatePod(translation: CGPoint) {
-        NSLog("TRANSLATING POD \(translation.x)")
         if let position = pod?.position{
             let newPosition = CGPoint(x: position.x + translation.x, y: position.y)
-            pod.position = newPosition
+            pod?.position = newPosition
         }
     }
     
