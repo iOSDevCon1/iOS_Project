@@ -84,19 +84,50 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Initialize boundaries with given name, parent size, and bitmask categories
         
-        // Position bottomBoundary at y: 0.0
-        let bottomBoundary = Boundary(name: "bottom", size: size, categories: categories)
+        /* 
+        About bottom boundary
+                - position > y: 0.0
+                - This has no purpse. Theoretically, the user should never
+                be able to reach the bottom. For now, it will stop the pod
+                from exiting the scene.
+        */
+        let bottomBoundary = Boundary(name: "bottom", size: size, categories: categories, isHorizontal: true)
         bottomBoundary.anchorPoint = CGPointMake(0.5, 0.0); //bottom center anchor
         bottomBoundary.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMinY(self.frame));
         
-        // Position topBoundary at y: 1.0
-        let topBoundary = Boundary(name: "top", size: size, categories: categories)
+        
+        /* 
+        About top boundary
+                - position > y: 1.0
+                - This boundary will be the most common cause of death for
+                the user. Theoretically, the user cannot keep up with the the
+                acceleration and ends up going out of bounds.
+        
+        */
+        let topBoundary = Boundary(name: "top", size: size, categories: categories, isHorizontal : true)
         topBoundary.anchorPoint = CGPointMake(0.5, 1.0); //top center anchor
         topBoundary.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMaxY(self.frame));
 
+        /*
+        About left and right boundaries
+                - position > x: 0.0, 1.0
+                - These boundaries will also be the most common cause of death for
+                the user. Theoretically, the user will accidently turn too quickly
+                and touch the side edges.
+        
+        */
+        let leftBoundary = Boundary(name: "left", size: size, categories: categories, isHorizontal : false)
+        leftBoundary.anchorPoint = CGPointMake(0.0, 0.5); //left center anchor
+        leftBoundary.position = CGPointMake(CGRectGetMinX(self.frame), CGRectGetMidY(self.frame));
+        let rightBoundary = Boundary(name: "right", size: size, categories: categories, isHorizontal : false)
+        rightBoundary.anchorPoint = CGPointMake(1.0, 0.5); //right center anchor
+        rightBoundary.position = CGPointMake(CGRectGetMaxX(self.frame), CGRectGetMidY(self.frame));
+        
         
         addChild(bottomBoundary)
         addChild(topBoundary)
+        addChild(leftBoundary)
+        addChild(rightBoundary)
     }
 
     

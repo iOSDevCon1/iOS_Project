@@ -11,9 +11,17 @@ import SpriteKit
 
 class Boundary: SKSpriteNode {
     
-    init(name: String, size: CGSize, categories: [UInt32]) {
+    init(name: String, size: CGSize, categories: [UInt32], isHorizontal: Bool) {
         
-        let boundarySize : CGSize = CGSizeMake(size.width, size.height * 0.01); //1% of scene height
+        let boundarySize: CGSize
+        
+        if (isHorizontal){
+            boundarySize = CGSizeMake(size.width, size.height * 0.05); //5% of scene height, 100% of width
+        }else{
+            boundarySize = CGSizeMake(size.width * 0.01, size.height); //1% of scene width, 100% of height
+        }
+            
+        
         super.init(texture: nil, color: UIColor.blackColor(), size: boundarySize)
         
         // Suffix the name with 'Boundary'
