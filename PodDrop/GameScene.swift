@@ -150,6 +150,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     }
     
+    // Helper method used when GameScene is dragged
     func translatePod(translation: CGPoint) {
         if let position = pod?.position{
             let newPosition = CGPoint(x: position.x + translation.x, y: position.y)
@@ -157,6 +158,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    // Transition handler for 'moving touches' on the screen
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         var translation: CGPoint!
         for touch: AnyObject in touches{
