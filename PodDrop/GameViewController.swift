@@ -10,13 +10,13 @@
 import UIKit
 import SpriteKit
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, PodDropDelegate {
     var scene: GameScene!
+    var podDrop: PodDrop!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+    
     }
     
     override func viewDidLayoutSubviews() {
@@ -24,12 +24,14 @@ class GameViewController: UIViewController {
         
         if let skView = view as? SKView{
             skView.multipleTouchEnabled = false
-            
-            
             if(skView.scene==nil){
                 // Create and configure the scene.
                 scene = GameScene(size: skView.bounds.size)
                 scene.scaleMode = SKSceneScaleMode.AspectFill
+                
+                podDrop = PodDrop()
+                podDrop.delegate = self
+                podDrop.beginGame()
                 
                 // Present the scene.
                 skView.presentScene(scene)
@@ -38,6 +40,33 @@ class GameViewController: UIViewController {
         
     }
   
+    func gameDidBegin(podDrop: PodDrop) {
+        
+    }
+    
+    func gameDidEnd(podDrop: PodDrop) {
+        
+    }
+    
+    func waveDidBegin(dropDrop: PodDrop) {
+        
+    }
+    
+    func waveDidEnd(podDrop: PodDrop) {
+        
+    }
+    
+    func podDidGrabItem(dropDrop: PodDrop) {
+        
+    }
+    
+    func podDidTouchBounds(dropDrop: PodDrop) {
+        
+    }
+    
+    func gameDidLevelUp(dropDrop: PodDrop) {
+        
+    }
     
     override func prefersStatusBarHidden() -> Bool {
         return true
