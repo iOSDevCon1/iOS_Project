@@ -36,13 +36,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //self.physicsWorld.gravity = CGVectorMake(0, 0);
         
         // for now this scene will detect contact between different categories
-        self.physicsWorld.contactDelegate = self;
+        self.physicsWorld.contactDelegate = self
         
         
-        addBoundaries(size);
-        setBackground(size, imageNamed: "milkyWay");
-        addPlatforms(size);
-        addPod(size);
+        addBoundaries(size)
+        setBackground(size, imageNamed: "milkyWay")
+        addPlatforms(size)
+        addPod(size)
 
     }
     
@@ -52,19 +52,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         pod = Pod(imageName: "pod.png", boundaryCategory: pfBoundaryCategory, size: podSize)
         pod.position = CGPoint(x: canvasSize.width/2, y: canvasSize.height)
         
-        addChild(pod);  
+        addChild(pod)
     }
     
     func setBackground(canvasSize: CGSize, imageNamed: String){
         if(background==nil){
-            background = SKSpriteNode(imageNamed:imageNamed);
-            addChild(background);
+            background = SKSpriteNode(imageNamed:imageNamed)
+            addChild(background)
         } else {
-            background.texture = SKTexture(imageNamed: imageNamed);
+            background.texture = SKTexture(imageNamed: imageNamed)
         }
-        background.size = canvasSize;
-        background.position = CGPoint(x: canvasSize.width/2, y: canvasSize.height/2);
-        background.alpha = 0.1;
+        background.size = canvasSize
+        background.position = CGPoint(x: canvasSize.width/2, y: canvasSize.height/2)
+        background.alpha = 0.1
         
         
     }
@@ -85,7 +85,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         */
         let bottomBoundary = Boundary(name: "bottom", size: size, categories: categories, isHorizontal: true)
         bottomBoundary.anchorPoint = CGPointMake(0.5, 0.0); //bottom center anchor
-        bottomBoundary.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMinY(self.frame));
+        bottomBoundary.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMinY(self.frame))
         
         
         /* 
@@ -97,8 +97,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         */
         let topBoundary = Boundary(name: "top", size: size, categories: categories, isHorizontal : true)
-        topBoundary.anchorPoint = CGPointMake(0.5, 1.0); //top center anchor
-        topBoundary.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMaxY(self.frame));
+        topBoundary.anchorPoint = CGPointMake(0.5, 1.0) //top center anchor
+        topBoundary.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMaxY(self.frame))
 
         /*
         About left and right boundaries
@@ -109,11 +109,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         */
         let leftBoundary = Boundary(name: "left", size: size, categories: categories, isHorizontal : false)
-        leftBoundary.anchorPoint = CGPointMake(0.0, 0.5); //left center anchor
+        leftBoundary.anchorPoint = CGPointMake(0.0, 0.5) //left center anchor
         leftBoundary.position = CGPointMake(CGRectGetMinX(self.frame), CGRectGetMidY(self.frame));
         let rightBoundary = Boundary(name: "right", size: size, categories: categories, isHorizontal : false)
-        rightBoundary.anchorPoint = CGPointMake(1.0, 0.5); //right center anchor
-        rightBoundary.position = CGPointMake(CGRectGetMaxX(self.frame), CGRectGetMidY(self.frame));
+        rightBoundary.anchorPoint = CGPointMake(1.0, 0.5) //right center anchor
+        rightBoundary.position = CGPointMake(CGRectGetMaxX(self.frame), CGRectGetMidY(self.frame))
         
         
         addChild(bottomBoundary)
@@ -125,15 +125,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func addPlatforms( canvasSize: CGSize ){
         //let myVector = CGVectorMake(0, 20);
-        let moveUp = SKAction.moveToY(size.height, duration: 10);
-        let numberOfPlatforms = CGFloat(4);
+        let moveUp = SKAction.moveToY(size.height, duration: 10)
+        let numberOfPlatforms = CGFloat(4)
         for(var i = CGFloat(0); i<numberOfPlatforms; i++){
-            let platform = Platform(texture:nil, color:UIColor.whiteColor(), size: CGSize.init(width: canvasSize.width, height: canvasSize.height/42));
+            let platform = Platform(texture:nil, color:UIColor.whiteColor(), size: CGSize.init(width: canvasSize.width, height: canvasSize.height/42))
             
             platform.position = CGPoint(x:CGFloat.init(arc4random())%(canvasSize.width/3), y:i*canvasSize.height/numberOfPlatforms)
             
             //platform.position = CGPoint(x: 30, y: 0)
-            platform.runAction(moveUp);
+            platform.runAction(moveUp)
             addChild(platform)
         }
         
