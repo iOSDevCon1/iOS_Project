@@ -9,6 +9,7 @@
 import Foundation
 import SpriteKit
 
+let levelOnePlatformPeriod = NSTimeInterval(1000)
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
@@ -23,6 +24,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var background: SKSpriteNode!
     var pod: Pod!
+    var timeSinceLastPlatform: NSDate?
+    var platformGenerationPeriod = levelOnePlatformPeriod
     
     required init(coder aDecoder: NSCoder){
         fatalError("NSCoder not supported!")
@@ -41,8 +44,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         addBoundaries(size)
         setBackground(size, imageNamed: "milkyWay")
-        addPlatforms(size)
         addPod(size)
+        startPlatformGeneration()
 
     }
     
@@ -64,81 +67,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         background.size = canvasSize
         background.position = CGPoint(x: canvasSize.width/2, y: canvasSize.height/2)
-        background.alpha = 0.1
+        background.alpha = 0.6
         
         
     }
     
-    // These SpriteNode boundaries are used primarily to detect
-    // collisions with the edges of the screen.
-    func addBoundaries(size: CGSize){
+    func startPlatformGeneration(){
+        timeSinceLastPlatform = NSDate()
+    }
+    
+    func stopPlatformGeneration(){
+        timeSinceLastPlatform = nil
+    }
+    
+    
+    // This method adds a single platform and is called upon a certain interval
+    // While the scene updates the frame it will determine whether or not a new
+    // platform should be added
+    func addPlatform(canvasSize: CGSize){
+        let moveUp = SKAction.moveToY(canvasSize.height, duration: 10)
         let categories: [UInt32] = [pfBoundaryCategory, podCategory]
+        let platform = Platform(texture:nil, color:UIColor.whiteColor(), size: CGSize.init(width: canvasSize.width, height: canvasSize.height/43), categories: categories)
         
-        // Initialize boundaries with given name, parent size, and bitmask categories
-        
-        /* 
-        About bottom boundary
-                - position > y: 0.0
-                - This has no purpse. Theoretically, the user should never
-                be able to reach the bottom. For now, it will stop the pod
-                from exiting the scene.
-        */
-        let bottomBoundary = Boundary(name: "bottom", size: size, categories: categories, isHorizontal: true)
-        bottomBoundary.anchorPoint = CGPointMake(0.5, 0.0); //bottom center anchor
-        bottomBoundary.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMinY(self.frame))
-        
-        
-        /* 
-        About top boundary
-                - position > y: 1.0
-                - This boundary will be the most common cause of death for
-                the user. Theoretically, the user cannot keep up with the the
-                acceleration and ends up going out of bounds.
-        
-        */
-        let topBoundary = Boundary(name: "top", size: size, categories: categories, isHorizontal : true)
-        topBoundary.anchorPoint = CGPointMake(0.5, 1.0) //top center anchor
-        topBoundary.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMaxY(self.frame))
-
-        /*
-        About left and right boundaries
-                - position > x: 0.0, 1.0
-                - These boundaries will also be the most common cause of death for
-                the user. Theoretically, the user will accidently turn too quickly
-                and touch the side edges.
-        
-        */
-        let leftBoundary = Boundary(name: "left", size: size, categories: categories, isHorizontal : false)
-        leftBoundary.anchorPoint = CGPointMake(0.0, 0.5) //left center anchor
-        leftBoundary.position = CGPointMake(CGRectGetMinX(self.frame), CGRectGetMidY(self.frame));
-        let rightBoundary = Boundary(name: "right", size: size, categories: categories, isHorizontal : false)
-        rightBoundary.anchorPoint = CGPointMake(1.0, 0.5) //right center anchor
-        rightBoundary.position = CGPointMake(CGRectGetMaxX(self.frame), CGRectGetMidY(self.frame))
-        
-        
-        addChild(bottomBoundary)
-        addChild(topBoundary)
-        addChild(leftBoundary)
-        addChild(rightBoundary)
-    }
-
-    
-    func addPlatforms( canvasSize: CGSize ){
-        //let myVector = CGVectorMake(0, 20);
-        let moveUp = SKAction.moveToY(size.height, duration: 10)
-        let numberOfPlatforms = CGFloat(4)
-        for(var i = CGFloat(0); i<numberOfPlatforms; i++){
-            let platform = Platform(texture:nil, color:UIColor.whiteColor(), size: CGSize.init(width: canvasSize.width, height: canvasSize.height/42))
-            
-            platform.position = CGPoint(x:CGFloat.init(arc4random())%(canvasSize.width/3), y:i*canvasSize.height/numberOfPlatforms)
-            
-            //platform.position = CGPoint(x: 30, y: 0)
-            platform.runAction(moveUp)
-            addChild(platform)
-        }
-        
-        
-    
+        platform.position = CGPoint(x:CGFloat.init(arc4random())%(canvasSize.width/2)-canvasSize.width, y:0)
+        platform.runAction(moveUp)
+        addChild(platform)
     }
     
     // Helper method used when GameScene is dragged
@@ -163,7 +116,69 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         translatePod(translation)
     }
     
+    
+    // These SpriteNode boundaries are used primarily to detect
+    // collisions with the edges of the screen.
+    func addBoundaries(size: CGSize){
+        let categories: [UInt32] = [pfBoundaryCategory, podCategory]
+        
+        // Initialize boundaries with given name, parent size, and bitmask categories
+        
+        /*
+        About bottom boundary
+        - position > y: 0.0
+        - This has no purpse. Theoretically, the user should never
+        be able to reach the bottom. For now, it will stop the pod
+        from exiting the scene.
+        */
+        let bottomBoundary = Boundary(name: "bottom", size: size, categories: categories, isHorizontal: true)
+        bottomBoundary.anchorPoint = CGPointMake(0.5, 0.0); //bottom center anchor
+        bottomBoundary.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMinY(self.frame))
+        
+        
+        /*
+        About top boundary
+        - position > y: 1.0
+        - This boundary will be the most common cause of death for
+        the user. Theoretically, the user cannot keep up with the the
+        acceleration and ends up going out of bounds.
+        
+        */
+        let topBoundary = Boundary(name: "top", size: size, categories: categories, isHorizontal : true)
+        topBoundary.anchorPoint = CGPointMake(0.5, 1.0) //top center anchor
+        topBoundary.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMaxY(self.frame))
+        
+        /*
+        About left and right boundaries
+        - position > x: 0.0, 1.0
+        - These boundaries will also be the most common cause of death for
+        the user. Theoretically, the user will accidently turn too quickly
+        and touch the side edges.
+        
+        */
+        let leftBoundary = Boundary(name: "left", size: size, categories: categories, isHorizontal : false)
+        leftBoundary.anchorPoint = CGPointMake(0.0, 0.5) //left center anchor
+        leftBoundary.position = CGPointMake(CGRectGetMinX(self.frame), CGRectGetMidY(self.frame));
+        let rightBoundary = Boundary(name: "right", size: size, categories: categories, isHorizontal : false)
+        rightBoundary.anchorPoint = CGPointMake(1.0, 0.5) //right center anchor
+        rightBoundary.position = CGPointMake(CGRectGetMaxX(self.frame), CGRectGetMidY(self.frame))
+        
+        
+        addChild(bottomBoundary)
+        addChild(topBoundary)
+        addChild(leftBoundary)
+        addChild(rightBoundary)
+    }
+
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        if(timeSinceLastPlatform == nil){
+            return
+        }
+        let timePassed = timeSinceLastPlatform!.timeIntervalSinceNow * -1000.0
+        if timePassed > platformGenerationPeriod{
+            timeSinceLastPlatform = NSDate()
+            addPlatform(self.size)
+        }
     }
 }

@@ -11,27 +11,35 @@ import SpriteKit
 
 class Platform: SKSpriteNode {
     
-    var leftPlatform: SKSpriteNode!
-    var rightPlatform: SKSpriteNode!
+    var leftPlatform: SKShapeNode!
+    var rightPlatform: SKShapeNode!
     
     
-    override init(texture: SKTexture?, color: UIColor, size: CGSize) {
+    init(texture: SKTexture?, color: UIColor, size: CGSize, categories: [UInt32]) {
+        let platformColor = UIColor(red: 255.0, green: 255.0, blue: 255.0, alpha: 0.6)
+        let platformSize = CGSize(width: size.width, height: size.height);
         
-        let platformSize = CGSize(width: size.width/1.5, height: size.height);
-        var myPoint = CGPointMake(-platformSize.width/2,0);
-        leftPlatform = SKSpriteNode(texture: texture, color: color, size: platformSize);
-        leftPlatform.position = myPoint;
-        rightPlatform = SKSpriteNode(texture: texture, color: color, size: platformSize);
         
-        myPoint = CGPointMake(size.width/4,0);
-        rightPlatform.position = myPoint;
+        // LEFT PLATFORM SETUP
+        var myPoint = CGPointMake(0,0);
+        var myPath = CGPathCreateWithRoundedRect(CGRect(origin: myPoint, size: platformSize), 4, 4, nil)
+        leftPlatform = SKShapeNode(path: myPath)
+        leftPlatform.fillColor = platformColor
+        leftPlatform.strokeColor = platformColor
+        leftPlatform.physicsBody = SKPhysicsBody(polygonFromPath: myPath)
+        leftPlatform.physicsBody?.dynamic = false;
         
+        
+        // RIGHT PLATFORM SETUP
+        myPoint = CGPointMake(platformSize.width + 100,0);
+        myPath = CGPathCreateWithRoundedRect(CGRect(origin: myPoint, size: platformSize), 4, 4, nil)
+        rightPlatform = SKShapeNode(path: myPath)
+        rightPlatform.fillColor = platformColor
+        rightPlatform.strokeColor = platformColor
+        rightPlatform.physicsBody = SKPhysicsBody(polygonFromPath: myPath)
+        rightPlatform.physicsBody?.dynamic = false;
         
         super.init(texture: nil, color: UIColor.clearColor(), size: size);
-        
-        self.physicsBody = SKPhysicsBody(rectangleOfSize: size);
-        self.physicsBody?.dynamic = false;
-        
         
         self.addChild(leftPlatform);
         self.addChild(rightPlatform);
