@@ -22,7 +22,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let pfBoundaryCategory: UInt32 = 1 << 3
     
     var background: SKSpriteNode!
-    var pod: SKSpriteNode!
+    var pod: Pod!
     
     required init(coder aDecoder: NSCoder){
         fatalError("NSCoder not supported!")
@@ -48,18 +48,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func addPod(canvasSize: CGSize){
         //adding ball to view
-        pod = SKSpriteNode(imageNamed: "pod.png")
+        let podSize = CGSize.init(width: canvasSize.height/12, height: canvasSize.height/6)
+        pod = Pod(imageName: "pod.png", boundaryCategory: pfBoundaryCategory, size: podSize)
         pod.position = CGPoint(x: canvasSize.width/2, y: canvasSize.height)
-        pod.size.height = canvasSize.height/6
-        pod.size.width = canvasSize.height/12
-        pod.physicsBody = SKPhysicsBody(circleOfRadius: pod.size.width/2)
-        pod.physicsBody?.collisionBitMask = pfBoundaryCategory;
-        pod.physicsBody?.linearDamping = 0;
-         pod.physicsBody?.friction = 0;
-         pod.physicsBody?.restitution = 0;
-        
-        let gravity = CGVectorMake(0, -8);
-        pod.physicsBody?.applyImpulse(gravity);
         
         addChild(pod);  
     }
