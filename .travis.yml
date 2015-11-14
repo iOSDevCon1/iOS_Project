@@ -1,13 +1,38 @@
 language: objective-c
 osx_image: xcode7
-xcode_project: PodDrop.xcworkspace
-xcode_scheme: PodDrop
-xcode_sdk: iphonesimulator
 
-script:
-- pod install
-- xcodebuild clean build test -project PodDrop.xcworkspace -scheme PodDrop -sdk iphonesimulator CODE_SIGNING_REQUIRED=NO
 
 notifications:
   email: false
   slack: iosdevcon1:xEnP1AqmiZ3L44wbPQaNd2St
+  
+#Constants
+
+WORKSPACE = PodDrop.xcworkspace
+XCPROJECT = PodDrop.xcodeproj
+SCHEME = PodDrop
+
+
+# CI Tasks
+
+ci: CONFIGURATION = Debug
+ci: pods build
+
+build:
+  set -o pipefail && xcodebuild -workspace "$(WORKSPACE)" -scheme "$(SCHEME)" -sdk iphonesimulator build | xcpretty -c
+
+clean:
+  xctool -workspace "$(WORKSPACE)" -scheme "$(SCHEME)" -configuration "$(CONFIGURATION)" clean
+
+test:
+  set -o pipefail && xcodebuild -workspace "$(WORKSPACE)" -scheme "$(SCHEME)" -configuration Debug test -sdk iphonesimulator | second_curtain | xcpretty -c --test
+
+
+
+pods: remove_debug_pods
+pods:
+  rm -rf Pods
+  bundle install
+  bundle exec pod install
+
+
