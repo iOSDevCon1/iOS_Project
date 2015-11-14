@@ -29,7 +29,7 @@ class Pod: SKSpriteNode {
     }
     
     func addItem(itemToAdd: ConsumableItem){
-        var thing = itemToAdd
+        let thing = itemToAdd
         thing.wasAddedToPod()
     }
     
