@@ -28,4 +28,13 @@ class Pod: SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func addItem(itemToAdd: ConsumableItem){
+        var thing = itemToAdd
+        thing.wasAddedToPod()
+    }
+    
+    func useItem(){
+    
+    }
+    
 }

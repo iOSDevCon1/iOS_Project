@@ -9,16 +9,28 @@
 import Foundation
 import SpriteKit
 
-class ConsumableItem: SKSpriteNode {
-    
-    
-    
-    init(texture: SKTexture?, color: UIColor, size: CGSize, categories: [UInt32]) {
-        super.init(texture: nil, color: UIColor.clearColor(), size: size);
- 
+class ConsumableItem:SKSpriteNode{
+
+    override init(texture: SKTexture?, color: UIColor, size: CGSize) {
+        
+        super.init(texture: texture, color: color, size: size)
+        
+        
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func useItem(pod:Pod){
+    
+    
+    }
+    
+    func wasAddedToPod(){
+        
+    }
+
+
+
 }
