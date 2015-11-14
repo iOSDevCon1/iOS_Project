@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-let levelOnePlatformPeriod = NSTimeInterval(2000)
+let levelOnePlatformPeriod = NSTimeInterval(1000)
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
