@@ -455,6 +455,7 @@
 		};
 		A8D9E38F1BBCA958005B2719 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5D202FEAF54B6613D562E86 /* Pods-PodDrop.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -468,6 +469,7 @@
 		};
 		A8D9E3901BBCA958005B2719 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D2322ED1718658B8BC6F34A /* Pods-PodDrop.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = PodDropTests/Info.plist;
