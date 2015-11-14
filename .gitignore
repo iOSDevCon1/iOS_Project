@@ -45,3 +45,5 @@ Carthage/Build
 *.xcworkspacedata
 
 Pods/
+
+*.lock
