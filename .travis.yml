@@ -4,9 +4,7 @@ xcode_workspace: PodDrop.xcworkspace
 xcode_scheme: PodDrop
 xcode_sdk: iphonesimulator
 
-script:
-- pod install
-- xcodebuild clean build test -workspace PodDrop.xcworkspace -scheme PodDrop -sdk iphonesimulator CODE_SIGNING_REQUIRED=NO
+
 notifications:
   email: false
   slack: iosdevcon1:xEnP1AqmiZ3L44wbPQaNd2St
