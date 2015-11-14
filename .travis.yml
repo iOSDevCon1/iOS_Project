@@ -8,9 +8,9 @@ notifications:
   
 #Constants
 
-WORKSPACE = PodDrop.xcworkspace
-XCPROJECT = PodDrop.xcodeproj
-SCHEME = PodDrop
+WORKSPACE: PodDrop.xcworkspace
+XCPROJECT: PodDrop.xcodeproj
+SCHEME: PodDrop
 
 
 # CI Tasks
