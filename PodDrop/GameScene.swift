@@ -8,12 +8,11 @@
 
 import Foundation
 import SpriteKit
+import CoreMotion
 
-let levelOnePlatformPeriod = NSTimeInterval(1000)
+let levelOnePlatformPeriod = NSTimeInterval(1500)
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
-    
-    
     
     // different categories for items that we need to detect when theres a
     // contact between them
@@ -26,6 +25,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var pod: Pod!
     var timeSinceLastPlatform: NSDate?
     var platformGenerationPeriod = levelOnePlatformPeriod
+    
+    let motionManager: CMMotionManager = CMMotionManager()
+    
+    override func didMoveToView(view: SKView) {
+        super.didMoveToView(view)
+        motionManager.startAccelerometerUpdates()
+        
+    }
     
     required init(coder aDecoder: NSCoder){
         fatalError("NSCoder not supported!")
@@ -179,6 +186,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if timePassed > platformGenerationPeriod{
             timeSinceLastPlatform = NSDate()
             addPlatform(self.size)
+        }
+        
+        processUserMotionForUpdate(currentTime)
+    }
+    
+    //pod moving left and right
+    func processUserMotionForUpdate(currentTime: CFTimeInterval) {
+        if let data = motionManager.accelerometerData {
+
+            pod.physicsBody!.applyForce(CGVectorMake(40.0*CGFloat(data.acceleration.x),0))
         }
     }
 }

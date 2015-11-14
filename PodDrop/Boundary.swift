@@ -20,8 +20,7 @@ class Boundary: SKSpriteNode {
         }else{
             boundarySize = CGSizeMake(size.width * 0.01, size.height); //1% of scene width, 100% of height
         }
-            
-        
+    
         super.init(texture: nil, color: UIColor.blackColor(), size: boundarySize)
         
         // Suffix the name with 'Boundary'
