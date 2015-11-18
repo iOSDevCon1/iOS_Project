@@ -11,10 +11,10 @@
 		02B58A4B1BF7988000F30FD7 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B58A4A1BF7988000F30FD7 /* MainMenuViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		02B58A4D1BF7A8DB00F30FD7 /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B58A4C1BF7A8DB00F30FD7 /* LeaderboardViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		02B58A4F1BF7AB0300F30FD7 /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B58A4E1BF7AB0300F30FD7 /* InstructionsViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		02B58A511BF7ACD800F30FD7 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B58A501BF7ACD800F30FD7 /* RegistrationViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		02C5DC7C1BDD4F020003862D /* Pod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C5DC7B1BDD4F020003862D /* Pod.swift */; settings = {ASSET_TAGS = (); }; };
 		02C5DC801BDD572D0003862D /* PodDrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C5DC7F1BDD572D0003862D /* PodDrop.swift */; settings = {ASSET_TAGS = (); }; };
 		02FCA4521BBF310D00E5BEF5 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FCA4511BBF310D00E5BEF5 /* GameScene.swift */; settings = {ASSET_TAGS = (); }; };
+		02FCFEB61BFC007000D51ADA /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FCFEB51BFC007000D51ADA /* RegistrationViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		14B715841BCDC4FA00E74BCE /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B715831BCDC4FA00E74BCE /* Platform.swift */; settings = {ASSET_TAGS = (); }; };
 		A8D9E3651BBCA958005B2719 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D9E3641BBCA958005B2719 /* AppDelegate.swift */; };
 		A8D9E3691BBCA958005B2719 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D9E3681BBCA958005B2719 /* GameViewController.swift */; };
@@ -40,10 +40,10 @@
 		02B58A4A1BF7988000F30FD7 /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		02B58A4C1BF7A8DB00F30FD7 /* LeaderboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
 		02B58A4E1BF7AB0300F30FD7 /* InstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
-		02B58A501BF7ACD800F30FD7 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		02C5DC7B1BDD4F020003862D /* Pod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pod.swift; sourceTree = "<group>"; };
 		02C5DC7F1BDD572D0003862D /* PodDrop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodDrop.swift; sourceTree = SOURCE_ROOT; };
 		02FCA4511BBF310D00E5BEF5 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		02FCFEB51BFC007000D51ADA /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationViewController.swift; path = ../RegistrationViewController.swift; sourceTree = "<group>"; };
 		14B715831BCDC4FA00E74BCE /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		9D2322ED1718658B8BC6F34A /* Pods-PodDrop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodDrop.release.xcconfig"; path = "Pods/Target Support Files/Pods-PodDrop/Pods-PodDrop.release.xcconfig"; sourceTree = "<group>"; };
 		A8D07A061BF7ABB100C40A28 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
@@ -128,7 +128,7 @@
 				02C5DC7F1BDD572D0003862D /* PodDrop.swift */,
 				020FEA801BD2CE3000B97B00 /* Boundary.swift */,
 				A8D9E36A1BBCA958005B2719 /* Main.storyboard */,
-				02B58A501BF7ACD800F30FD7 /* RegistrationViewController.swift */,
+				02FCFEB51BFC007000D51ADA /* RegistrationViewController.swift */,
 				02B58A4E1BF7AB0300F30FD7 /* InstructionsViewController.swift */,
 				02B58A4C1BF7A8DB00F30FD7 /* LeaderboardViewController.swift */,
 				02B58A4A1BF7988000F30FD7 /* MainMenuViewController.swift */,
@@ -305,7 +305,7 @@
 				02B58A4B1BF7988000F30FD7 /* MainMenuViewController.swift in Sources */,
 				02FCA4521BBF310D00E5BEF5 /* GameScene.swift in Sources */,
 				A8D9E3691BBCA958005B2719 /* GameViewController.swift in Sources */,
-				02B58A511BF7ACD800F30FD7 /* RegistrationViewController.swift in Sources */,
+				02FCFEB61BFC007000D51ADA /* RegistrationViewController.swift in Sources */,
 				14B715841BCDC4FA00E74BCE /* Platform.swift in Sources */,
 				02B58A4F1BF7AB0300F30FD7 /* InstructionsViewController.swift in Sources */,
 				02B58A4D1BF7A8DB00F30FD7 /* LeaderboardViewController.swift in Sources */,
