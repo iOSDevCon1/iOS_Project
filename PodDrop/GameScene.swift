@@ -21,6 +21,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let platformCategory:   UInt32 = 1 << 2
     let pfBoundaryCategory: UInt32 = 1 << 3
     
+    //ScoreBoard Variables
+    var scoreLabel = UILabel(frame: CGRectMake(0, 0, 200, 21))
+    var score = 0
+    var disPlay = 0
+    var save = 0
+    
     var background: SKSpriteNode!
     var pod: Pod!
     var timeSinceLastPlatform: NSDate?
@@ -188,6 +194,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             addPlatform(self.size)
         }
         
+        //displayScore
+        score = Int(currentTime)
+
+        if(save != score){
+            save = score
+            disPlay += 1
+            print(disPlay)
+            self.setScoreBoard(String(disPlay))
+            //self.scoreLabel.removeFromSuperview()
+        }
+        
         processUserMotionForUpdate(currentTime)
     }
     
@@ -197,5 +214,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
             pod.physicsBody!.applyForce(CGVectorMake(40.0*CGFloat(data.acceleration.x),0))
         }
+    }
+    
+    func setScoreBoard(value:String){
+        var label = UILabel(frame: CGRectMake(0, 0, 200, 21))
+        scoreLabel.center = CGPointMake(160, 284)
+        scoreLabel.textAlignment = NSTextAlignment.Center
+        scoreLabel.text = value
+        scoreLabel.textColor = UIColor.whiteColor()
+        self.view!.addSubview(scoreLabel)
     }
 }
