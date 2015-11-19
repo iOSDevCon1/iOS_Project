@@ -15,45 +15,68 @@ class Platform: Scrollable {
     
     var leftPlatform: SKShapeNode!
     var rightPlatform: SKShapeNode!
+    var center:CGFloat!
+    var max:CGFloat
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize, position: CGPoint, scrollSpeed: CGFloat) {
         
         
+        self.max = (size.width - Platform.HORIZONTAL_GAP) / 2 - 20;
+        self.center = CGFloat(arc4random_uniform(UInt32(max * 2 ))) - max;
         
-        var platformSize = size;
-        platformSize.width = (size.width-Platform.HORIZONTAL_GAP)/2;
        
         // LEFT PLATFORM SETUP
-        self.leftPlatform = SKShapeNode(rectOfSize:platformSize)
+        self.leftPlatform = SKShapeNode(rectOfSize:size)
         self.leftPlatform.fillColor = color;
-        self.leftPlatform.physicsBody = SKPhysicsBody(rectangleOfSize: platformSize);
+        self.leftPlatform.physicsBody = SKPhysicsBody(rectangleOfSize: size);
         self.leftPlatform.physicsBody?.dynamic = false;
-        self.leftPlatform.position.x = -platformSize.width/2-Platform.HORIZONTAL_GAP/2;
+        
         
         //print(platformSize.width)
         
         
         // RIGHT PLATFORM SETUP
-        self.rightPlatform = SKShapeNode(rectOfSize:platformSize)
+        self.rightPlatform = SKShapeNode(rectOfSize:size)
         self.rightPlatform.fillColor = color;
-        self.rightPlatform.physicsBody = SKPhysicsBody(rectangleOfSize: platformSize);
+        self.rightPlatform.physicsBody = SKPhysicsBody(rectangleOfSize: size);
         self.rightPlatform.physicsBody?.dynamic = false;
-        self.rightPlatform.position.x = platformSize.width/2+Platform.HORIZONTAL_GAP/2;
+        
                 
         super.init(texture: texture, color: UIColor.clearColor(), size: size, position: position, scrollSpeed: scrollSpeed)
         
         self.addChild(leftPlatform);
         self.addChild(rightPlatform);
         
-       
-        let center = SKShapeNode(rectOfSize:CGSize(width: Platform.HORIZONTAL_GAP, height: size.height))
+        let centerSize = CGSize(width: Platform.HORIZONTAL_GAP, height: size.height)
+        let center = SKShapeNode(rectOfSize: centerSize)
         center.fillColor = UIColor.clearColor();
         center.strokeColor = UIColor.clearColor()
-        center.physicsBody = SKPhysicsBody(rectangleOfSize: platformSize);
+        center.physicsBody = SKPhysicsBody(rectangleOfSize: centerSize);
         center.physicsBody?.dynamic = false;
         center.position.x = 0;
         
         self.addChild(center)
+        
+        
+    }
+    
+    override func reset(newY: CGFloat) {
+        super.reset(newY);
+        
+        self.center = CGFloat(arc4random_uniform(UInt32(max * 2 ))) - max;
+        print(self.center);
+        
+        
+    }
+    
+    override func update(currentTime: CFTimeInterval) {
+        super.update(currentTime);
+        
+        self.leftPlatform.position.x = center - self.size.width/2-Platform.HORIZONTAL_GAP/2;
+        
+        self.rightPlatform.position.x = center + self.size.width/2+Platform.HORIZONTAL_GAP/2;
+        
+        
         
         
     }

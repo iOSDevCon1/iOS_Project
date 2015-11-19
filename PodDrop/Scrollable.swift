@@ -30,11 +30,9 @@ class Scrollable:SKSpriteNode {
     }
     
     func update(currentTime: CFTimeInterval){
-        if(currentTime - lastTime > 0.05){
             
-            self.position.y += velocity;
-            lastTime = currentTime;
-        }
+        self.position.y += velocity;
+        lastTime = currentTime;
         
         if(position.y-size.height > self.scene?.size.height){
             self.isScrolledUp = true;
