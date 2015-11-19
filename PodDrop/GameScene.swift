@@ -61,7 +61,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let podSize = CGSize.init(width: canvasSize.height/12, height: canvasSize.height/6)
         pod = Pod(imageName: "pod.png", size: podSize)
         pod.position = CGPoint(x: canvasSize.width/2, y: canvasSize.height)
-        
         addChild(pod)
     }
     
@@ -75,8 +74,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         background.size = canvasSize
         background.position = CGPoint(x: canvasSize.width/2, y: canvasSize.height/2)
         background.alpha = 0.6
-        
-        
     }
     
     func startPlatformGeneration(){
@@ -209,7 +206,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func setScoreBoard(value:String){
-        var label = UILabel(frame: CGRectMake(0, 0, 200, 21))
         scoreLabel.center = CGPointMake(160, 284)
         scoreLabel.textAlignment = NSTextAlignment.Center
         scoreLabel.text = value
