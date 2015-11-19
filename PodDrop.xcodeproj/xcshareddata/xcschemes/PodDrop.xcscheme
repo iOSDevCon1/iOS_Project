@@ -38,6 +38,16 @@
                ReferencedContainer = "container:PodDrop.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A8D9E3811BBCA958005B2719"
+               BuildableName = "PodDropUITests.xctest"
+               BlueprintName = "PodDropUITests"
+               ReferencedContainer = "container:PodDrop.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

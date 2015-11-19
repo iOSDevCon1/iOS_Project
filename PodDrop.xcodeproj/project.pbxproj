@@ -7,21 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		020FEA811BD2CE3000B97B00 /* Boundary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020FEA801BD2CE3000B97B00 /* Boundary.swift */; };
-		02C5DC7C1BDD4F020003862D /* Pod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C5DC7B1BDD4F020003862D /* Pod.swift */; };
-		02C5DC801BDD572D0003862D /* PodDrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C5DC7F1BDD572D0003862D /* PodDrop.swift */; };
-		02FCA4521BBF310D00E5BEF5 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FCA4511BBF310D00E5BEF5 /* GameScene.swift */; };
-		14B715841BCDC4FA00E74BCE /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B715831BCDC4FA00E74BCE /* Platform.swift */; };
-		14DAD8D91BF7A574001B75C9 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DAD8D81BF7A574001B75C9 /* Item.swift */; };
-		14DAD8DB1BFBFDF3001B75C9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DAD8DA1BFBFDF3001B75C9 /* Constants.swift */; };
-		14DAD8DD1BFC01C5001B75C9 /* ItemQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DAD8DC1BFC01C5001B75C9 /* ItemQueue.swift */; };
+		02FCA4521BBF310D00E5BEF5 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FCA4511BBF310D00E5BEF5 /* GameScene.swift */; settings = {ASSET_TAGS = (); }; };
 		A8D9E3651BBCA958005B2719 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D9E3641BBCA958005B2719 /* AppDelegate.swift */; };
+		A8D9E3671BBCA958005B2719 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = A8D9E3661BBCA958005B2719 /* art.scnassets */; };
 		A8D9E3691BBCA958005B2719 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D9E3681BBCA958005B2719 /* GameViewController.swift */; };
 		A8D9E36C1BBCA958005B2719 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8D9E36A1BBCA958005B2719 /* Main.storyboard */; };
 		A8D9E36E1BBCA958005B2719 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8D9E36D1BBCA958005B2719 /* Assets.xcassets */; };
 		A8D9E3711BBCA958005B2719 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8D9E36F1BBCA958005B2719 /* LaunchScreen.storyboard */; };
 		A8D9E37C1BBCA958005B2719 /* PodDropTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D9E37B1BBCA958005B2719 /* PodDropTests.swift */; };
-		B325CBDBA58987B77A432DAF /* libPods-PodDrop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF1C2E4F849D224B546F98EC /* libPods-PodDrop.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,18 +28,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		020FEA801BD2CE3000B97B00 /* Boundary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Boundary.swift; sourceTree = "<group>"; };
-		02C5DC7B1BDD4F020003862D /* Pod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pod.swift; sourceTree = "<group>"; };
-		02C5DC7F1BDD572D0003862D /* PodDrop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodDrop.swift; sourceTree = SOURCE_ROOT; };
 		02FCA4511BBF310D00E5BEF5 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		14B715831BCDC4FA00E74BCE /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
-		14DAD8D81BF7A574001B75C9 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		14DAD8DA1BFBFDF3001B75C9 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		14DAD8DC1BFC01C5001B75C9 /* ItemQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemQueue.swift; sourceTree = "<group>"; };
-		9D2322ED1718658B8BC6F34A /* Pods-PodDrop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodDrop.release.xcconfig"; path = "Pods/Target Support Files/Pods-PodDrop/Pods-PodDrop.release.xcconfig"; sourceTree = "<group>"; };
-		A8D07A061BF7ABB100C40A28 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		A8D9E3611BBCA958005B2719 /* PodDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PodDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8D9E3641BBCA958005B2719 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A8D9E3661BBCA958005B2719 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		A8D9E3681BBCA958005B2719 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		A8D9E36B1BBCA958005B2719 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A8D9E36D1BBCA958005B2719 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -55,8 +40,6 @@
 		A8D9E3771BBCA958005B2719 /* PodDropTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PodDropTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8D9E37B1BBCA958005B2719 /* PodDropTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodDropTests.swift; sourceTree = "<group>"; };
 		A8D9E37D1BBCA958005B2719 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AF1C2E4F849D224B546F98EC /* libPods-PodDrop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PodDrop.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B5D202FEAF54B6613D562E86 /* Pods-PodDrop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodDrop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PodDrop/Pods-PodDrop.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +47,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B325CBDBA58987B77A432DAF /* libPods-PodDrop.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,31 +60,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		414A23840F82D31F479755C4 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				AF1C2E4F849D224B546F98EC /* libPods-PodDrop.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		9EDE1F25DE5640B5DDA417ED /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B5D202FEAF54B6613D562E86 /* Pods-PodDrop.debug.xcconfig */,
-				9D2322ED1718658B8BC6F34A /* Pods-PodDrop.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		A8D9E3581BBCA958005B2719 = {
 			isa = PBXGroup;
 			children = (
 				A8D9E3631BBCA958005B2719 /* PodDrop */,
 				A8D9E37A1BBCA958005B2719 /* PodDropTests */,
 				A8D9E3621BBCA958005B2719 /* Products */,
-				9EDE1F25DE5640B5DDA417ED /* Pods */,
-				414A23840F82D31F479755C4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,20 +82,13 @@
 			isa = PBXGroup;
 			children = (
 				A8D9E3641BBCA958005B2719 /* AppDelegate.swift */,
-				14DAD8DA1BFBFDF3001B75C9 /* Constants.swift */,
+				A8D9E3661BBCA958005B2719 /* art.scnassets */,
 				A8D9E3681BBCA958005B2719 /* GameViewController.swift */,
 				02FCA4511BBF310D00E5BEF5 /* GameScene.swift */,
-				14B715831BCDC4FA00E74BCE /* Platform.swift */,
-				02C5DC7B1BDD4F020003862D /* Pod.swift */,
-				14DAD8D81BF7A574001B75C9 /* Item.swift */,
-				02C5DC7F1BDD572D0003862D /* PodDrop.swift */,
-				020FEA801BD2CE3000B97B00 /* Boundary.swift */,
-				14DAD8DC1BFC01C5001B75C9 /* ItemQueue.swift */,
 				A8D9E36A1BBCA958005B2719 /* Main.storyboard */,
 				A8D9E36D1BBCA958005B2719 /* Assets.xcassets */,
 				A8D9E36F1BBCA958005B2719 /* LaunchScreen.storyboard */,
 				A8D9E3721BBCA958005B2719 /* Info.plist */,
-				A8D07A061BF7ABB100C40A28 /* Bridging-Header.h */,
 			);
 			path = PodDrop;
 			sourceTree = "<group>";
@@ -153,12 +109,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A8D9E38B1BBCA958005B2719 /* Build configuration list for PBXNativeTarget "PodDrop" */;
 			buildPhases = (
-				32B6CA173276640B2E1234A6 /* Check Pods Manifest.lock */,
 				A8D9E35D1BBCA958005B2719 /* Sources */,
 				A8D9E35E1BBCA958005B2719 /* Frameworks */,
 				A8D9E35F1BBCA958005B2719 /* Resources */,
-				3AE95A8D52F46E9A678F1B73 /* Embed Pods Frameworks */,
-				93492384E3BF4ACEC40B2417 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -231,6 +184,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8D9E3671BBCA958005B2719 /* art.scnassets in Resources */,
 				A8D9E3711BBCA958005B2719 /* LaunchScreen.storyboard in Resources */,
 				A8D9E36E1BBCA958005B2719 /* Assets.xcassets in Resources */,
 				A8D9E36C1BBCA958005B2719 /* Main.storyboard in Resources */,
@@ -246,69 +200,14 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		32B6CA173276640B2E1234A6 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		3AE95A8D52F46E9A678F1B73 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PodDrop/Pods-PodDrop-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		93492384E3BF4ACEC40B2417 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PodDrop/Pods-PodDrop-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		A8D9E35D1BBCA958005B2719 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14DAD8DD1BFC01C5001B75C9 /* ItemQueue.swift in Sources */,
 				02FCA4521BBF310D00E5BEF5 /* GameScene.swift in Sources */,
 				A8D9E3691BBCA958005B2719 /* GameViewController.swift in Sources */,
-				14B715841BCDC4FA00E74BCE /* Platform.swift in Sources */,
-				02C5DC7C1BDD4F020003862D /* Pod.swift in Sources */,
-				02C5DC801BDD572D0003862D /* PodDrop.swift in Sources */,
 				A8D9E3651BBCA958005B2719 /* AppDelegate.swift in Sources */,
-				020FEA811BD2CE3000B97B00 /* Boundary.swift in Sources */,
-				14DAD8D91BF7A574001B75C9 /* Item.swift in Sources */,
-				14DAD8DB1BFBFDF3001B75C9 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,7 +289,6 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "PodDrop/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -428,46 +326,40 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "PodDrop/Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		A8D9E38C1BBCA958005B2719 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B5D202FEAF54B6613D562E86 /* Pods-PodDrop.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = PodDrop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.iOSDevCon1.PodDrop;
+				PRODUCT_BUNDLE_IDENTIFIER = iOSDevCon1.PodDrop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "PodDrop/Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		A8D9E38D1BBCA958005B2719 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9D2322ED1718658B8BC6F34A /* Pods-PodDrop.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = PodDrop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.iOSDevCon1.PodDrop;
+				PRODUCT_BUNDLE_IDENTIFIER = iOSDevCon1.PodDrop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "PodDrop/Bridging-Header.h";
 			};
 			name = Release;
 		};
 		A8D9E38F1BBCA958005B2719 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B5D202FEAF54B6613D562E86 /* Pods-PodDrop.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -481,7 +373,6 @@
 		};
 		A8D9E3901BBCA958005B2719 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9D2322ED1718658B8BC6F34A /* Pods-PodDrop.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = PodDropTests/Info.plist;
