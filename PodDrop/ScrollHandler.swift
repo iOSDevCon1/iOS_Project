@@ -12,7 +12,7 @@ import SpriteKit
 class ScrollHandler {
     private var platforms=[Platform]();
     private var gameScene: GameScene;
-    static let SCROLL_SPEED:CGFloat = 2;
+    static let SCROLL_SPEED:CGFloat = 10;
     static let PLATFORM_GAP:CGFloat = 80;
     static let NUMBER_OF_PLATFORMS = 8; //MIN 1
     
