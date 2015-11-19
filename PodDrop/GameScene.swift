@@ -15,7 +15,6 @@ let levelOnePlatformPeriod = NSTimeInterval(1500)
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
-    
     //ScoreBoard Variables
     var scoreLabel = UILabel(frame: CGRectMake(0, 0, 200, 21))
     var score = 0
