@@ -39,7 +39,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override init(size:CGSize){
         super.init(size:size)
-        //setBackground(size, imageNamed: "milkyWay")
+        setBackground(size, imageNamed: "milkyWay")
         
 
         // we want only the pod to be affected by gravity so we can just
@@ -47,11 +47,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //self.physicsWorld.gravity = CGVectorMake(0, 0);
         
         // for now this scene will detect contact between different categories
-        //self.physicsWorld.contactDelegate = self
-       // addBoundaries(size)
+        self.physicsWorld.contactDelegate = self
+        addBoundaries(size)
         
         self.scroller = ScrollHandler(gameScene: self);
-        //addPod(size)
+        addPod(size)
         
         
 
