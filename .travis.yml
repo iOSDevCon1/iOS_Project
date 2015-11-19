@@ -9,7 +9,3 @@ cache: cocoapods
 notifications:
   email: false
   slack: iosdevcon1:xEnP1AqmiZ3L44wbPQaNd2St
-  
-
-
-

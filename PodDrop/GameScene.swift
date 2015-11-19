@@ -14,12 +14,12 @@ let levelOnePlatformPeriod = NSTimeInterval(1500)
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    // different categories for items that we need to detect when theres a
-    // contact between them
-    let podCategory:        UInt32 = 1 << 0
-    let obstacleCategory:   UInt32 = 1 << 1
-    let platformCategory:   UInt32 = 1 << 2
-    let pfBoundaryCategory: UInt32 = 1 << 3
+    
+    //ScoreBoard Variables
+    var scoreLabel = UILabel(frame: CGRectMake(0, 0, 200, 21))
+    var score = 0
+    var disPlay = 0
+    var save = 0
     
     var background: SKSpriteNode!
     var pod: Pod!
@@ -59,7 +59,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func addPod(canvasSize: CGSize){
         //adding ball to view
         let podSize = CGSize.init(width: canvasSize.height/12, height: canvasSize.height/6)
-        pod = Pod(imageName: "pod.png", boundaryCategory: pfBoundaryCategory, size: podSize)
+        pod = Pod(imageName: "pod.png", size: podSize)
         pod.position = CGPoint(x: canvasSize.width/2, y: canvasSize.height)
         
         addChild(pod)
@@ -93,8 +93,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // platform should be added
     func addPlatform(canvasSize: CGSize){
         let moveUp = SKAction.moveToY(canvasSize.height, duration: 10)
-        let categories: [UInt32] = [pfBoundaryCategory, podCategory]
-        let platform = Platform(texture:nil, color:UIColor.whiteColor(), size: CGSize.init(width: canvasSize.width, height: canvasSize.height/43), categories: categories)
+        let platform = Platform(texture:nil, color:UIColor.whiteColor(), size: CGSize.init(width: canvasSize.width, height: canvasSize.height/43))
         
         platform.position = CGPoint(x:CGFloat.init(arc4random())%(canvasSize.width/2)-canvasSize.width, y:0)
         platform.runAction(moveUp)
@@ -127,7 +126,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // These SpriteNode boundaries are used primarily to detect
     // collisions with the edges of the screen.
     func addBoundaries(size: CGSize){
-        let categories: [UInt32] = [pfBoundaryCategory, podCategory]
         
         // Initialize boundaries with given name, parent size, and bitmask categories
         
@@ -138,7 +136,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         be able to reach the bottom. For now, it will stop the pod
         from exiting the scene.
         */
-        let bottomBoundary = Boundary(name: "bottom", size: size, categories: categories, isHorizontal: true)
+        let bottomBoundary = Boundary(name: "bottom", size: size, isHorizontal: true)
         bottomBoundary.anchorPoint = CGPointMake(0.5, 0.0); //bottom center anchor
         bottomBoundary.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMinY(self.frame))
         
@@ -151,7 +149,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         acceleration and ends up going out of bounds.
         
         */
-        let topBoundary = Boundary(name: "top", size: size, categories: categories, isHorizontal : true)
+        let topBoundary = Boundary(name: "top", size: size, isHorizontal : true)
         topBoundary.anchorPoint = CGPointMake(0.5, 1.0) //top center anchor
         topBoundary.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMaxY(self.frame))
         
@@ -163,10 +161,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         and touch the side edges.
         
         */
-        let leftBoundary = Boundary(name: "left", size: size, categories: categories, isHorizontal : false)
+        let leftBoundary = Boundary(name: "left", size: size, isHorizontal : false)
         leftBoundary.anchorPoint = CGPointMake(0.0, 0.5) //left center anchor
         leftBoundary.position = CGPointMake(CGRectGetMinX(self.frame), CGRectGetMidY(self.frame));
-        let rightBoundary = Boundary(name: "right", size: size, categories: categories, isHorizontal : false)
+        let rightBoundary = Boundary(name: "right", size: size, isHorizontal : false)
         rightBoundary.anchorPoint = CGPointMake(1.0, 0.5) //right center anchor
         rightBoundary.position = CGPointMake(CGRectGetMaxX(self.frame), CGRectGetMidY(self.frame))
         
@@ -188,6 +186,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             addPlatform(self.size)
         }
         
+        //displayScore
+        score = Int(currentTime)
+
+        if(save != score){
+            save = score
+            disPlay += 1
+            print(disPlay)
+            self.setScoreBoard(String(disPlay))
+            //self.scoreLabel.removeFromSuperview()
+        }
+        
         processUserMotionForUpdate(currentTime)
     }
     
@@ -197,5 +206,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
             pod.physicsBody!.applyForce(CGVectorMake(40.0*CGFloat(data.acceleration.x),0))
         }
+    }
+    
+    func setScoreBoard(value:String){
+        var label = UILabel(frame: CGRectMake(0, 0, 200, 21))
+        scoreLabel.center = CGPointMake(160, 284)
+        scoreLabel.textAlignment = NSTextAlignment.Center
+        scoreLabel.text = value
+        scoreLabel.textColor = UIColor.whiteColor()
+        self.view!.addSubview(scoreLabel)
     }
 }
