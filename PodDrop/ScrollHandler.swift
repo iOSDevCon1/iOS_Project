@@ -13,7 +13,7 @@ class ScrollHandler {
     private var platforms=[Platform]();
     private var gameScene: GameScene;
     static let SCROLL_SPEED:CGFloat = 10;
-    static let PLATFORM_GAP:CGFloat = 80;
+    static let PLATFORM_GAP:CGFloat = 100;
     static let NUMBER_OF_PLATFORMS = 8; //MIN 1
     
     init(gameScene:GameScene){
