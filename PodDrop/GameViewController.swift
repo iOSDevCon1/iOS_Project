@@ -16,7 +16,6 @@ class GameViewController: UIViewController, PodDropDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
     }
     
     override func viewDidLayoutSubviews() {
@@ -71,4 +70,5 @@ class GameViewController: UIViewController, PodDropDelegate {
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
+    
 }
