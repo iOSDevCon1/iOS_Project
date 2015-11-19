@@ -38,6 +38,9 @@
 
 /* Begin PBXFileReference section */
 		020FEA801BD2CE3000B97B00 /* Boundary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Boundary.swift; sourceTree = "<group>"; };
+		02B58A4A1BF7988000F30FD7 /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		02B58A4C1BF7A8DB00F30FD7 /* LeaderboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
+		02B58A4E1BF7AB0300F30FD7 /* InstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
 		02C5DC7B1BDD4F020003862D /* Pod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pod.swift; sourceTree = "<group>"; };
 		02C5DC7F1BDD572D0003862D /* PodDrop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodDrop.swift; sourceTree = SOURCE_ROOT; };
 		02FCA4511BBF310D00E5BEF5 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -135,6 +138,10 @@
 				020FEA801BD2CE3000B97B00 /* Boundary.swift */,
 				14DAD8DC1BFC01C5001B75C9 /* ItemQueue.swift */,
 				A8D9E36A1BBCA958005B2719 /* Main.storyboard */,
+				02FCFEB51BFC007000D51ADA /* RegistrationViewController.swift */,
+				02B58A4E1BF7AB0300F30FD7 /* InstructionsViewController.swift */,
+				02B58A4C1BF7A8DB00F30FD7 /* LeaderboardViewController.swift */,
+				02B58A4A1BF7988000F30FD7 /* MainMenuViewController.swift */,
 				A8D9E36D1BBCA958005B2719 /* Assets.xcassets */,
 				A8D9E36F1BBCA958005B2719 /* LaunchScreen.storyboard */,
 				A8D9E3721BBCA958005B2719 /* Info.plist */,
@@ -305,10 +312,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02B58A4B1BF7988000F30FD7 /* MainMenuViewController.swift in Sources */,
 				14DAD8DD1BFC01C5001B75C9 /* ItemQueue.swift in Sources */,
 				02FCA4521BBF310D00E5BEF5 /* GameScene.swift in Sources */,
 				A8D9E3691BBCA958005B2719 /* GameViewController.swift in Sources */,
+				02FCFEB61BFC007000D51ADA /* RegistrationViewController.swift in Sources */,
 				14B715841BCDC4FA00E74BCE /* Platform.swift in Sources */,
+				02B58A4F1BF7AB0300F30FD7 /* InstructionsViewController.swift in Sources */,
+				02B58A4D1BF7A8DB00F30FD7 /* LeaderboardViewController.swift in Sources */,
 				02C5DC7C1BDD4F020003862D /* Pod.swift in Sources */,
 				02C5DC801BDD572D0003862D /* PodDrop.swift in Sources */,
 				14AEA47F1BFD951C00005DBB /* Scrollable.swift in Sources */,
