@@ -1,11 +1,10 @@
 language: objective-c
 osx_image: xcode7
-xcode_project: PodDrop.xcodeproj
+xcode_workspace: PodDrop.xcworkspace
 xcode_scheme: PodDrop
 xcode_sdk: iphonesimulator
+cache: cocoapods
 
-script:
-- xcodebuild clean build test -project PodDrop.xcodeproj -scheme PodDrop -sdk iphonesimulator CODE_SIGNING_REQUIRED=NO
 
 notifications:
   email: false
