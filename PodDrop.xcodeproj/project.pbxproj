@@ -12,6 +12,9 @@
 		02C5DC801BDD572D0003862D /* PodDrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C5DC7F1BDD572D0003862D /* PodDrop.swift */; };
 		02FCA4521BBF310D00E5BEF5 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FCA4511BBF310D00E5BEF5 /* GameScene.swift */; };
 		14B715841BCDC4FA00E74BCE /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B715831BCDC4FA00E74BCE /* Platform.swift */; };
+		14DAD8D91BF7A574001B75C9 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DAD8D81BF7A574001B75C9 /* Item.swift */; };
+		14DAD8DB1BFBFDF3001B75C9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DAD8DA1BFBFDF3001B75C9 /* Constants.swift */; };
+		14DAD8DD1BFC01C5001B75C9 /* ItemQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DAD8DC1BFC01C5001B75C9 /* ItemQueue.swift */; };
 		A8D9E3651BBCA958005B2719 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D9E3641BBCA958005B2719 /* AppDelegate.swift */; };
 		A8D9E3691BBCA958005B2719 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D9E3681BBCA958005B2719 /* GameViewController.swift */; };
 		A8D9E36C1BBCA958005B2719 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8D9E36A1BBCA958005B2719 /* Main.storyboard */; };
@@ -37,6 +40,9 @@
 		02C5DC7F1BDD572D0003862D /* PodDrop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodDrop.swift; sourceTree = SOURCE_ROOT; };
 		02FCA4511BBF310D00E5BEF5 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		14B715831BCDC4FA00E74BCE /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
+		14DAD8D81BF7A574001B75C9 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		14DAD8DA1BFBFDF3001B75C9 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		14DAD8DC1BFC01C5001B75C9 /* ItemQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemQueue.swift; sourceTree = "<group>"; };
 		9D2322ED1718658B8BC6F34A /* Pods-PodDrop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodDrop.release.xcconfig"; path = "Pods/Target Support Files/Pods-PodDrop/Pods-PodDrop.release.xcconfig"; sourceTree = "<group>"; };
 		A8D07A061BF7ABB100C40A28 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		A8D9E3611BBCA958005B2719 /* PodDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PodDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,12 +119,15 @@
 			isa = PBXGroup;
 			children = (
 				A8D9E3641BBCA958005B2719 /* AppDelegate.swift */,
+				14DAD8DA1BFBFDF3001B75C9 /* Constants.swift */,
 				A8D9E3681BBCA958005B2719 /* GameViewController.swift */,
 				02FCA4511BBF310D00E5BEF5 /* GameScene.swift */,
 				14B715831BCDC4FA00E74BCE /* Platform.swift */,
 				02C5DC7B1BDD4F020003862D /* Pod.swift */,
+				14DAD8D81BF7A574001B75C9 /* Item.swift */,
 				02C5DC7F1BDD572D0003862D /* PodDrop.swift */,
 				020FEA801BD2CE3000B97B00 /* Boundary.swift */,
+				14DAD8DC1BFC01C5001B75C9 /* ItemQueue.swift */,
 				A8D9E36A1BBCA958005B2719 /* Main.storyboard */,
 				A8D9E36D1BBCA958005B2719 /* Assets.xcassets */,
 				A8D9E36F1BBCA958005B2719 /* LaunchScreen.storyboard */,
@@ -290,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14DAD8DD1BFC01C5001B75C9 /* ItemQueue.swift in Sources */,
 				02FCA4521BBF310D00E5BEF5 /* GameScene.swift in Sources */,
 				A8D9E3691BBCA958005B2719 /* GameViewController.swift in Sources */,
 				14B715841BCDC4FA00E74BCE /* Platform.swift in Sources */,
@@ -297,6 +307,8 @@
 				02C5DC801BDD572D0003862D /* PodDrop.swift in Sources */,
 				A8D9E3651BBCA958005B2719 /* AppDelegate.swift in Sources */,
 				020FEA811BD2CE3000B97B00 /* Boundary.swift in Sources */,
+				14DAD8D91BF7A574001B75C9 /* Item.swift in Sources */,
+				14DAD8DB1BFBFDF3001B75C9 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
