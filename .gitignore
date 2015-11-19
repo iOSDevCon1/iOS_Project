@@ -41,9 +41,3 @@ xcuserdata
 # Carthage/Checkouts
 
 Carthage/Build
-
-*.xcworkspacedata
-
-Pods/
-
-*.lock
