@@ -50,9 +50,7 @@ class Platform: Scrollable {
         let centerSize = CGSize(width: Platform.HORIZONTAL_GAP, height: size.height)
         let center = SKShapeNode(rectOfSize: centerSize)
         center.fillColor = UIColor.clearColor();
-        center.strokeColor = UIColor.clearColor()
-        center.physicsBody = SKPhysicsBody(rectangleOfSize: centerSize);
-        center.physicsBody?.dynamic = false;
+        center.strokeColor = UIColor.clearColor();
         center.position.x = 0;
         
         self.addChild(center)
