@@ -15,7 +15,7 @@ class Platform: SKSpriteNode {
     var rightPlatform: SKShapeNode!
     
     
-    init(texture: SKTexture?, color: UIColor, size: CGSize, categories: [UInt32]) {
+    override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         let platformColor = UIColor(red: 255.0, green: 255.0, blue: 255.0, alpha: 0.6)
         let platformSize = CGSize(width: size.width, height: size.height);
         

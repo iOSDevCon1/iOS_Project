@@ -10,12 +10,14 @@ import Foundation
 import SpriteKit
 
 class Pod: SKSpriteNode {
+    let items:ItemQueue = ItemQueue();
     
-    init(imageName: String, boundaryCategory: UInt32, size:CGSize) {
+    
+    init(imageName: String, size:CGSize) {
         super.init(texture: SKTexture(imageNamed: imageName), color: UIColor.clearColor(), size: size)
         let radius = self.size.width/2
         self.physicsBody = SKPhysicsBody(circleOfRadius: radius)
-        self.physicsBody?.collisionBitMask = boundaryCategory;
+        self.physicsBody?.collisionBitMask = Category.pod;
         self.physicsBody?.linearDamping = 0;
         self.physicsBody?.friction = 0;
         self.physicsBody?.restitution = 0;
@@ -28,13 +30,19 @@ class Pod: SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func addItem(itemToAdd: ConsumableItem){
-        let thing = itemToAdd
-        thing.wasAddedToPod()
+    func addItem(itemToAdd: Item){
+        items.push(itemToAdd);
     }
     
-    func useItem(){
-    
+    func useItem(itemToUse:Item?){
+        if itemToUse != nil {
+            itemToUse!.use(self)
+        
+        } else{
+            if(!items.isEmpty()){
+                items.peek()!.use(self)
+            }
+        }
     }
     
 }

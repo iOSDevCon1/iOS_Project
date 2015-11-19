@@ -11,7 +11,7 @@ import SpriteKit
 
 class Boundary: SKSpriteNode {
     
-    init(name: String, size: CGSize, categories: [UInt32], isHorizontal: Bool) {
+    init(name: String, size: CGSize, isHorizontal: Bool) {
         
         let boundarySize: CGSize
         
@@ -30,9 +30,9 @@ class Boundary: SKSpriteNode {
         self.physicsBody = SKPhysicsBody(rectangleOfSize: boundarySize)
         
         self.physicsBody!.dynamic = false;
-        self.physicsBody!.categoryBitMask = categories[0];
-        self.physicsBody!.collisionBitMask = categories[1];
-        self.physicsBody!.contactTestBitMask = categories[1];
+        self.physicsBody!.categoryBitMask = Category.boundary;
+        self.physicsBody!.collisionBitMask = Category.pod;
+        self.physicsBody!.contactTestBitMask = Category.pod;
     }
     
     required init?(coder aDecoder: NSCoder) {
