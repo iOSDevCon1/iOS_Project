@@ -14,6 +14,16 @@ class Item:SKSpriteNode{
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
         
+        let radius = self.size.width/2
+        self.physicsBody = SKPhysicsBody(circleOfRadius: radius)
+        self.physicsBody?.collisionBitMask = Category.platform;
+        self.physicsBody?.categoryBitMask = Category.item;
+        self.physicsBody?.linearDamping = 0;
+        self.physicsBody?.friction = 0;
+        self.physicsBody?.restitution = 0;
+        
+        let gravity = CGVectorMake(0, -8);
+        self.physicsBody?.applyImpulse(gravity);
     }
 
     required init?(coder aDecoder: NSCoder) {

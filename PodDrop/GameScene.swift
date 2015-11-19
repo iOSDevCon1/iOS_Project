@@ -52,9 +52,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addBoundaries(size)
         setBackground(size, imageNamed: "milkyWay")
         addPod(size)
+        addItems(size)
         startPlatformGeneration()
 
     }
+    
+    //Testing for itemPP
+    func addItems(canvasSize: CGSize){
+        //adding ball to view
+        let itemSz = CGSize.init(width: canvasSize.height/12, height: canvasSize.height/6)
+        let item = Item(texture: SKTexture(imageNamed:"dragon_ball"), color: UIColor.blackColor(), size: itemSz)
+        item.position = CGPoint(x: canvasSize.width/2, y: canvasSize.height)
+        
+        addChild(item)
+    }
+    
     
     func addPod(canvasSize: CGSize){
         //adding ball to view
