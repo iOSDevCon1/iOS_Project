@@ -10,8 +10,6 @@ import Foundation
 import SpriteKit
 import CoreMotion
 
-let levelOnePlatformPeriod = NSTimeInterval(1500)
-
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
@@ -23,10 +21,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var background: SKSpriteNode!
     var pod: Pod!
-    var timeSinceLastPlatform: NSDate?
-    var platformGenerationPeriod = levelOnePlatformPeriod
     
     let motionManager: CMMotionManager = CMMotionManager()
+    
+    
+    var scroller: ScrollHandler!
     
     override func didMoveToView(view: SKView) {
         super.didMoveToView(view)
@@ -40,19 +39,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override init(size:CGSize){
         super.init(size:size)
+        setBackground(size, imageNamed: "milkyWay")
         
+
         // we want only the pod to be affected by gravity so we can just
         // apply a force to the pod.
         //self.physicsWorld.gravity = CGVectorMake(0, 0);
         
         // for now this scene will detect contact between different categories
         self.physicsWorld.contactDelegate = self
-        
-        
         addBoundaries(size)
-        setBackground(size, imageNamed: "milkyWay")
+        
+        self.scroller = ScrollHandler(gameScene: self);
         addPod(size)
-        startPlatformGeneration()
+        
+        
 
     }
     
@@ -61,7 +62,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let podSize = CGSize.init(width: canvasSize.height/12, height: canvasSize.height/6)
         pod = Pod(imageName: "pod.png", size: podSize)
         pod.position = CGPoint(x: canvasSize.width/2, y: canvasSize.height)
-        
         addChild(pod)
     }
     
@@ -75,30 +75,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         background.size = canvasSize
         background.position = CGPoint(x: canvasSize.width/2, y: canvasSize.height/2)
         background.alpha = 0.6
-        
-        
-    }
-    
-    func startPlatformGeneration(){
-        timeSinceLastPlatform = NSDate()
-    }
-    
-    func stopPlatformGeneration(){
-        timeSinceLastPlatform = nil
     }
     
     
-    // This method adds a single platform and is called upon a certain interval
-    // While the scene updates the frame it will determine whether or not a new
-    // platform should be added
-    func addPlatform(canvasSize: CGSize){
-        let moveUp = SKAction.moveToY(canvasSize.height, duration: 10)
-        let platform = Platform(texture:nil, color:UIColor.whiteColor(), size: CGSize.init(width: canvasSize.width, height: canvasSize.height/43))
-        
-        platform.position = CGPoint(x:CGFloat.init(arc4random())%(canvasSize.width/2)-canvasSize.width, y:0)
-        platform.runAction(moveUp)
-        addChild(platform)
-    }
     
     // Helper method used when GameScene is dragged
     func translatePod(translation: CGPoint) {
@@ -191,15 +170,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
-        if(timeSinceLastPlatform == nil){
-            return
-        }
-        let timePassed = timeSinceLastPlatform!.timeIntervalSinceNow * -1000.0
-        if timePassed > platformGenerationPeriod{
-            timeSinceLastPlatform = NSDate()
-            addPlatform(self.size)
-        }
+        self.scroller.update(currentTime);
         
         //displayScore
         score = Int(currentTime)
@@ -207,7 +178,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if(save != score){
             save = score
             disPlay += 1
-            print(disPlay)
+            //print(disPlay)
             self.setScoreBoard(String(disPlay))
             //self.scoreLabel.removeFromSuperview()
         }
@@ -224,7 +195,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func setScoreBoard(value:String){
-        var label = UILabel(frame: CGRectMake(0, 0, 200, 21))
         scoreLabel.center = CGPointMake(160, 284)
         scoreLabel.textAlignment = NSTextAlignment.Center
         scoreLabel.text = value

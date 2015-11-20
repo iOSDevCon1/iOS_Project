@@ -23,6 +23,8 @@ class GameViewController: UIViewController, PodDropDelegate {
         
         if let skView = view as? SKView{
             skView.multipleTouchEnabled = false
+            skView.showsFPS = true
+            skView.showsNodeCount = true
             if(skView.scene==nil){
                 // Create and configure the scene.
                 scene = GameScene(size: skView.bounds.size)
