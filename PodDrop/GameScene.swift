@@ -158,6 +158,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(rightBoundary)
     }
 
+    func didBeginContact(contact: SKPhysicsContact){
+        if((contact.bodyA.node?.name == "pod") || (contact.bodyB.node?.name == "pod")){
+            if((contact.bodyA.node?.name == "leftBoundary") || (contact.bodyB.node?.name == "leftBoundary")){
+                print("careful there!")
+            }else if((contact.bodyA.node?.name == "rightBoundary") || (contact.bodyB.node?.name == "rightBoundary")){
+                print("careful there!")
+            }else if((contact.bodyA.node?.name == "topBoundary") || (contact.bodyB.node?.name == "topBoundary")){
+                print("game over!")
+            }else if((contact.bodyA.node?.name == "bottomBoundary") || (contact.bodyB.node?.name == "bottomBoundary")){
+                print("you're too fast!")
+            }
+        }
+    }
+    
+    
     override func update(currentTime: CFTimeInterval) {
         self.scroller.update(currentTime);
         
