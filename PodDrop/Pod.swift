@@ -15,11 +15,10 @@ class Pod: SKSpriteNode {
     
     init(imageName: String, size:CGSize) {
         super.init(texture: SKTexture(imageNamed: imageName), color: UIColor.clearColor(), size: size)
-        self.name = "pod"
+        
         let radius = self.size.width/2
         self.physicsBody = SKPhysicsBody(circleOfRadius: radius)
-        self.physicsBody?.categoryBitMask = Category.pod
-        self.physicsBody?.collisionBitMask = Category.boundary;
+        self.physicsBody?.categoryBitMask = Category.pod;
         self.physicsBody?.linearDamping = 0;
         self.physicsBody?.friction = 0;
         self.physicsBody?.restitution = 0;

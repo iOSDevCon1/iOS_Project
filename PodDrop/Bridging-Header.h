@@ -10,5 +10,6 @@
 #define Bridging_Header_h
 
 #import <Parse/Parse.h>
+#import <Bolts/Bolts.h>
 
 #endif /* Bridging_Header_h */

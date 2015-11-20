@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -37,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let defaultACL = PFACL();
         
         // If you would like all objects to be private by default, remove this line.
-        defaultACL.setPublicReadAccess(true)
+        //defaultACL.setPublicReadAccess(true)
         
         PFACL.setDefaultACL(defaultACL, withAccessForCurrentUser:true)
         

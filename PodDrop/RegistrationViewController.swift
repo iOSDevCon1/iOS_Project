@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import SpriteKit
+import Parse
 
 class RegistrationViewController: UIViewController{
     @IBOutlet weak var username_field: UITextField!
