@@ -44,6 +44,7 @@ class Platform: Scrollable {
                 
         super.init(texture: texture, color: UIColor.clearColor(), size: size, position: position, scrollSpeed: scrollSpeed)
         
+        self.name = "platform"
         self.addChild(leftPlatform);
         self.addChild(rightPlatform);
         
