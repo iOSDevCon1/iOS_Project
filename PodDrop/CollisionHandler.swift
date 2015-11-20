@@ -24,13 +24,13 @@ extension GameScene {
             
         case Category.pod | Category.boundary:
             if contact.bodyA.categoryBitMask == Category.pod {
-                let pod = contact.bodyA.node as! Pod;
-                pod.position.y = self.size.width
-                
+//                let pod = contact.bodyA.node as! Pod;
+//                pod.position.y = self.size.width
+                endGame();
             } else {
-                let pod = contact.bodyB.node as! Pod;
-                pod.position.y = self.size.width
-            }
+//                let pod = contact.bodyA.node as! Pod;
+//                pod.position.y = self.size.width
+                endGame();            }
             break;
             
         case Category.pod | Category.item:

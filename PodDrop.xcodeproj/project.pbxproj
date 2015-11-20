@@ -19,6 +19,7 @@
 		14AEA47F1BFD951C00005DBB /* Scrollable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AEA47E1BFD951C00005DBB /* Scrollable.swift */; };
 		14AEA4811BFE939A00005DBB /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AEA4801BFE939A00005DBB /* RegistrationViewController.swift */; };
 		14AEA4881BFE9FD600005DBB /* CollisionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AEA4871BFE9FD600005DBB /* CollisionHandler.swift */; };
+		14AEA48A1BFEAD4E00005DBB /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AEA4891BFEAD4E00005DBB /* GameOverScene.swift */; };
 		14B715841BCDC4FA00E74BCE /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B715831BCDC4FA00E74BCE /* Platform.swift */; };
 		14DAD8D91BF7A574001B75C9 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DAD8D81BF7A574001B75C9 /* Item.swift */; };
 		14DAD8DB1BFBFDF3001B75C9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DAD8DA1BFBFDF3001B75C9 /* Constants.swift */; };
@@ -54,6 +55,7 @@
 		14AEA47E1BFD951C00005DBB /* Scrollable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scrollable.swift; sourceTree = "<group>"; };
 		14AEA4801BFE939A00005DBB /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		14AEA4871BFE9FD600005DBB /* CollisionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollisionHandler.swift; sourceTree = "<group>"; };
+		14AEA4891BFEAD4E00005DBB /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		14B715831BCDC4FA00E74BCE /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		14DAD8D81BF7A574001B75C9 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		14DAD8DA1BFBFDF3001B75C9 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				A8D9E3681BBCA958005B2719 /* GameViewController.swift */,
 				14AEA4801BFE939A00005DBB /* RegistrationViewController.swift */,
 				A8D9E36A1BBCA958005B2719 /* Main.storyboard */,
+				14AEA4891BFEAD4E00005DBB /* GameOverScene.swift */,
 				02B58A4E1BF7AB0300F30FD7 /* InstructionsViewController.swift */,
 				02B58A4C1BF7A8DB00F30FD7 /* LeaderboardViewController.swift */,
 				02B58A4A1BF7988000F30FD7 /* MainMenuViewController.swift */,
@@ -362,6 +365,7 @@
 				14B715841BCDC4FA00E74BCE /* Platform.swift in Sources */,
 				02B58A4F1BF7AB0300F30FD7 /* InstructionsViewController.swift in Sources */,
 				02B58A4D1BF7A8DB00F30FD7 /* LeaderboardViewController.swift in Sources */,
+				14AEA48A1BFEAD4E00005DBB /* GameOverScene.swift in Sources */,
 				14AEA4811BFE939A00005DBB /* RegistrationViewController.swift in Sources */,
 				02C5DC7C1BDD4F020003862D /* Pod.swift in Sources */,
 				02C5DC801BDD572D0003862D /* PodDrop.swift in Sources */,

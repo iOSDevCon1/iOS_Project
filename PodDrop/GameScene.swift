@@ -12,6 +12,9 @@ import CoreMotion
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    // Game End
+    var gameEnding: Bool = false
+    
     
     //ScoreBoard Variables
     var scoreLabel = UILabel(frame: CGRectMake(0, 0, 200, 21))
@@ -44,7 +47,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         // we want only the pod to be affected by gravity so we can just
         // apply a force to the pod.
-        //self.physicsWorld.gravity = CGVectorMake(0, 0);
+        self.physicsWorld.gravity = CGVectorMake(0, -3);
         
         // for now this scene will detect contact between different categories
         self.physicsWorld.contactDelegate = self
@@ -61,7 +64,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //adding ball to view
         let podSize = CGSize.init(width: canvasSize.height/12, height: canvasSize.height/6)
         pod = Pod(imageName: "pod.png", size: podSize)
-        pod.position = CGPoint(x: canvasSize.width/2, y: canvasSize.height)
+        pod.position = CGPoint(x: canvasSize.width/2, y: canvasSize.height/2)
         addChild(pod)
     }
     
@@ -118,6 +121,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let bottomBoundary = Boundary(name: "bottom", size: size, isHorizontal: true)
         bottomBoundary.anchorPoint = CGPointMake(0.5, 0.0); //bottom center anchor
         bottomBoundary.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMinY(self.frame))
+        bottomBoundary.physicsBody?.categoryBitMask = Category.obstacle;
         
         
         /*
@@ -185,5 +189,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.text = value
         scoreLabel.textColor = UIColor.whiteColor()
         self.view!.addSubview(scoreLabel)
+    }
+    
+    func endGame() {
+        // temp game ending stuff
+        if !self.gameEnding {
+            
+            self.gameEnding = true
+            
+            
+            self.motionManager.stopAccelerometerUpdates()
+            
+            
+            let gameOverScene: GameOverScene = GameOverScene(size: self.size)
+            
+            view!.presentScene(gameOverScene, transition: SKTransition.doorsOpenHorizontalWithDuration(1.0))
+        }
     }
 }
