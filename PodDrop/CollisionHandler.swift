@@ -12,10 +12,6 @@ import SpriteKit
 extension GameScene {
 
     func didBeginContact(contact: SKPhysicsContact) {
-        var firstNode, secondNode: SKSpriteNode!
-        
-        firstNode = contact.bodyA.node as! SKSpriteNode;
-        secondNode = contact.bodyB.node as! SKSpriteNode;
         
         let contactMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         
@@ -25,11 +21,9 @@ extension GameScene {
         case Category.pod | Category.boundary:
             if contact.bodyA.categoryBitMask == Category.pod {
 //                let pod = contact.bodyA.node as! Pod;
-//                pod.position.y = self.size.width
                 endGame();
             } else {
 //                let pod = contact.bodyA.node as! Pod;
-//                pod.position.y = self.size.width
                 endGame();            }
             break;
             
