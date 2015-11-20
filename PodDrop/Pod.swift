@@ -15,6 +15,7 @@ class Pod: SKSpriteNode {
     
     init(imageName: String, size:CGSize) {
         super.init(texture: SKTexture(imageNamed: imageName), color: UIColor.clearColor(), size: size)
+        self.name = "pod"
         let radius = self.size.width/2
         self.physicsBody = SKPhysicsBody(circleOfRadius: radius)
         self.physicsBody?.collisionBitMask = Category.boundary;

@@ -18,7 +18,7 @@ class Platform: SKSpriteNode {
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         let platformColor = UIColor(red: 255.0, green: 255.0, blue: 255.0, alpha: 0.6)
         let platformSize = CGSize(width: size.width, height: size.height);
-        
+
         
         // LEFT PLATFORM SETUP
         var myPoint = CGPointMake(0,0);
@@ -41,6 +41,7 @@ class Platform: SKSpriteNode {
         
         super.init(texture: nil, color: UIColor.clearColor(), size: size);
         
+        self.name = "platform"
         self.addChild(leftPlatform);
         self.addChild(rightPlatform);
     }
