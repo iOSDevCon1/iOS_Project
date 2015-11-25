@@ -24,36 +24,34 @@ class Platform: Scrollable {
         self.max = (size.width - Platform.HORIZONTAL_GAP) / 2 - 20;
         self.center = CGFloat(arc4random_uniform(UInt32(max * 2 ))) - max;
         
+        let platformPhysicsBody = SKPhysicsBody(rectangleOfSize: size);
+        //platformPhysicsBody.linearDamping = 0;
+        //platformPhysicsBody.restitution = 0;
+        platformPhysicsBody.friction = 1;
+        platformPhysicsBody.dynamic = false;
+        
        
         // LEFT PLATFORM SETUP
         self.leftPlatform = SKShapeNode(rectOfSize:size)
         self.leftPlatform.fillColor = color;
-        self.leftPlatform.physicsBody = SKPhysicsBody(rectangleOfSize: size);
-        self.leftPlatform.physicsBody?.dynamic = false;
-        
-        
-        //print(platformSize.width)
+        self.leftPlatform.physicsBody = platformPhysicsBody
         
         
         // RIGHT PLATFORM SETUP
         self.rightPlatform = SKShapeNode(rectOfSize:size)
         self.rightPlatform.fillColor = color;
-        self.rightPlatform.physicsBody = SKPhysicsBody(rectangleOfSize: size);
-        self.rightPlatform.physicsBody?.dynamic = false;
+        self.rightPlatform.physicsBody = platformPhysicsBody.copy() as? SKPhysicsBody
         
                 
         super.init(texture: texture, color: UIColor.clearColor(), size: size, position: position, scrollSpeed: scrollSpeed)
         
         self.addChild(leftPlatform);
         self.addChild(rightPlatform);
+
         
-        let centerSize = CGSize(width: Platform.HORIZONTAL_GAP, height: size.height)
-        let center = SKShapeNode(rectOfSize: centerSize)
-        center.fillColor = UIColor.clearColor();
-        center.strokeColor = UIColor.clearColor();
-        center.position.x = 0;
+        self.leftPlatform.position.x = center - self.size.width / 2 - Platform.HORIZONTAL_GAP / 2;
         
-        self.addChild(center)
+        self.rightPlatform.position.x = center + self.size.width / 2 + Platform.HORIZONTAL_GAP / 2;
         
         
     }
@@ -62,22 +60,14 @@ class Platform: Scrollable {
         super.reset(newY);
         
         self.center = CGFloat(arc4random_uniform(UInt32(max * 2 ))) - max;
-        print(self.center);
+        
+        self.leftPlatform.position.x = center - self.size.width / 2 - Platform.HORIZONTAL_GAP / 2;
+        
+        self.rightPlatform.position.x = center + self.size.width / 2 + Platform.HORIZONTAL_GAP / 2;
         
         
     }
-    
-    override func update(currentTime: CFTimeInterval) {
-        super.update(currentTime);
-        
-        self.leftPlatform.position.x = center - self.size.width/2-Platform.HORIZONTAL_GAP/2;
-        
-        self.rightPlatform.position.x = center + self.size.width/2+Platform.HORIZONTAL_GAP/2;
-        
-        
-        
-        
-    }
+
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

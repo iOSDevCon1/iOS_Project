@@ -19,12 +19,10 @@ class Pod: SKSpriteNode {
         let radius = self.size.width/2
         self.physicsBody = SKPhysicsBody(circleOfRadius: radius)
         self.physicsBody?.categoryBitMask = Category.pod;
-        self.physicsBody?.linearDamping = 0;
-        self.physicsBody?.friction = 0;
+        //self.physicsBody?.linearDamping = 0;
+        self.physicsBody?.friction = 1;
         self.physicsBody?.restitution = 0;
-        
-        let gravity = CGVectorMake(0, -8);
-        self.physicsBody?.applyImpulse(gravity);
+
     }
     
     required init?(coder aDecoder: NSCoder) {

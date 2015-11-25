@@ -13,13 +13,11 @@ class Scrollable:SKSpriteNode {
 
     var velocity:CGFloat;
     var isScrolledUp:Bool;
-    var lastTime:NSTimeInterval;
    
     init(texture: SKTexture?, color: UIColor, size: CGSize, position:CGPoint, scrollSpeed:CGFloat) {
         
         self.velocity = scrollSpeed;
         self.isScrolledUp = false;
-        self.lastTime = NSTimeInterval();
         super.init(texture: texture, color: color, size: size);
         self.position = position;
         
@@ -32,7 +30,6 @@ class Scrollable:SKSpriteNode {
     func update(currentTime: CFTimeInterval){
             
         self.position.y += velocity;
-        lastTime = currentTime;
         
         if(position.y-size.height > self.scene?.size.height){
             self.isScrolledUp = true;
@@ -50,7 +47,6 @@ class Scrollable:SKSpriteNode {
     }
     
     func start(velocity: CGFloat){
-        self.runAction(SKAction.repeatActionForever(SKAction.moveByX(0, y:velocity, duration: 1)))
         self.velocity = velocity;
     }
     
