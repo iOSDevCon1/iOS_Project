@@ -12,6 +12,10 @@ import CoreMotion
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    
+    // Gravity
+    static let GRAVITY:CGFloat = -3;
+    
     // Game End
     var gameEnding: Bool = false
     
@@ -22,11 +26,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var disPlay = 0
     var save = 0
     
+    
+    
     var background: SKSpriteNode!
     var pod: Pod!
     
     let motionManager: CMMotionManager = CMMotionManager()
-    
     
     var scroller: ScrollHandler!
     
@@ -47,7 +52,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         // we want only the pod to be affected by gravity so we can just
         // apply a force to the pod.
-        self.physicsWorld.gravity = CGVectorMake(0, -3);
+        self.physicsWorld.gravity = CGVectorMake(0, GameScene.GRAVITY);
+        
+        // physics body for frame to not let object out of frame
+        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame);
         
         // for now this scene will detect contact between different categories
         self.physicsWorld.contactDelegate = self
@@ -62,7 +70,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func addPod(canvasSize: CGSize){
         //adding ball to view
-        let podSize = CGSize.init(width: canvasSize.height/12, height: canvasSize.height/6)
+        let podSize = CGSize.init(width: canvasSize.height/15, height: canvasSize.height/15)
         pod = Pod(imageName: "pod.png", size: podSize)
         pod.position = CGPoint(x: canvasSize.width/2, y: canvasSize.height/2)
         addChild(pod)
@@ -83,25 +91,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     // Helper method used when GameScene is dragged
-    func translatePod(translation: CGPoint) {
-        if let position = pod?.position{
-            let newPosition = CGPoint(x: position.x + translation.x, y: position.y)
-            pod?.position = newPosition
+    func applyForceToPod(impulseStrength: CGFloat) {
+        if let thisPod = pod{
+            thisPod.physicsBody?.applyImpulse(CGVector(dx: impulseStrength, dy: 0))
+            
         }
     }
     
     // Transition handler for 'moving touches' on the screen
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        var translation: CGPoint!
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        var diff: CGFloat!
         for touch: AnyObject in touches{
-            let positionInScene = touch.locationInNode(self)
-            let previousPosition = touch.previousLocationInNode(self)
-            translation = CGPoint(x: positionInScene.x - previousPosition.x, y: positionInScene.y - previousPosition.y)
+            let positionInScene = touch.locationInNode(self);
+            let podPosition = pod.position;
+            
+            diff = positionInScene.x - podPosition.x;
         }
         //let touch = (touches as? UITouch).anyObject()
        
         
-        translatePod(translation)
+        applyForceToPod(diff/10)
     }
     
     
@@ -118,11 +127,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         be able to reach the bottom. For now, it will stop the pod
         from exiting the scene.
         */
-        let bottomBoundary = Boundary(name: "bottom", size: size, isHorizontal: true)
-        bottomBoundary.anchorPoint = CGPointMake(0.5, 0.0); //bottom center anchor
-        bottomBoundary.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMinY(self.frame))
-        bottomBoundary.physicsBody?.categoryBitMask = Category.obstacle;
+        let bottomBoundary = Boundary(
+            name: "bottom",
+            fromPoint: CGPointMake(0, 1),
+            toPoint:CGPointMake(size.width, 1))
         
+        bottomBoundary.physicsBody?.categoryBitMask = Category.obstacle;
+        addChild(bottomBoundary)
         
         /*
         About top boundary
@@ -132,9 +143,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         acceleration and ends up going out of bounds.
         
         */
-        let topBoundary = Boundary(name: "top", size: size, isHorizontal : true)
-        topBoundary.anchorPoint = CGPointMake(0.5, 1.0) //top center anchor
-        topBoundary.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMaxY(self.frame))
+        let topBoundary = Boundary(
+            name: "bottom",
+            fromPoint: CGPointMake(0, size.height-1),
+            toPoint:CGPointMake(size.width, size.height-1))
+        
+        addChild(topBoundary)
         
         /*
         About left and right boundaries
@@ -144,18 +158,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         and touch the side edges.
         
         */
-        let leftBoundary = Boundary(name: "left", size: size, isHorizontal : false)
-        leftBoundary.anchorPoint = CGPointMake(0.0, 0.5) //left center anchor
-        leftBoundary.position = CGPointMake(CGRectGetMinX(self.frame), CGRectGetMidY(self.frame));
-        let rightBoundary = Boundary(name: "right", size: size, isHorizontal : false)
-        rightBoundary.anchorPoint = CGPointMake(1.0, 0.5) //right center anchor
-        rightBoundary.position = CGPointMake(CGRectGetMaxX(self.frame), CGRectGetMidY(self.frame))
-        
-        
-        addChild(bottomBoundary)
-        addChild(topBoundary)
+        let leftBoundary = Boundary(
+            name: "bottom",
+            fromPoint: CGPointMake(1, 0),
+            toPoint:CGPointMake(1, size.height))
         addChild(leftBoundary)
+        
+        
+        let rightBoundary = Boundary(
+            name: "bottom",
+            fromPoint: CGPointMake(size.width-1, 0),
+            toPoint:CGPointMake(size.width-1, size.height))
+        
         addChild(rightBoundary)
+        
     }
     
     

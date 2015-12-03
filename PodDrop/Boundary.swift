@@ -9,25 +9,25 @@
 import Foundation
 import SpriteKit
 
-class Boundary: SKSpriteNode {
+class Boundary: SKNode {
     
-    init(name: String, size: CGSize, isHorizontal: Bool) {
+    init(name: String, fromPoint:CGPoint, toPoint:CGPoint) {
         
-        let boundarySize: CGSize
-        
-        if (isHorizontal){
-            boundarySize = CGSizeMake(size.width, size.height * 0.05); //5% of scene height, 100% of width
-        }else{
-            boundarySize = CGSizeMake(size.width * 0.01, size.height); //1% of scene width, 100% of height
-        }
+//        let boundarySize: CGSize
+//        
+//        if (isHorizontal){
+//            boundarySize = CGSizeMake(size.width, 1);
+//        }else{
+//            boundarySize = CGSizeMake(1, size.height); 
+//        }
     
-        super.init(texture: nil, color: UIColor.blackColor(), size: boundarySize)
+        super.init()
         
         // Suffix the name with 'Boundary'
         self.name = name + "Boundary"
         
         // Simple physics body without gravity or motion
-        self.physicsBody = SKPhysicsBody(rectangleOfSize: boundarySize)
+        self.physicsBody = SKPhysicsBody(edgeFromPoint: fromPoint, toPoint: toPoint)
         
         self.physicsBody!.dynamic = false;
         self.physicsBody!.categoryBitMask = Category.boundary;

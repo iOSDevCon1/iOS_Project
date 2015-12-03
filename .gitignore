@@ -47,3 +47,9 @@ Carthage/Build
 Pods/
 
 *.lock
+
+# Mac
+.DS_Store
+
+# Intellij
+.idea/

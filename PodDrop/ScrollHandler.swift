@@ -10,10 +10,10 @@ import Foundation
 import SpriteKit
 
 class ScrollHandler {
-    private var platforms=[Platform]();
+    private var scrollables=[Platform]();
     private var gameScene: GameScene;
     static let SCROLL_SPEED:CGFloat = 5;
-    static let PLATFORM_GAP:CGFloat = 100;
+    static let SCROLLABLE_GAP:CGFloat = 100;
     static let NUMBER_OF_PLATFORMS = 8; //MIN 1
     
     init(gameScene:GameScene){
@@ -21,51 +21,60 @@ class ScrollHandler {
         self.gameScene = gameScene;
         let canvasSize = gameScene.size;
         
-        self.platforms.append(Platform(texture:nil,
+        self.scrollables.append(Platform(texture:nil,
             color:UIColor.whiteColor(),
             size: CGSize(width: canvasSize.width, height: canvasSize.height/32),
             position:CGPoint(x: canvasSize.width/2,y: 0),
             scrollSpeed:ScrollHandler.SCROLL_SPEED
         ));
         
-        self.platforms[0].position.y += 200;
+        self.scrollables[0].position.y += 200;
         
-        self.gameScene.addChild(platforms[0]);
+        self.gameScene.addChild(scrollables[0]);
         
         for i in 1..<ScrollHandler.NUMBER_OF_PLATFORMS{
-            self.platforms.append(Platform(texture:nil,
-                color:UIColor.whiteColor(),
-                size: CGSize(width: canvasSize.width, height: canvasSize.height/32),
-                position:CGPoint(x: canvasSize.width/2, y: platforms[i-1].getTailY()-ScrollHandler.PLATFORM_GAP ),
-                scrollSpeed:ScrollHandler.SCROLL_SPEED
-            ));
-            self.gameScene.addChild(platforms[i]);
+            self.scrollables.append(
+                Platform(
+                    texture:nil,
+                    color:UIColor.whiteColor(),
+                    size: CGSize(width: canvasSize.width, height: canvasSize.height/32),
+                    position:CGPoint(
+                        x: canvasSize.width/2,
+                        y: scrollables[i-1].getTailY()-ScrollHandler.SCROLLABLE_GAP
+                    ),
+                    scrollSpeed:ScrollHandler.SCROLL_SPEED
+                )
+            );
+            self.gameScene.addChild(scrollables[i]);
         }
     
         
     }
     
     func update(currentTime: CFTimeInterval){
-        for platform in platforms {
-            platform.update(currentTime);
+        for scrollable in scrollables {
+            scrollable.update(currentTime);
         }
         
-        if(platforms[0].isScrolledUp){
-            platforms[0].reset(platforms[platforms.endIndex-1].getTailY() - ScrollHandler.PLATFORM_GAP);
+        if(scrollables[0].isScrolledUp){
+            scrollables[0].reset(
+                scrollables[scrollables.endIndex-1].getTailY() - ScrollHandler.SCROLLABLE_GAP
+            );
         }
         
-        for i in 1..<platforms.endIndex {
-            if(platforms[i].isScrolledUp){
-                platforms[i].reset(platforms[i-1].getTailY() - ScrollHandler.PLATFORM_GAP);
+        for i in 1..<scrollables.endIndex {
+            if(scrollables[i].isScrolledUp){
+                scrollables[i].reset(
+                    scrollables[i-1].getTailY() - ScrollHandler.SCROLLABLE_GAP
+                );
             }
         }
         
     }
     
     func stop(){
-        
-        for platform in platforms {
-            platform.stop();
+        for scrollable in scrollables {
+            scrollable.stop();
         }
     }
     
