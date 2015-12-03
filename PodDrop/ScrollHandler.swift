@@ -10,10 +10,12 @@ import Foundation
 import SpriteKit
 
 class ScrollHandler {
-    private var scrollables=[Platform]();
+    private var platforms=[Platform]();
+    private var items=[Item]();
     private var gameScene: GameScene;
+
     static let SCROLL_SPEED:CGFloat = 5;
-    static let NUMBER_OF_PLATFORMS = 5; //MIN 1
+    static let NUMBER_OF_PLATFORMS = 4; //MIN 1
     let SCROLLABLE_GAP:CGFloat;
     
     init(gameScene:GameScene){
@@ -22,51 +24,80 @@ class ScrollHandler {
 
         SCROLLABLE_GAP = canvasSize.height / CGFloat(ScrollHandler.NUMBER_OF_PLATFORMS);
         
-        self.scrollables.append(Platform(texture:nil,
+        self.platforms.append(Platform(texture:nil,
             color:UIColor.whiteColor(),
             size: CGSize(width: canvasSize.width, height: canvasSize.height/32),
             position:CGPoint(x: canvasSize.width/2,y: 0),
             scrollSpeed:ScrollHandler.SCROLL_SPEED
         ));
         
-        self.scrollables[0].position.y += 200;
+        self.platforms[0].position.y += 200;
         
-        self.gameScene.addChild(scrollables[0]);
+        self.gameScene.addChild(platforms[0]);
         
         for i in 1..<ScrollHandler.NUMBER_OF_PLATFORMS{
-            self.scrollables.append(
+            self.platforms.append(
                 Platform(
                     texture:nil,
                     color:UIColor.whiteColor(),
                     size: CGSize(width: canvasSize.width, height: canvasSize.height/32),
                     position:CGPoint(
                         x: canvasSize.width/2,
-                        y: scrollables[i-1].getTailY()-SCROLLABLE_GAP
+                        y: platforms[i-1].getTailY()-SCROLLABLE_GAP
                     ),
                     scrollSpeed:ScrollHandler.SCROLL_SPEED
                 )
             );
-            self.gameScene.addChild(scrollables[i]);
+            self.gameScene.addChild(platforms[i]);
         }
     
         
     }
+
+    //Testing for itemPP
+    func addItem( newY: CGFloat ){
+
+
+        //adding ball to view
+        let itemPos = CGPoint(x: 100, y:newY);
+        let itemSz = CGSize(width: self.gameScene.size.height/18, height: self.gameScene.size.height/18)
+
+        items.append(Item(
+                texture: SKTexture(
+                imageNamed:"dragon_ball"),
+                color: UIColor.blackColor(),
+                size: itemSz,
+                position: itemPos,
+                scrollSpeed: ScrollHandler.SCROLL_SPEED)
+        )
+
+        self.gameScene.addChild(items[items.endIndex-1]);
+    }
     
     func update(currentTime: CFTimeInterval){
-        for scrollable in scrollables {
-            scrollable.update(currentTime);
+
+        for item:Scrollable in items {
+            item.update(currentTime);
+            if(item.isScrolledUp){
+                item.removeFromParent();
+            }
         }
         
-        if(scrollables[0].isScrolledUp){
-            scrollables[0].reset(
-                scrollables[scrollables.endIndex-1].getTailY() - SCROLLABLE_GAP
+        for platform:Scrollable in platforms {
+            platform.update(currentTime);
+        }
+        
+        if(platforms[0].isScrolledUp){
+            platforms[0].reset(
+                platforms[platforms.endIndex-1].getTailY() - SCROLLABLE_GAP
             );
+            addItem(platforms[0].getTailY() - SCROLLABLE_GAP / 2);
         }
         
-        for i in 1..<scrollables.endIndex {
-            if(scrollables[i].isScrolledUp){
-                scrollables[i].reset(
-                    scrollables[i-1].getTailY() - SCROLLABLE_GAP
+        for i in 1..<platforms.endIndex {
+            if(platforms[i].isScrolledUp){
+                platforms[i].reset(
+                    platforms[i-1].getTailY() - SCROLLABLE_GAP
                 );
                 self.gameScene.score += 5
                 self.gameScene.setScoreBoard(String(self.gameScene.score))
@@ -76,8 +107,8 @@ class ScrollHandler {
     }
     
     func stop(){
-        for scrollable in scrollables {
-            scrollable.stop();
+        for platform:Scrollable in platforms {
+            platform.stop();
         }
     }
     
