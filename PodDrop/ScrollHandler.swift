@@ -99,6 +99,8 @@ class ScrollHandler {
                 platforms[i].reset(
                     platforms[i-1].getTailY() - SCROLLABLE_GAP
                 );
+                self.gameScene.score += 5
+                self.gameScene.setScoreBoard(String(self.gameScene.score))
             }
         }
         
