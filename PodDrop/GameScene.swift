@@ -59,17 +59,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         self.scroller = ScrollHandler(gameScene: self);
         addPod(size)
-        addItems(size)
-    }
-    
-    //Testing for itemPP
-    func addItems(canvasSize: CGSize){
-        //adding ball to view
-        let itemSz = CGSize.init(width: canvasSize.height/12, height: canvasSize.height/6)
-        let item = Item(texture: SKTexture(imageNamed:"dragon_ball"), color: UIColor.blackColor(), size: itemSz)
-        item.position = CGPoint(x: canvasSize.width/2, y: canvasSize.height)
-
-        addChild(item)
     }
 
 

@@ -9,26 +9,23 @@
 import Foundation
 import SpriteKit
 
-class Item:SKSpriteNode{
+class Item:Scrollable{
 
-    override init(texture: SKTexture?, color: UIColor, size: CGSize) {
-        super.init(texture: texture, color: color, size: size)
+    override init(texture: SKTexture?, color: UIColor, size: CGSize, position:CGPoint, scrollSpeed:CGFloat) {
+        super.init(texture: texture, color: color, size: size, position: position, scrollSpeed: scrollSpeed);
         
-        let radius = self.size.width/2
+        let radius = self.size.width/2;
         self.physicsBody = SKPhysicsBody(circleOfRadius: radius)
-        self.physicsBody?.collisionBitMask = Category.platform;
-        self.physicsBody?.categoryBitMask = Category.platform;
-        self.physicsBody?.linearDamping = 0;
-        self.physicsBody?.friction = 0;
-        self.physicsBody?.restitution = 0;
-        
-        let gravity = CGVectorMake(0, -1);
-        self.physicsBody?.applyImpulse(gravity);
+        self.physicsBody?.collisionBitMask = Category.item;
+        self.physicsBody?.categoryBitMask = Category.item;
+        self.physicsBody?.dynamic = false;
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+
     
     func use(pod:Pod){
         pod.removeItem(self)
