@@ -43,5 +43,10 @@ class Pod: SKSpriteNode {
             }
         }
     }
-    
+
+    func removeItem(itemToRemove: Item){
+        if( items.peek() == itemToRemove){
+            items.pop();
+        }
+    }
 }

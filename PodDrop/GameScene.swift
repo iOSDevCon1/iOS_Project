@@ -14,19 +14,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     // Gravity
-    static let GRAVITY:CGFloat = -3;
+    static let GRAVITY:CGFloat = -1;
     
     // Game End
     var gameEnding: Bool = false
-    
     
     //ScoreBoard Variables
     var scoreLabel = UILabel(frame: CGRectMake(0, 0, 200, 21))
     var score = 0
     var disPlay = 0
     var save = 0
-    
-    
     
     var background: SKSpriteNode!
     var pod: Pod!
@@ -38,7 +35,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
         super.didMoveToView(view)
         motionManager.startAccelerometerUpdates()
-        
     }
     
     required init(coder aDecoder: NSCoder){
@@ -63,9 +59,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.scroller = ScrollHandler(gameScene: self);
         addPod(size)
-        
-        
-
     }
     
     func addPod(canvasSize: CGSize){
@@ -90,10 +83,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     
-    // Helper method used when GameScene is dragged
-    func applyForceToPod(impulseStrength: CGFloat) {
+    // Helper method used when GameScene is touched
+    func applyForceToPod(forceStrength: CGFloat) {
         if let thisPod = pod{
-            thisPod.physicsBody?.applyImpulse(CGVector(dx: impulseStrength, dy: 0))
+            thisPod.physicsBody?.applyImpulse(CGVector(dx: forceStrength, dy: 0))
             
         }
     }
@@ -101,15 +94,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // Transition handler for 'moving touches' on the screen
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         var diff: CGFloat!
-        for touch: AnyObject in touches{
+        for touch: UITouch in touches{
             let positionInScene = touch.locationInNode(self);
             let podPosition = pod.position;
             
             diff = positionInScene.x - podPosition.x;
         }
-        //let touch = (touches as? UITouch).anyObject()
-       
-        
+
         applyForceToPod(diff/10)
     }
     
@@ -118,7 +109,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // collisions with the edges of the screen.
     func addBoundaries(size: CGSize){
         
-        // Initialize boundaries with given name, parent size, and bitmask categories
+        // Initialize boundaries with given name, start point, and end point
         
         /*
         About bottom boundary
@@ -144,7 +135,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         */
         let topBoundary = Boundary(
-            name: "bottom",
+            name: "top",
             fromPoint: CGPointMake(0, size.height-1),
             toPoint:CGPointMake(size.width, size.height-1))
         
@@ -159,14 +150,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         */
         let leftBoundary = Boundary(
-            name: "bottom",
+            name: "left",
             fromPoint: CGPointMake(1, 0),
             toPoint:CGPointMake(1, size.height))
         addChild(leftBoundary)
         
         
         let rightBoundary = Boundary(
-            name: "bottom",
+            name: "right",
             fromPoint: CGPointMake(size.width-1, 0),
             toPoint:CGPointMake(size.width-1, size.height))
         
