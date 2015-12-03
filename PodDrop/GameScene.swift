@@ -28,6 +28,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var background: SKSpriteNode!
     var pod: Pod!
     
+    //pod Attributes
+    var consumedReversal:Bool = false
+    
+    
     let motionManager: CMMotionManager = CMMotionManager()
     
     var scroller: ScrollHandler!
@@ -181,14 +185,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             //self.scoreLabel.removeFromSuperview()
         }
         
-        processUserMotionForUpdate(currentTime)
+        processUserMotionForUpdate(currentTime, reversal: consumedReversal)
     }
     
     //pod moving left and right
-    func processUserMotionForUpdate(currentTime: CFTimeInterval) {
+    func processUserMotionForUpdate(currentTime: CFTimeInterval, reversal:Bool) {
         if let data = motionManager.accelerometerData {
-
-            pod.physicsBody!.applyForce(CGVectorMake(40.0*CGFloat(data.acceleration.x),0))
+            if(reversal){
+                 pod.physicsBody!.applyForce(CGVectorMake(-40.0*CGFloat(data.acceleration.x),0))
+            } else {
+                pod.physicsBody!.applyForce(CGVectorMake(40.0*CGFloat(data.acceleration.x),0))
+            }
         }
     }
     
