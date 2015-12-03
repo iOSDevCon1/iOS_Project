@@ -14,13 +14,13 @@ class GameOverScene: SKScene {
     // Private GameScene Properties
     
     var contentCreated = false
+    var game: GameScene!
     
     // Object Lifecycle Management
     
     // Scene Setup and Content Creation
     
     override func didMoveToView(view: SKView) {
-        
         if (!self.contentCreated) {
             self.createContent()
             self.contentCreated = true
@@ -37,11 +37,19 @@ class GameOverScene: SKScene {
         
         self.addChild(gameOverLabel)
         
+        let scoreLabel = SKLabelNode(fontNamed: "Courier")
+        scoreLabel.fontSize = 70
+        scoreLabel.fontColor = SKColor.whiteColor()
+        scoreLabel.text = String(game.score)
+        scoreLabel.position = CGPointMake(self.size.width/2, 2.0 / 4.0 * self.size.height);
+        
+        self.addChild(scoreLabel)
+        
         let tapLabel = SKLabelNode(fontNamed: "Courier")
         tapLabel.fontSize = 25
         tapLabel.fontColor = SKColor.whiteColor()
         tapLabel.text = "(Tap to Play Again)"
-        tapLabel.position = CGPointMake(self.size.width/2, gameOverLabel.frame.origin.y - gameOverLabel.frame.size.height - 40);
+        tapLabel.position = CGPointMake(self.size.width/2, 1.0/3.0 * self.size.height);
         
         self.addChild(tapLabel)
         

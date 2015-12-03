@@ -20,10 +20,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var gameEnding: Bool = false
 
     //ScoreBoard Variables
-    var scoreLabel = UILabel(frame: CGRectMake(0, 0, 200, 21))
+    //var scoreLabel = UILabel(frame: CGRectMake(0, 0, 200, 21))
     var score = 0
-    var disPlay = 0
-    var save = 0
+    var scoreLabel = SKLabelNode(text: String(0))
     
     var background: SKSpriteNode!
     var pod: Pod!
@@ -35,6 +34,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
         super.didMoveToView(view)
         motionManager.startAccelerometerUpdates()
+        scoreLabel.fontSize = 60
+        scoreLabel.position = CGPointMake(view.frame.size.width/2, view.frame.size.height-100)
+        self.addChild(scoreLabel)
     }
     
     required init(coder aDecoder: NSCoder){
@@ -180,18 +182,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     override func update(currentTime: CFTimeInterval) {
         self.scroller.update(currentTime);
-        
-        //displayScore
-        score = Int(currentTime)
-
-        if(save != score){
-            save = score
-            disPlay += 1
-            //print(disPlay)
-            self.setScoreBoard(String(disPlay))
-            //self.scoreLabel.removeFromSuperview()
-        }
-        
         processUserMotionForUpdate(currentTime)
     }
     
@@ -203,12 +193,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    
     func setScoreBoard(value:String){
-        scoreLabel.center = CGPointMake(160, 284)
-        scoreLabel.textAlignment = NSTextAlignment.Center
         scoreLabel.text = value
-        scoreLabel.textColor = UIColor.whiteColor()
-        self.view!.addSubview(scoreLabel)
     }
 
     func endGame() {
@@ -222,7 +209,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
 
             let gameOverScene: GameOverScene = GameOverScene(size: self.size)
-
+            gameOverScene.game = self
             view!.presentScene(gameOverScene, transition: SKTransition.doorsOpenHorizontalWithDuration(1.0))
         }
     }
