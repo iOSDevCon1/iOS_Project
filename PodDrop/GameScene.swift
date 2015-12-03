@@ -91,7 +91,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // Helper method used when GameScene is touched
     func applyForceToPod(forceStrength: CGFloat) {
         if let thisPod = pod{
-            thisPod.physicsBody?.applyImpulse(CGVector(dx: forceStrength, dy: 0))
+            if(consumedReversal){
+                thisPod.physicsBody?.applyImpulse(CGVector(dx: -forceStrength, dy: 0))
+            } else {
+                thisPod.physicsBody?.applyImpulse(CGVector(dx: forceStrength, dy: 0))
+            }
+            
 
         }
     }

@@ -66,7 +66,7 @@ class ScrollHandler {
                 size: itemSz,
                 position: itemPos,
                 scrollSpeed: ScrollHandler.SCROLL_SPEED,
-                gameScene: self.gameScene as! GameScene)
+                gameScene: self.gameScene )
         )
 
         self.gameScene.addChild(items[items.endIndex-1]);

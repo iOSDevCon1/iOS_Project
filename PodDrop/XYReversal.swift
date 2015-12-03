@@ -25,7 +25,14 @@ class XYReversal: Item {
         self.myGameScene.consumedReversal = true
         print("reversed")
         
+        performSelector("end", withObject: nil, afterDelay: 2)
         
+        
+    }
+    
+    func end(){
+        self.myGameScene.consumedReversal = false;
+        print("reverse end")
     }
 
     required init?(coder aDecoder: NSCoder) {
