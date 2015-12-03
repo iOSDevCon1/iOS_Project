@@ -15,10 +15,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // Gravity
     static let GRAVITY:CGFloat = -1;
-    
+
     // Game End
     var gameEnding: Bool = false
-    
+
     //ScoreBoard Variables
     var scoreLabel = UILabel(frame: CGRectMake(0, 0, 200, 21))
     var score = 0
@@ -31,7 +31,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let motionManager: CMMotionManager = CMMotionManager()
     
     var scroller: ScrollHandler!
-    
+
     override func didMoveToView(view: SKView) {
         super.didMoveToView(view)
         motionManager.startAccelerometerUpdates()
@@ -44,23 +44,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override init(size:CGSize){
         super.init(size:size)
         setBackground(size, imageNamed: "milkyWay")
-        
+
 
         // we want only the pod to be affected by gravity so we can just
         // apply a force to the pod.
         self.physicsWorld.gravity = CGVectorMake(0, GameScene.GRAVITY);
-        
+
         // physics body for frame to not let object out of frame
         self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame);
         
         // for now this scene will detect contact between different categories
         self.physicsWorld.contactDelegate = self
         addBoundaries(size)
-        
+
         self.scroller = ScrollHandler(gameScene: self);
         addPod(size)
+        addItems(size)
     }
     
+    //Testing for itemPP
+    func addItems(canvasSize: CGSize){
+        //adding ball to view
+        let itemSz = CGSize.init(width: canvasSize.height/12, height: canvasSize.height/6)
+        let item = Item(texture: SKTexture(imageNamed:"dragon_ball"), color: UIColor.blackColor(), size: itemSz)
+        item.position = CGPoint(x: canvasSize.width/2, y: canvasSize.height)
+
+        addChild(item)
+    }
+
+
     func addPod(canvasSize: CGSize){
         //adding ball to view
         let podSize = CGSize.init(width: canvasSize.height/15, height: canvasSize.height/15)
@@ -80,14 +92,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         background.position = CGPoint(x: canvasSize.width/2, y: canvasSize.height/2)
         background.alpha = 0.6
     }
-    
-    
+
+
     
     // Helper method used when GameScene is touched
     func applyForceToPod(forceStrength: CGFloat) {
         if let thisPod = pod{
             thisPod.physicsBody?.applyImpulse(CGVector(dx: forceStrength, dy: 0))
-            
+
         }
     }
     
@@ -97,7 +109,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         for touch: UITouch in touches{
             let positionInScene = touch.locationInNode(self);
             let podPosition = pod.position;
-            
+
             diff = positionInScene.x - podPosition.x;
         }
 
@@ -125,7 +137,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         bottomBoundary.physicsBody?.categoryBitMask = Category.obstacle;
         addChild(bottomBoundary)
-        
+
         /*
         About top boundary
         - position > y: 1.0
@@ -138,7 +150,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             name: "top",
             fromPoint: CGPointMake(0, size.height-1),
             toPoint:CGPointMake(size.width, size.height-1))
-        
+
         addChild(topBoundary)
         
         /*
@@ -154,18 +166,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             fromPoint: CGPointMake(1, 0),
             toPoint:CGPointMake(1, size.height))
         addChild(leftBoundary)
-        
-        
+
+
         let rightBoundary = Boundary(
             name: "right",
             fromPoint: CGPointMake(size.width-1, 0),
             toPoint:CGPointMake(size.width-1, size.height))
-        
+
         addChild(rightBoundary)
-        
+
     }
-    
-    
+
+
     override func update(currentTime: CFTimeInterval) {
         self.scroller.update(currentTime);
         
@@ -198,19 +210,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.textColor = UIColor.whiteColor()
         self.view!.addSubview(scoreLabel)
     }
-    
+
     func endGame() {
         // temp game ending stuff
         if !self.gameEnding {
-            
+
             self.gameEnding = true
-            
-            
+
+
             self.motionManager.stopAccelerometerUpdates()
-            
-            
+
+
             let gameOverScene: GameOverScene = GameOverScene(size: self.size)
-            
+
             view!.presentScene(gameOverScene, transition: SKTransition.doorsOpenHorizontalWithDuration(1.0))
         }
     }
