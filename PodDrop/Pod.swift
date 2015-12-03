@@ -19,6 +19,7 @@ class Pod: SKSpriteNode {
         let radius = self.size.width/2
         self.physicsBody = SKPhysicsBody(circleOfRadius: radius)
         self.physicsBody?.categoryBitMask = Category.pod;
+        self.physicsBody?.collisionBitMask = Category.boundary | Category.platform | Category.obstacle;
         //self.physicsBody?.linearDamping = 0;
         self.physicsBody?.friction = 1;
         self.physicsBody?.restitution = 0;

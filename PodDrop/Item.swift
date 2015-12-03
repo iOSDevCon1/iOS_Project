@@ -16,8 +16,9 @@ class Item:Scrollable{
         
         let radius = self.size.width/2;
         self.physicsBody = SKPhysicsBody(circleOfRadius: radius)
-        self.physicsBody?.collisionBitMask = Category.item;
+        self.physicsBody?.collisionBitMask = 0;
         self.physicsBody?.categoryBitMask = Category.item;
+        self.physicsBody!.contactTestBitMask = Category.pod;
         self.physicsBody?.dynamic = false;
     }
 
