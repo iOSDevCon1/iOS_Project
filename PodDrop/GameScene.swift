@@ -27,6 +27,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var background: SKSpriteNode!
     var pod: Pod!
     
+    //pod Attributes
+    var consumedReversal:Bool = false
+
+
     let motionManager: CMMotionManager = CMMotionManager()
     
     var scroller: ScrollHandler!
@@ -47,9 +51,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         super.init(size:size)
         setBackground(size, imageNamed: "milkyWay")
 
-
-        // we want only the pod to be affected by gravity so we can just
-        // apply a force to the pod.
+        // custom Gravity
         self.physicsWorld.gravity = CGVectorMake(0, GameScene.GRAVITY);
 
         // physics body for frame to not let object out of frame
@@ -171,18 +173,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     override func update(currentTime: CFTimeInterval) {
         self.scroller.update(currentTime);
-        processUserMotionForUpdate(currentTime)
+        processUserMotionForUpdate(currentTime, reversal: consumedReversal)
     }
     
     //pod moving left and right
-    func processUserMotionForUpdate(currentTime: CFTimeInterval) {
+    func processUserMotionForUpdate(currentTime: CFTimeInterval, reversal:Bool) {
         if let data = motionManager.accelerometerData {
-
-            pod.physicsBody!.applyForce(CGVectorMake(40.0*CGFloat(data.acceleration.x),0))
+            if(reversal){
+                 pod.physicsBody!.applyForce(CGVectorMake(-40.0*CGFloat(data.acceleration.x),0))
+            } else {
+                pod.physicsBody!.applyForce(CGVectorMake(40.0*CGFloat(data.acceleration.x),0))
+            }
         }
     }
     
-    
+
     func setScoreBoard(value:String){
         scoreLabel.text = value
     }

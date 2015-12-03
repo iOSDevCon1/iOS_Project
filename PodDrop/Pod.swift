@@ -30,23 +30,24 @@ class Pod: SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func touchItem(itemTouched:Item){
+        itemTouched.touchedBy(self);
+    }
+    
+    
     func addItem(itemToAdd: Item){
         items.push(itemToAdd);
     }
     
-    func useItem(itemToUse:Item?){
-        if itemToUse != nil {
-            itemToUse!.use(self)
-        
-        } else{
-            if(!items.isEmpty()){
-                items.peek()!.use(self)
-            }
+    func useItem(){
+        if(!items.isEmpty()){
+            items.peek()!.use()
         }
+        
     }
 
     func removeItem(itemToRemove: Item){
-        if( items.peek() == itemToRemove){
+        if( !items.isEmpty() && items.peek() == itemToRemove){
             items.pop();
         }
     }

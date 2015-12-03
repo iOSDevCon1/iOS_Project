@@ -62,13 +62,11 @@ class ScrollHandler {
         let itemPos = CGPoint(x: 100, y:newY);
         let itemSz = CGSize(width: self.gameScene.size.height/18, height: self.gameScene.size.height/18)
 
-        items.append(Item(
-                texture: SKTexture(
-                imageNamed:"dragon_ball"),
-                color: UIColor.blackColor(),
+        items.append(XYReversal(
                 size: itemSz,
                 position: itemPos,
-                scrollSpeed: ScrollHandler.SCROLL_SPEED)
+                scrollSpeed: ScrollHandler.SCROLL_SPEED,
+                gameScene: self.gameScene as! GameScene)
         )
 
         self.gameScene.addChild(items[items.endIndex-1]);

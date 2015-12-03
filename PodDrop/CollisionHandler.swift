@@ -38,7 +38,7 @@ extension GameScene {
                 item = contact.bodyA.node as! Item;
             }
             
-            pod.addItem(item);
+            pod.touchItem(item);
             item.removeFromParent();
             break;
             
