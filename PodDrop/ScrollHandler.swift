@@ -13,13 +13,14 @@ class ScrollHandler {
     private var scrollables=[Platform]();
     private var gameScene: GameScene;
     static let SCROLL_SPEED:CGFloat = 5;
-    static let SCROLLABLE_GAP:CGFloat = 100;
-    static let NUMBER_OF_PLATFORMS = 8; //MIN 1
+    static let NUMBER_OF_PLATFORMS = 5; //MIN 1
+    let SCROLLABLE_GAP:CGFloat;
     
     init(gameScene:GameScene){
-        //In case we decide to increment score based on platforms passed we can do it this way
         self.gameScene = gameScene;
         let canvasSize = gameScene.size;
+
+        SCROLLABLE_GAP = canvasSize.height / CGFloat(ScrollHandler.NUMBER_OF_PLATFORMS);
         
         self.scrollables.append(Platform(texture:nil,
             color:UIColor.whiteColor(),
@@ -40,7 +41,7 @@ class ScrollHandler {
                     size: CGSize(width: canvasSize.width, height: canvasSize.height/32),
                     position:CGPoint(
                         x: canvasSize.width/2,
-                        y: scrollables[i-1].getTailY()-ScrollHandler.SCROLLABLE_GAP
+                        y: scrollables[i-1].getTailY()-SCROLLABLE_GAP
                     ),
                     scrollSpeed:ScrollHandler.SCROLL_SPEED
                 )
@@ -58,14 +59,14 @@ class ScrollHandler {
         
         if(scrollables[0].isScrolledUp){
             scrollables[0].reset(
-                scrollables[scrollables.endIndex-1].getTailY() - ScrollHandler.SCROLLABLE_GAP
+                scrollables[scrollables.endIndex-1].getTailY() - SCROLLABLE_GAP
             );
         }
         
         for i in 1..<scrollables.endIndex {
             if(scrollables[i].isScrolledUp){
                 scrollables[i].reset(
-                    scrollables[i-1].getTailY() - ScrollHandler.SCROLLABLE_GAP
+                    scrollables[i-1].getTailY() - SCROLLABLE_GAP
                 );
             }
         }

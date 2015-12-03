@@ -12,14 +12,6 @@ import SpriteKit
 class Boundary: SKNode {
     
     init(name: String, fromPoint:CGPoint, toPoint:CGPoint) {
-        
-//        let boundarySize: CGSize
-//        
-//        if (isHorizontal){
-//            boundarySize = CGSizeMake(size.width, 1);
-//        }else{
-//            boundarySize = CGSizeMake(1, size.height); 
-//        }
     
         super.init()
         

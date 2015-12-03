@@ -21,8 +21,7 @@ class Item:SKSpriteNode{
     }
     
     func use(pod:Pod){
-        
-    
+        pod.removeItem(self)
     }
 
 }
