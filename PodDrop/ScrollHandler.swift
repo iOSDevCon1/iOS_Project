@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 
 class ScrollHandler {
-    private var platforms=[Platform]();
+    var platforms=[Platform]();
     private var items=[Item]();
     private var gameScene: GameScene;
 
@@ -62,14 +62,21 @@ class ScrollHandler {
         let itemPos = CGPoint(x: 100, y:newY);
         let itemSz = CGSize(width: self.gameScene.size.height/18, height: self.gameScene.size.height/18)
 
-        items.append(XYReversal(
-                size: itemSz,
-                position: itemPos,
-                scrollSpeed: self.SCROLL_SPEED,
-                gameScene: self.gameScene )
-        )
+//        items.append(XYReversal(
+//                size: itemSz,
+//                position: itemPos,
+//                scrollSpeed: self.SCROLL_SPEED,
+//                gameScene: self.gameScene )
+//        )
         
-        items.append(Invincibility(
+//        items.append(Invincibility(
+//            size: itemSz,
+//            position: itemPos,
+//            scrollSpeed: self.SCROLL_SPEED,
+//            gameScene: self.gameScene )
+//        )
+        
+        items.append(Blurry(
             size: itemSz,
             position: itemPos,
             scrollSpeed: self.SCROLL_SPEED,

@@ -17,6 +17,7 @@ class Platform: Scrollable {
     var rightPlatform: SKShapeNode!
     var center:CGFloat!
     var max:CGFloat
+    var blurNode : SKEffectNode!
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize, position: CGPoint, scrollSpeed: CGFloat) {
         
@@ -45,9 +46,15 @@ class Platform: Scrollable {
                 
         super.init(texture: texture, color: UIColor.clearColor(), size: size, position: position, scrollSpeed: scrollSpeed)
         
-        self.addChild(leftPlatform);
-        self.addChild(rightPlatform);
-
+        blurNode = SKEffectNode()
+        blurNode.shouldEnableEffects = true
+        let blur = CIFilter(name: "CIGaussianBlur", withInputParameters: ["inputRadius": 25.0])
+        blurNode.filter = blur
+    
+        blurNode.addChild(leftPlatform);
+        blurNode.addChild(rightPlatform);
+        
+        self.addChild(blurNode)
         
         self.leftPlatform.position.x = center - self.size.width / 2 - Platform.HORIZONTAL_GAP / 2;
         

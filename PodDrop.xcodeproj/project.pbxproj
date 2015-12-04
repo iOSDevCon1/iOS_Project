@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		020FEA811BD2CE3000B97B00 /* Boundary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020FEA801BD2CE3000B97B00 /* Boundary.swift */; };
-		0240AC111C113E0B00B15D40 /* ScoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0240AC101C113E0B00B15D40 /* ScoreCell.swift */; settings = {ASSET_TAGS = (); }; };
+		0240AC111C113E0B00B15D40 /* ScoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0240AC101C113E0B00B15D40 /* ScoreCell.swift */; };
 		02B58A4B1BF7988000F30FD7 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B58A4A1BF7988000F30FD7 /* MainMenuViewController.swift */; };
 		02B58A4D1BF7A8DB00F30FD7 /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B58A4C1BF7A8DB00F30FD7 /* LeaderboardViewController.swift */; };
 		02B58A4F1BF7AB0300F30FD7 /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B58A4E1BF7AB0300F30FD7 /* InstructionsViewController.swift */; };
@@ -27,6 +27,7 @@
 		14DAD8DD1BFC01C5001B75C9 /* ItemQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DAD8DC1BFC01C5001B75C9 /* ItemQueue.swift */; };
 		3DE74FCA3B8DA7DBA649534F /* Pods_PodDrop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A030677AE56EBDA2541379A2 /* Pods_PodDrop.framework */; };
 		A8136A5B1C112A7D0090182E /* Invincibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8136A5A1C112A7D0090182E /* Invincibility.swift */; };
+		A8136A5D1C11498E0090182E /* Blurry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8136A5C1C11498E0090182E /* Blurry.swift */; };
 		A8D9E3651BBCA958005B2719 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D9E3641BBCA958005B2719 /* AppDelegate.swift */; };
 		A8D9E3691BBCA958005B2719 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D9E3681BBCA958005B2719 /* GameViewController.swift */; };
 		A8D9E36C1BBCA958005B2719 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8D9E36A1BBCA958005B2719 /* Main.storyboard */; };
@@ -72,6 +73,7 @@
 		9D2322ED1718658B8BC6F34A /* Pods-PodDrop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodDrop.release.xcconfig"; path = "Pods/Target Support Files/Pods-PodDrop/Pods-PodDrop.release.xcconfig"; sourceTree = "<group>"; };
 		A030677AE56EBDA2541379A2 /* Pods_PodDrop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PodDrop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8136A5A1C112A7D0090182E /* Invincibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Invincibility.swift; sourceTree = "<group>"; };
+		A8136A5C1C11498E0090182E /* Blurry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Blurry.swift; sourceTree = "<group>"; };
 		A8D07A061BF7ABB100C40A28 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		A8D9E3611BBCA958005B2719 /* PodDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PodDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8D9E3641BBCA958005B2719 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				D0B43BD8C61EAC2D53B54771 /* XYReversal.swift */,
 				D0B43F9A5679A9800CB6DEBA /* movingPlatforms.swift */,
 				D0B43F82FB8F178D8FCBAB9E /* NoOutOfBounds.swift */,
+				A8136A5C1C11498E0090182E /* Blurry.swift */,
 			);
 			name = Items;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				02C5DC801BDD572D0003862D /* PodDrop.swift in Sources */,
 				14AEA47F1BFD951C00005DBB /* Scrollable.swift in Sources */,
 				14AEA47D1BFD8FC100005DBB /* ScrollHandler.swift in Sources */,
+				A8136A5D1C11498E0090182E /* Blurry.swift in Sources */,
 				A8D9E3651BBCA958005B2719 /* AppDelegate.swift in Sources */,
 				020FEA811BD2CE3000B97B00 /* Boundary.swift in Sources */,
 				0240AC111C113E0B00B15D40 /* ScoreCell.swift in Sources */,
