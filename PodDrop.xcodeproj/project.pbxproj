@@ -25,6 +25,7 @@
 		14DAD8DB1BFBFDF3001B75C9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DAD8DA1BFBFDF3001B75C9 /* Constants.swift */; };
 		14DAD8DD1BFC01C5001B75C9 /* ItemQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DAD8DC1BFC01C5001B75C9 /* ItemQueue.swift */; };
 		3DE74FCA3B8DA7DBA649534F /* Pods_PodDrop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A030677AE56EBDA2541379A2 /* Pods_PodDrop.framework */; };
+		A8136A5B1C112A7D0090182E /* Invincibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8136A5A1C112A7D0090182E /* Invincibility.swift */; };
 		A8D9E3651BBCA958005B2719 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D9E3641BBCA958005B2719 /* AppDelegate.swift */; };
 		A8D9E3691BBCA958005B2719 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D9E3681BBCA958005B2719 /* GameViewController.swift */; };
 		A8D9E36C1BBCA958005B2719 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8D9E36A1BBCA958005B2719 /* Main.storyboard */; };
@@ -67,6 +68,7 @@
 		60545A70550E2F0DC0555D2D /* Pods-PodDropTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodDropTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PodDropTests/Pods-PodDropTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9D2322ED1718658B8BC6F34A /* Pods-PodDrop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodDrop.release.xcconfig"; path = "Pods/Target Support Files/Pods-PodDrop/Pods-PodDrop.release.xcconfig"; sourceTree = "<group>"; };
 		A030677AE56EBDA2541379A2 /* Pods_PodDrop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PodDrop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8136A5A1C112A7D0090182E /* Invincibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Invincibility.swift; sourceTree = "<group>"; };
 		A8D07A061BF7ABB100C40A28 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		A8D9E3611BBCA958005B2719 /* PodDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PodDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8D9E3641BBCA958005B2719 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 		D0B434B577BF8B84A8A2C1FF /* Items */ = {
 			isa = PBXGroup;
 			children = (
+				A8136A5A1C112A7D0090182E /* Invincibility.swift */,
 				D0B43BD8C61EAC2D53B54771 /* XYReversal.swift */,
 				D0B43F9A5679A9800CB6DEBA /* movingPlatforms.swift */,
 			);
@@ -436,6 +439,7 @@
 				14AEA48A1BFEAD4E00005DBB /* GameOverScene.swift in Sources */,
 				14AEA4811BFE939A00005DBB /* RegistrationViewController.swift in Sources */,
 				02C5DC7C1BDD4F020003862D /* Pod.swift in Sources */,
+				A8136A5B1C112A7D0090182E /* Invincibility.swift in Sources */,
 				02C5DC801BDD572D0003862D /* PodDrop.swift in Sources */,
 				14AEA47F1BFD951C00005DBB /* Scrollable.swift in Sources */,
 				14AEA47D1BFD8FC100005DBB /* ScrollHandler.swift in Sources */,

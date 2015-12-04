@@ -38,5 +38,6 @@ class Item:Scrollable{
     func use(){
         self.pod.removeItem(self)
     }
-
+    
+    func end(){}
 }

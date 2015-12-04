@@ -17,7 +17,8 @@ class XYReversal: Item {
         
     }
     
-    override func touchedBy(pod: Pod) {
+    override func touchedBy(pod: Pod)
+    {
         self.use();
     }
     
@@ -27,10 +28,9 @@ class XYReversal: Item {
         
         performSelector("end", withObject: nil, afterDelay: 2)
         
-        
     }
     
-    func end(){
+    override func end(){
         self.myGameScene.consumedReversal = false;
         print("reverse end")
     }
