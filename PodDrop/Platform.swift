@@ -20,6 +20,7 @@ class Platform: Scrollable {
     var max:CGFloat
     var scored:Bool!
     var blurNode : SKEffectNode!
+    var toMove:CGFloat!
 
     override init(texture: SKTexture?, color: UIColor, size: CGSize, position: CGPoint, scrollSpeed: CGFloat) {
         
@@ -83,10 +84,24 @@ class Platform: Scrollable {
         self.scored = false;
 
 
+        setToMove();
+
+
+    }
+    func setToMove(){
+        let rando = arc4random_uniform(2);
+        self.toMove = 5
+        if (rando == 1) {
+            self.toMove = -5;
+        }
     }
     
     override func reset(newY: CGFloat) {
         super.reset(newY);
+
+        if(shouldMoveLeftRight) {
+            setToMove()
+        }
         
         self.scored = false;
 
@@ -99,6 +114,16 @@ class Platform: Scrollable {
         self.rightPlatform.position.x = center + self.size.width / 2 + Platform.HORIZONTAL_GAP / 2;
         
         
+    }
+
+    override func moveLeftRight(){
+        if( self.position.x > self.size.width - center - Platform.HORIZONTAL_GAP / 2){
+             self.toMove = -5;
+        } else if ( self.position.x < 0 - center + Platform.HORIZONTAL_GAP / 2){
+            self.toMove = 5;
+        }
+
+        self.position.x += self.toMove;
     }
 
 

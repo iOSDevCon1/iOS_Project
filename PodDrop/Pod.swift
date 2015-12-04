@@ -11,6 +11,7 @@ import SpriteKit
 
 class Pod: SKSpriteNode {
     let items:ItemQueue = ItemQueue();
+    var invinsible:Bool!
     
 
     init(imageName: String, size:CGSize) {
@@ -23,6 +24,8 @@ class Pod: SKSpriteNode {
         //self.physicsBody?.linearDamping = 0;
         self.physicsBody?.friction = 1;
         self.physicsBody?.restitution = 0;
+
+        self.invinsible = false;
 
     }
     

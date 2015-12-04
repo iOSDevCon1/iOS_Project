@@ -13,14 +13,15 @@ class Scrollable:SKSpriteNode {
 
     var velocity:CGFloat;
     var isScrolledUp:Bool;
+    var shouldMoveLeftRight:Bool;
    
     init(texture: SKTexture?, color: UIColor, size: CGSize, position:CGPoint, scrollSpeed:CGFloat) {
         
-        self.velocity = scrollSpeed;
-        self.isScrolledUp = false;
-        super.init(texture: texture, color: color, size: size);
-        self.position = position;
-        
+        self.velocity = scrollSpeed
+        self.isScrolledUp = false
+        self.shouldMoveLeftRight = false
+        super.init(texture: texture, color: color, size: size)
+        self.position = position
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -34,7 +35,13 @@ class Scrollable:SKSpriteNode {
         if(position.y-size.height > self.scene?.size.height){
             self.isScrolledUp = true;
         }
-    
+        if(shouldMoveLeftRight) {
+            moveLeftRight();
+        }
+    }
+
+    func moveLeftRight(){
+
     }
     
     func reset(newY:CGFloat){
