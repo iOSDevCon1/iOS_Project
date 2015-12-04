@@ -14,7 +14,7 @@ class ScrollHandler {
     private var items=[Item]();
     private var gameScene: GameScene;
 
-    static let SCROLL_SPEED:CGFloat = 5;
+    var SCROLL_SPEED:CGFloat = 5;
     static let NUMBER_OF_PLATFORMS = 4; //MIN 1
     let SCROLLABLE_GAP:CGFloat;
     
@@ -28,7 +28,7 @@ class ScrollHandler {
             color:UIColor.whiteColor(),
             size: CGSize(width: canvasSize.width, height: canvasSize.height/32),
             position:CGPoint(x: canvasSize.width/2,y: 0),
-            scrollSpeed:ScrollHandler.SCROLL_SPEED
+            scrollSpeed:self.SCROLL_SPEED
         ));
         
         self.platforms[0].position.y += 200;
@@ -45,7 +45,7 @@ class ScrollHandler {
                         x: canvasSize.width/2,
                         y: platforms[i-1].getTailY()-SCROLLABLE_GAP
                     ),
-                    scrollSpeed:ScrollHandler.SCROLL_SPEED
+                    scrollSpeed:self.SCROLL_SPEED
                 )
             );
             self.gameScene.addChild(platforms[i]);
@@ -65,7 +65,7 @@ class ScrollHandler {
         items.append(XYReversal(
                 size: itemSz,
                 position: itemPos,
-                scrollSpeed: ScrollHandler.SCROLL_SPEED,
+                scrollSpeed: self.SCROLL_SPEED,
                 gameScene: self.gameScene )
         )
 
@@ -75,20 +75,21 @@ class ScrollHandler {
     func update(currentTime: CFTimeInterval){
 
         for item:Scrollable in items {
-            item.update(currentTime);
+            item.update(currentTime,newScrollSpeed: self.SCROLL_SPEED);
             if(item.isScrolledUp){
                 item.removeFromParent();
             }
         }
         
         for platform:Scrollable in platforms {
-            platform.update(currentTime);
+            platform.update(currentTime, newScrollSpeed: self.SCROLL_SPEED);
         }
         
         if(platforms[0].isScrolledUp){
             platforms[0].reset(
                 platforms[platforms.endIndex-1].getTailY() - SCROLLABLE_GAP
             );
+            self.SCROLL_SPEED = self.SCROLL_SPEED + 5
             addItem(platforms[0].getTailY() - SCROLLABLE_GAP / 2);
         }
         
