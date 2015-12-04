@@ -49,7 +49,7 @@ class Platform: Scrollable {
         blurNode = SKEffectNode()
         blurNode.shouldEnableEffects = true
         let blur = CIFilter(name: "CIGaussianBlur", withInputParameters: ["inputRadius": 25.0])
-        blurNode.filter = blur
+        //blurNode.filter = blur
     
         blurNode.addChild(leftPlatform);
         blurNode.addChild(rightPlatform);
