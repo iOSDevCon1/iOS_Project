@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="iLd-IK-MVn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="iLd-IK-MVn">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -230,7 +230,7 @@
         <!--Leaderboard View Controller-->
         <scene sceneID="7RD-cu-mfH">
             <objects>
-                <viewController id="h4D-1j-3sg" customClass="leaderboardViewController" customModule="PodDrop" sceneMemberID="viewController">
+                <viewController id="h4D-1j-3sg" customClass="LeaderboardViewController" customModule="PodDrop" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XbL-OR-Jnf"/>
                         <viewControllerLayoutGuide type="bottom" id="iaQ-OP-vcn"/>
@@ -258,12 +258,56 @@
                                     <segue destination="iLd-IK-MVn" kind="show" id="mvz-AP-hKh"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pn2-i1-LeD">
+                                <rect key="frame" x="145" y="105" width="311" height="222"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="xAh-oi-4HT" customClass="ScoreCell" customModule="PodDrop" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="311" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xAh-oi-4HT" id="z6j-zD-YUj">
+                                            <rect key="frame" x="0.0" y="0.0" width="311" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUZ-Nx-Kvd">
+                                                    <rect key="frame" x="8" y="11" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wuu-U5-EH7">
+                                                    <rect key="frame" x="261" y="11" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="wuu-U5-EH7" secondAttribute="trailing" id="Doa-9Y-VvT"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="yUZ-Nx-Kvd" secondAttribute="leading" id="vV1-ds-mz5"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="score_label" destination="wuu-U5-EH7" id="RJh-Gz-av8"/>
+                                            <outlet property="username_label" destination="yUZ-Nx-Kvd" id="oTu-EQ-K3L"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="h4D-1j-3sg" id="Ys8-qS-Y9a"/>
+                                    <outlet property="delegate" destination="h4D-1j-3sg" id="H6y-KR-GmQ"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="TCz-yB-70r" firstAttribute="top" secondItem="HHN-bt-ze0" secondAttribute="bottom" constant="-82" id="J2P-J0-sqw"/>
                             <constraint firstItem="HHN-bt-ze0" firstAttribute="centerX" secondItem="kCC-dy-Cvo" secondAttribute="centerX" id="Jab-YM-Agd"/>
                             <constraint firstItem="TCz-yB-70r" firstAttribute="top" secondItem="kCC-dy-Cvo" secondAttribute="topMargin" id="Lmd-SL-FoM"/>
+                            <constraint firstItem="pn2-i1-LeD" firstAttribute="top" secondItem="HHN-bt-ze0" secondAttribute="bottom" constant="24" id="P38-Dq-ZrK"/>
+                            <constraint firstItem="pn2-i1-LeD" firstAttribute="centerX" secondItem="kCC-dy-Cvo" secondAttribute="centerX" id="QW8-Nk-6jU"/>
                             <constraint firstItem="TCz-yB-70r" firstAttribute="top" secondItem="8lw-Qy-0yP" secondAttribute="bottom" constant="-78" id="SSt-Cx-gPW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TCz-yB-70r" secondAttribute="trailing" constant="-20" id="VED-mw-zbI"/>
                             <constraint firstItem="TCz-yB-70r" firstAttribute="leading" secondItem="8lw-Qy-0yP" secondAttribute="trailing" constant="-62" id="b3E-jQ-0UM"/>
@@ -271,6 +315,9 @@
                             <constraint firstItem="iaQ-OP-vcn" firstAttribute="top" secondItem="TCz-yB-70r" secondAttribute="bottom" id="l8G-zy-kvW"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="scoreTable" destination="pn2-i1-LeD" id="Yw9-WG-5ZW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rvA-ba-r59" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

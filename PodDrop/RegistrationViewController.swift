@@ -34,6 +34,7 @@ class RegistrationViewController: UIViewController{
             user.username = username_field.text
             user.password = password_field.text
             user.email = email_field.text
+            user["highScore"] = 0
             
             print("Saving user...");
             

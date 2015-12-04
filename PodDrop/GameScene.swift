@@ -9,6 +9,7 @@
 import Foundation
 import SpriteKit
 import CoreMotion
+import Parse
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
@@ -205,8 +206,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
 
             self.motionManager.stopAccelerometerUpdates()
-
-
+            
+            let this_user = PFUser.currentUser()
+            var user_high_score: Int
+            user_high_score = Int((this_user?.objectForKey("highScore"))! as! NSNumber)
+            if (self.score > user_high_score){
+                this_user?.setObject(self.score, forKey: "highScore")
+                this_user!.saveInBackgroundWithBlock {
+                    (success: Bool, error: NSError?) -> Void in
+                    if (success) {
+                        // The object has been saved.
+                        print("score has been saved")
+                    } else {
+                        // There was a problem, check error.description
+                        print("error saving score")
+                    }
+                }
+            }
+            
+            
             let gameOverScene: GameOverScene = GameOverScene(size: self.size)
             gameOverScene.game = self
             view!.presentScene(gameOverScene, transition: SKTransition.doorsOpenHorizontalWithDuration(1.0))
