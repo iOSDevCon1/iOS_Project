@@ -3,6 +3,8 @@
 // Copyright (c) 2015 iOSDevCon1. All rights reserved.
 //
 
+import SpriteKit
+
 class movingPlatforms: Item {
 
     init(size: CGSize, position:CGPoint, scrollSpeed:CGFloat, gameScene:GameScene) {
