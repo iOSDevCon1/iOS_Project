@@ -19,11 +19,14 @@ extension GameScene {
         
             
         case Category.pod | Category.boundary :
-
-            if contact.bodyA.categoryBitMask == Category.pod {
-                endGame();
-            } else {
-                endGame();            }
+            print(podInvinciable)
+            if(!podInvinciable){
+                if contact.bodyA.categoryBitMask == Category.pod {
+                    endGame();
+                } else {
+                    endGame();
+                }
+            }
             break;
             
         case Category.pod | Category.item :
