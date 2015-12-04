@@ -9,7 +9,7 @@ class ItemFactory {
 
     static func getRandom(size: CGSize, position:CGPoint, scrollSpeed:CGFloat, scroller:ScrollHandler) -> Item {
 
-        let randomInt = arc4random_uniform(9)
+        let randomInt = 0 //arc4random_uniform(9)
         //print(randomInt);
 
         switch randomInt{
@@ -23,13 +23,13 @@ class ItemFactory {
             return Invincibility(size: size, position:position, scrollSpeed:scrollSpeed, scroller:scroller);
         case 4:
             return Blurry(size: size, position:position, scrollSpeed:scrollSpeed, scroller:scroller);
-        case 6:
+        case 5:
             return SlowDown(size: size, position: position, scrollSpeed: scrollSpeed, scroller: scroller);
-        case 7:
+        case 6:
             return SpeedUp(size: size, position: position, scrollSpeed: scrollSpeed, scroller: scroller);
-        case 8:
+        case 7:
             return BreakThrough(size: size, position: position, scrollSpeed: scrollSpeed, scroller: scroller);
-        case 9:
+        case 8:
             return Multiply(size: size, position: position, scrollSpeed: scrollSpeed, scroller: scroller);
         default:
             return Invincibility(size: size, position:position, scrollSpeed:scrollSpeed, scroller:scroller);

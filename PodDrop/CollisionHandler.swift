@@ -16,26 +16,30 @@ extension GameScene {
         let contactMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         
         switch contactMask {
-        
-            
-        case (Category.pod | Category.boundary) :
-            //print(podInvinciable)
-            if(!podInvincible){
-                var pod:Pod!
-                if contact.bodyA.categoryBitMask == Category.pod {
-                    pod = contact.bodyA.node as! Pod;
 
-                } else {
-                    pod = contact.bodyB.node as! Pod;
 
-                }
+        case (Category.pod | Category.boundary):
+        //print(podInvinciable)
+
+        var pod:Pod!
+            if contact.bodyA.categoryBitMask == Category.pod {
+                pod = contact.bodyA.node as! Pod;
+
+            } else {
+                pod = contact.bodyB.node as! Pod;
+
+            }
+
+            if (!pod.invinsible) {
                 pod.removeFromParent()
                 pods.removeAtIndex(pods.indexOf(pod)!);
-
-                if(pods.isEmpty){
-                    endGame()
-                }
             }
+
+            if(pods.isEmpty){
+                endGame()
+            }
+
+
             break;
             
         case (Category.pod | Category.item) :

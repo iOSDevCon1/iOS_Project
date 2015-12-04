@@ -26,17 +26,23 @@ class Invincibility: Item {
     override func use() {
         super.use();
 
-        pod.invinsible = true;
+        for thisPod:Pod in myScroller.gameScene.pods{
+            thisPod.invinsible = true;
+        }
+
+
 
 
         myScroller.endAllItems()
-        performSelector("end", withObject: nil, afterDelay: 10)
+        performSelector("end", withObject: nil, afterDelay: 30)
 
     }
 
     override func end(){
 
-        pod.invinsible = false;
+        for thisPod:Pod in myScroller.gameScene.pods{
+            thisPod.invinsible = false;
+        }
 
         super.end();
     }
