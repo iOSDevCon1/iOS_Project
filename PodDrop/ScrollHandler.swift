@@ -14,7 +14,7 @@ class ScrollHandler {
     private var items=[Item]();
     private var gameScene: GameScene;
 
-    var SCROLL_SPEED:CGFloat = 5;
+    var SCROLL_SPEED:CGFloat = 2;
     static let NUMBER_OF_PLATFORMS = 4; //MIN 1
     let SCROLLABLE_GAP:CGFloat;
     

@@ -185,9 +185,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func processUserMotionForUpdate(currentTime: CFTimeInterval, reversal:Bool) {
         if let data = motionManager.accelerometerData {
             if(reversal){
-                 pod.physicsBody!.applyForce(CGVectorMake(-40.0*CGFloat(data.acceleration.x),0))
+                 pod.physicsBody!.applyForce(CGVectorMake(-80.0*CGFloat(data.acceleration.x),0))
             } else {
-                pod.physicsBody!.applyForce(CGVectorMake(40.0*CGFloat(data.acceleration.x),0))
+                pod.physicsBody!.applyForce(CGVectorMake(80.0*CGFloat(data.acceleration.x),0))
             }
         }
     }
