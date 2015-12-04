@@ -1,5 +1,5 @@
 //
-//  BreakThrough.swift
+//  Multiply.swift
 //  PodDrop
 //
 //  Created by Ari on 12/4/15.
@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-class BreakThrough: Item {
+class Multiply: Item {
     
     init(size: CGSize, position:CGPoint, scrollSpeed:CGFloat, scroller:ScrollHandler) {
         //let myTexture = SKTexture(imageNamed: "dragon_ball")
@@ -25,13 +25,10 @@ class BreakThrough: Item {
     
     override func use() {
         super.use();
-        pod.startBreakThrough()
-        performSelector("end", withObject: nil, afterDelay: 7)
-        
+        myScroller.gameScene.addPod(myScroller.gameScene.size)
     }
     
     override func end(){
-        pod.stopBreakThrough()
         super.end();
     }
     

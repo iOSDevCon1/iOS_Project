@@ -12,6 +12,7 @@
 		028407D61C11607600358038 /* SlowDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028407D51C11607600358038 /* SlowDown.swift */; settings = {ASSET_TAGS = (); }; };
 		028407D81C11642D00358038 /* SpeedUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028407D71C11642D00358038 /* SpeedUp.swift */; settings = {ASSET_TAGS = (); }; };
 		028407DA1C11657600358038 /* BreakThrough.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028407D91C11657600358038 /* BreakThrough.swift */; settings = {ASSET_TAGS = (); }; };
+		028407DC1C116FAF00358038 /* Multiply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028407DB1C116FAF00358038 /* Multiply.swift */; settings = {ASSET_TAGS = (); }; };
 		02B58A4B1BF7988000F30FD7 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B58A4A1BF7988000F30FD7 /* MainMenuViewController.swift */; };
 		02B58A4D1BF7A8DB00F30FD7 /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B58A4C1BF7A8DB00F30FD7 /* LeaderboardViewController.swift */; };
 		02B58A4F1BF7AB0300F30FD7 /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B58A4E1BF7AB0300F30FD7 /* InstructionsViewController.swift */; };
@@ -59,6 +60,7 @@
 		028407D51C11607600358038 /* SlowDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlowDown.swift; sourceTree = "<group>"; };
 		028407D71C11642D00358038 /* SpeedUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedUp.swift; sourceTree = "<group>"; };
 		028407D91C11657600358038 /* BreakThrough.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakThrough.swift; sourceTree = "<group>"; };
+		028407DB1C116FAF00358038 /* Multiply.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Multiply.swift; sourceTree = "<group>"; };
 		02B58A4A1BF7988000F30FD7 /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		02B58A4C1BF7A8DB00F30FD7 /* LeaderboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
 		02B58A4E1BF7AB0300F30FD7 /* InstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				A8136A5C1C11498E0090182E /* Blurry.swift */,
 				028407D71C11642D00358038 /* SpeedUp.swift */,
 				028407D91C11657600358038 /* BreakThrough.swift */,
+				028407DB1C116FAF00358038 /* Multiply.swift */,
 			);
 			name = Items;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				0240AC111C113E0B00B15D40 /* ScoreCell.swift in Sources */,
 				14DAD8D91BF7A574001B75C9 /* Item.swift in Sources */,
 				14DAD8DB1BFBFDF3001B75C9 /* Constants.swift in Sources */,
+				028407DC1C116FAF00358038 /* Multiply.swift in Sources */,
 				D0B4321311FF73211684B505 /* XYReversal.swift in Sources */,
 				D0B43EBEA3F7320CC9E8A14B /* MovingPlatforms.swift in Sources */,
 				D0B4331603DA1339B1835037 /* NoOutOfBounds.swift in Sources */,

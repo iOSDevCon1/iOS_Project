@@ -31,7 +31,6 @@ class SpeedUp: Item {
     }
     
     override func end(){
-        myScroller.gameScene.podInvincible = false
         super.end();
     }
     

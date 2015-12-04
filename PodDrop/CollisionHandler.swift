@@ -21,10 +21,19 @@ extension GameScene {
         case (Category.pod | Category.boundary) :
             //print(podInvinciable)
             if(!podInvincible){
+                var pod:Pod!
                 if contact.bodyA.categoryBitMask == Category.pod {
-                    endGame();
+                    pod = contact.bodyA.node as! Pod;
+                    
                 } else {
-                    endGame();
+                    pod = contact.bodyB.node as! Pod;
+                    
+                }
+                pod.removeFromParent()
+                pods.removeAtIndex(pods.indexOf(pod)!);
+                
+                if(pods.isEmpty){
+                    endGame()
                 }
             }
             break;
