@@ -109,6 +109,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    // Helper method for the BreakThrough item
+//    func podBreakThrough(){
+//        if let thisPod = pod{
+//            let physics = thisPod.physicsBody
+//            thisPod.physicsBody = nil
+//            //thisPod.position = CGPoint(x: thisPod.position.x, y: 50)
+//            thisPod.physicsBody = physics
+//        }
+//    }
+    
+    
     // Transition handler for 'moving touches' on the screen
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         var diff: CGFloat!

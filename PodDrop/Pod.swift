@@ -11,7 +11,6 @@ import SpriteKit
 
 class Pod: SKSpriteNode {
     let items:ItemQueue = ItemQueue();
-    
 
     init(imageName: String, size:CGSize) {
         super.init(texture: SKTexture(imageNamed: imageName), color: UIColor.clearColor(), size: size)
@@ -44,6 +43,14 @@ class Pod: SKSpriteNode {
             items.peek()!.use()
         }
         
+    }
+    
+    func startBreakThrough(){
+        self.physicsBody?.collisionBitMask = Category.boundary | Category.obstacle;
+    }
+    
+    func stopBreakThrough(){
+        self.physicsBody?.collisionBitMask = Category.boundary | Category.platform | Category.obstacle;
     }
 
     func removeItem(itemToRemove: Item){

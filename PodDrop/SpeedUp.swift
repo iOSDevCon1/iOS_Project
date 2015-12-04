@@ -1,5 +1,5 @@
 //
-//  SlowDown.swift
+//  SpeedUp.swift
 //  PodDrop
 //
 //  Created by Ari on 12/4/15.
@@ -9,13 +9,13 @@
 import Foundation
 import SpriteKit
 
-class SlowDown: Item {
+class SpeedUp: Item {
     
     init(size: CGSize, position:CGPoint, scrollSpeed:CGFloat, scroller:ScrollHandler) {
         //let myTexture = SKTexture(imageNamed: "dragon_ball")
-        super.init(texture: nil, color: UIColor.redColor(), size: size, position: position, scrollSpeed: scrollSpeed, scroller: scroller);
+        super.init(texture: nil, color: UIColor.blueColor(), size: size, position: position, scrollSpeed: scrollSpeed, scroller: scroller);
         
-        self.name = "Slow Down"
+        self.name = "SpeedUp"
     }
     
     override func touchedBy(pod: Pod) {
@@ -25,7 +25,7 @@ class SlowDown: Item {
     
     override func use() {
         super.use();
-        myScroller.SCROLL_SPEED = myScroller.SCROLL_SPEED * 0.80
+        myScroller.SCROLL_SPEED = myScroller.SCROLL_SPEED * 1.20
         myScroller.endAllItems()
         
     }
