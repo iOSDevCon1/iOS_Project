@@ -64,6 +64,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         self.scroller = ScrollHandler(gameScene: self);
         addPod(size)
+        
+        let highScore = SKLabelNode(fontNamed: "Courier")
+        highScore.fontSize = 40
+        highScore.fontColor = SKColor.whiteColor()
+        let user_high_score = PFUser.currentUser()?.objectForKey("highScore") as! Int
+        highScore.text = "High Score:\( user_high_score )"
+        highScore.position = CGPointMake(size.width/4, 8.0 / 10.0 * size.height);
     }
 
 
@@ -206,23 +213,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
 
             self.motionManager.stopAccelerometerUpdates()
-            
-            let this_user = PFUser.currentUser()
-            var user_high_score: Int
-            user_high_score = Int((this_user?.objectForKey("highScore"))! as! NSNumber)
-            if (self.score > user_high_score){
-                this_user?.setObject(self.score, forKey: "highScore")
-                this_user!.saveInBackgroundWithBlock {
-                    (success: Bool, error: NSError?) -> Void in
-                    if (success) {
-                        // The object has been saved.
-                        print("score has been saved")
-                    } else {
-                        // There was a problem, check error.description
-                        print("error saving score")
-                    }
-                }
-            }
             
             
             let gameOverScene: GameOverScene = GameOverScene(size: self.size)
