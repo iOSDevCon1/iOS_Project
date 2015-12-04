@@ -32,6 +32,7 @@
 		A8D9E3711BBCA958005B2719 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8D9E36F1BBCA958005B2719 /* LaunchScreen.storyboard */; };
 		A8D9E37C1BBCA958005B2719 /* PodDropTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D9E37B1BBCA958005B2719 /* PodDropTests.swift */; };
 		D0B4321311FF73211684B505 /* XYReversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B43BD8C61EAC2D53B54771 /* XYReversal.swift */; };
+		D0B4331603DA1339B1835037 /* NoOutOfBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B43F82FB8F178D8FCBAB9E /* NoOutOfBounds.swift */; };
 		D0B43EBEA3F7320CC9E8A14B /* movingPlatforms.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B43F9A5679A9800CB6DEBA /* movingPlatforms.swift */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,7 @@
 		A8D9E37D1BBCA958005B2719 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5D202FEAF54B6613D562E86 /* Pods-PodDrop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodDrop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PodDrop/Pods-PodDrop.debug.xcconfig"; sourceTree = "<group>"; };
 		D0B43BD8C61EAC2D53B54771 /* XYReversal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XYReversal.swift; sourceTree = "<group>"; };
+		D0B43F82FB8F178D8FCBAB9E /* NoOutOfBounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoOutOfBounds.swift; sourceTree = "<group>"; };
 		D0B43F9A5679A9800CB6DEBA /* movingPlatforms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = movingPlatforms.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -220,6 +222,7 @@
 			children = (
 				D0B43BD8C61EAC2D53B54771 /* XYReversal.swift */,
 				D0B43F9A5679A9800CB6DEBA /* movingPlatforms.swift */,
+				D0B43F82FB8F178D8FCBAB9E /* NoOutOfBounds.swift */,
 			);
 			name = Items;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				14DAD8DB1BFBFDF3001B75C9 /* Constants.swift in Sources */,
 				D0B4321311FF73211684B505 /* XYReversal.swift in Sources */,
 				D0B43EBEA3F7320CC9E8A14B /* movingPlatforms.swift in Sources */,
+				D0B4331603DA1339B1835037 /* NoOutOfBounds.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
