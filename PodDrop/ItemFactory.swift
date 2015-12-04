@@ -9,7 +9,7 @@ class ItemFactory {
 
     static func getRandom(size: CGSize, position:CGPoint, scrollSpeed:CGFloat, scroller:ScrollHandler) -> Item {
 
-        let randomInt = 0 //arc4random_uniform(9)
+        let randomInt = arc4random_uniform(9)
         //print(randomInt);
 
         switch randomInt{
