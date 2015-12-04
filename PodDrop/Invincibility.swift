@@ -12,8 +12,8 @@ import SpriteKit
 class Invincibility: Item {
 
         init(size: CGSize, position:CGPoint, scrollSpeed:CGFloat, gameScene:GameScene) {
-            let myTexture = SKTexture(imageNamed: "dragon_ball")
-            super.init(texture: myTexture, color: UIColor.blackColor(), size: size, position: position, scrollSpeed: scrollSpeed, gameScene: gameScene);
+            //let myTexture = SKTexture(imageNamed: "dragon_ball")
+            super.init(texture: nil, color: UIColor.yellowColor(), size: size, position: position, scrollSpeed: scrollSpeed, gameScene: gameScene);
         }
         
         override func touchedBy(pod: Pod) {

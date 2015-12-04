@@ -19,7 +19,7 @@ extension GameScene {
         
             
         case Category.pod | Category.boundary :
-            print(podInvinciable)
+            //print(podInvinciable)
             if(!podInvinciable){
                 if contact.bodyA.categoryBitMask == Category.pod {
                     endGame();
@@ -30,8 +30,8 @@ extension GameScene {
             break;
             
         case Category.pod | Category.item :
-            var pod:Pod;
-            var item:Item;
+            var pod:Pod!;
+            var item:Item!;
             if contact.bodyA.categoryBitMask == Category.pod {
                 pod = contact.bodyA.node as! Pod;
                 item = contact.bodyB.node as! Item;
@@ -44,6 +44,8 @@ extension GameScene {
             pod.touchItem(item);
             item.removeFromParent();
             break;
+            
+    
             
         default:
             break;

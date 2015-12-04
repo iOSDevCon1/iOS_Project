@@ -59,21 +59,20 @@ class ScrollHandler {
 
 
         //adding ball to view
-        let itemPos = CGPoint(x: 100, y:newY);
-        let itemSz = CGSize(width: self.gameScene.size.height/18, height: self.gameScene.size.height/18)
 
-        items.append(XYReversal(
-                size: itemSz,
+        let itemSz = CGSize(width: self.gameScene.size.width/18, height: self.gameScene.size.height/18)
+
+        let randX = CGFloat(arc4random_uniform( UInt32(gameScene.size.width - itemSz.width * 2) ) ) + itemSz.width;
+
+        let itemPos = CGPoint(x: randX, y:newY);
+
+        items.append(
+            ItemFactory.getRandom(
+                itemSz,
                 position: itemPos,
                 scrollSpeed: self.SCROLL_SPEED,
-                gameScene: self.gameScene )
-        )
-        
-        items.append(Invincibility(
-            size: itemSz,
-            position: itemPos,
-            scrollSpeed: self.SCROLL_SPEED,
-            gameScene: self.gameScene )
+                gameScene: self.gameScene
+            )
         )
 
         self.gameScene.addChild(items[items.endIndex-1]);
@@ -96,7 +95,11 @@ class ScrollHandler {
             platforms[0].reset(
                 platforms[platforms.endIndex-1].getTailY() - SCROLLABLE_GAP
             );
-            self.SCROLL_SPEED = self.SCROLL_SPEED + 1
+            
+            self.increaseSpeedBy(0.2);
+            self.gameScene.score += 5;
+            self.gameScene.setScoreBoard(String(self.gameScene.score))
+            
             addItem(platforms[0].getTailY() - SCROLLABLE_GAP / 2);
         }
         
@@ -105,11 +108,21 @@ class ScrollHandler {
                 platforms[i].reset(
                     platforms[i-1].getTailY() - SCROLLABLE_GAP
                 );
-                self.gameScene.score += 5
+                
+                self.increaseSpeedBy(0.2);
+                self.gameScene.score += 5;
                 self.gameScene.setScoreBoard(String(self.gameScene.score))
             }
         }
         
+    }
+
+    func increaseSpeedBy( delta: CGFloat){
+        self.SCROLL_SPEED = self.SCROLL_SPEED + delta
+    }
+
+    func setSpeed( speed: CGFloat){
+        self.SCROLL_SPEED = speed
     }
     
     func stop(){

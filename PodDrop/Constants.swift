@@ -17,5 +17,6 @@ struct Category {
     static let boundary:        UInt32 = 1 << 3
     static let item:            UInt32 = 1 << 4
     static let invinsiblePod:   UInt32 = 1 << 5
+    static let centerPlatform:  UInt32 = 1 << 6
 }
 

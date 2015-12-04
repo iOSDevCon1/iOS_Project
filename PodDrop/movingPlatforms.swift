@@ -6,11 +6,11 @@
 import Foundation
 import SpriteKit
 
-class movingPlatforms: Item {
+class MovingPlatforms: Item {
 
     init(size: CGSize, position:CGPoint, scrollSpeed:CGFloat, gameScene:GameScene) {
-        let myTexture = SKTexture(imageNamed: "xyReversal")
-        super.init(texture: myTexture, color: UIColor.blackColor(), size: size, position: position, scrollSpeed: scrollSpeed, gameScene: gameScene);
+        //let myTexture = SKTexture(imageNamed: "xyReversal")
+        super.init(texture: nil, color: UIColor.whiteColor(), size: size, position: position, scrollSpeed: scrollSpeed, gameScene: gameScene);
 
     }
 
@@ -22,8 +22,6 @@ class movingPlatforms: Item {
         print("movingPlatforms")
 
         performSelector("end", withObject: nil, afterDelay: 2)
-
-
     }
 
     required init?(coder aDecoder: NSCoder) {

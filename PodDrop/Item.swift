@@ -16,7 +16,7 @@ class Item:Scrollable{
     
     init(texture: SKTexture?, color: UIColor, size: CGSize, position:CGPoint, scrollSpeed:CGFloat, gameScene:GameScene) {
         super.init(texture: texture, color: color, size: size, position: position, scrollSpeed: scrollSpeed);
-        
+
         self.myGameScene = gameScene
         let radius = self.size.width/2;
         self.physicsBody = SKPhysicsBody(circleOfRadius: radius)

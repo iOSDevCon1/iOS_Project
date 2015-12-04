@@ -34,7 +34,8 @@
 		A8D9E37C1BBCA958005B2719 /* PodDropTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D9E37B1BBCA958005B2719 /* PodDropTests.swift */; };
 		D0B4321311FF73211684B505 /* XYReversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B43BD8C61EAC2D53B54771 /* XYReversal.swift */; };
 		D0B4331603DA1339B1835037 /* NoOutOfBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B43F82FB8F178D8FCBAB9E /* NoOutOfBounds.swift */; };
-		D0B43EBEA3F7320CC9E8A14B /* movingPlatforms.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B43F9A5679A9800CB6DEBA /* movingPlatforms.swift */; };
+		D0B43588AFF547409754AD88 /* ItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B43AD87630E2F0199D10A3 /* ItemFactory.swift */; };
+		D0B43EBEA3F7320CC9E8A14B /* MovingPlatforms.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B43F9A5679A9800CB6DEBA /* MovingPlatforms.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,9 +83,10 @@
 		A8D9E37B1BBCA958005B2719 /* PodDropTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodDropTests.swift; sourceTree = "<group>"; };
 		A8D9E37D1BBCA958005B2719 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5D202FEAF54B6613D562E86 /* Pods-PodDrop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodDrop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PodDrop/Pods-PodDrop.debug.xcconfig"; sourceTree = "<group>"; };
+		D0B43AD87630E2F0199D10A3 /* ItemFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemFactory.swift; sourceTree = "<group>"; };
 		D0B43BD8C61EAC2D53B54771 /* XYReversal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XYReversal.swift; sourceTree = "<group>"; };
 		D0B43F82FB8F178D8FCBAB9E /* NoOutOfBounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoOutOfBounds.swift; sourceTree = "<group>"; };
-		D0B43F9A5679A9800CB6DEBA /* movingPlatforms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = movingPlatforms.swift; sourceTree = "<group>"; };
+		D0B43F9A5679A9800CB6DEBA /* MovingPlatforms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovingPlatforms.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				14DAD8D81BF7A574001B75C9 /* Item.swift */,
 				020FEA801BD2CE3000B97B00 /* Boundary.swift */,
 				D0B434B577BF8B84A8A2C1FF /* Items */,
+				D0B43AD87630E2F0199D10A3 /* ItemFactory.swift */,
 			);
 			name = GameObjects;
 			sourceTree = "<group>";
@@ -224,7 +227,7 @@
 			children = (
 				A8136A5A1C112A7D0090182E /* Invincibility.swift */,
 				D0B43BD8C61EAC2D53B54771 /* XYReversal.swift */,
-				D0B43F9A5679A9800CB6DEBA /* movingPlatforms.swift */,
+				D0B43F9A5679A9800CB6DEBA /* MovingPlatforms.swift */,
 				D0B43F82FB8F178D8FCBAB9E /* NoOutOfBounds.swift */,
 			);
 			name = Items;
@@ -451,8 +454,9 @@
 				14DAD8D91BF7A574001B75C9 /* Item.swift in Sources */,
 				14DAD8DB1BFBFDF3001B75C9 /* Constants.swift in Sources */,
 				D0B4321311FF73211684B505 /* XYReversal.swift in Sources */,
-				D0B43EBEA3F7320CC9E8A14B /* movingPlatforms.swift in Sources */,
+				D0B43EBEA3F7320CC9E8A14B /* MovingPlatforms.swift in Sources */,
 				D0B4331603DA1339B1835037 /* NoOutOfBounds.swift in Sources */,
+				D0B43588AFF547409754AD88 /* ItemFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
