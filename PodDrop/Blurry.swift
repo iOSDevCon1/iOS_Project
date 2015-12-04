@@ -21,7 +21,7 @@ class Blurry: Item {
     }
     
     override func use() {
-        let platforms = myGameScene.scroller.platforms
+        let platforms = myScroller.platforms
 //        for platform:Platform in platforms {
 //            platform.blurNode.filter = CIFilter(name: "CIGaussianBlur", withInputParameters: ["inputRadius": 75.0])
 //        }
@@ -31,7 +31,7 @@ class Blurry: Item {
     }
     
     override func end(){
-        let platforms = myGameScene.scroller.platforms
+        let platforms = myScroller.platforms
 //        for platform:Platform in platforms {
 //            platform.blurNode.filter = CIFilter(name: "CIGaussianBlur", withInputParameters: ["inputRadius": 25.0])
 //        }
