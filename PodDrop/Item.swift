@@ -37,6 +37,7 @@ class Item:Scrollable{
         self.taken = true;
         self.pod = pod;
         pod.addItem(self);
+        myScroller.gameScene.itemLabel.text = self.name
     }
     
     func use(){
@@ -52,6 +53,7 @@ class Item:Scrollable{
         if let i = myScroller.items.indexOf(self){
             myScroller.items.removeAtIndex(i);
         }
+        myScroller.gameScene.itemLabel.text = nil
         
 
     }

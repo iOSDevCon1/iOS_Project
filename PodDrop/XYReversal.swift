@@ -12,7 +12,7 @@ import SpriteKit
 class XYReversal: Item {
     
     init(size: CGSize, position:CGPoint, scrollSpeed:CGFloat, scroller:ScrollHandler) {
-        let myTexture = SKTexture(imageNamed: "xyReversal")
+        let myTexture = SKTexture(imageNamed: "dragon_ball")
         super.init(texture: myTexture, color: UIColor.blackColor(), size: size, position: position, scrollSpeed: scrollSpeed, scroller: scroller);
         self.name = ("XYReversal")
         
@@ -28,7 +28,7 @@ class XYReversal: Item {
         myScroller.gameScene.consumedReversal = true
 
         
-        performSelector("end", withObject: nil, afterDelay: 2)
+        performSelector("end", withObject: nil, afterDelay: 3)
         
     }
     

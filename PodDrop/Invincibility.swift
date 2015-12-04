@@ -12,8 +12,8 @@ import SpriteKit
 class Invincibility: Item {
 
         init(size: CGSize, position:CGPoint, scrollSpeed:CGFloat, scroller:ScrollHandler) {
-            //let myTexture = SKTexture(imageNamed: "dragon_ball")
-            super.init(texture: nil, color: UIColor.yellowColor(), size: size, position: position, scrollSpeed: scrollSpeed, scroller: scroller);
+            let myTexture = SKTexture(imageNamed: "dragon_ball")
+            super.init(texture: myTexture, color: UIColor.blackColor(), size: size, position: position, scrollSpeed: scrollSpeed, scroller: scroller);
 
             self.name = "Invincibility"
         }

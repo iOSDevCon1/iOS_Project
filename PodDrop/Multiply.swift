@@ -12,10 +12,10 @@ import SpriteKit
 class Multiply: Item {
     
     init(size: CGSize, position:CGPoint, scrollSpeed:CGFloat, scroller:ScrollHandler) {
-        //let myTexture = SKTexture(imageNamed: "dragon_ball")
-        super.init(texture: nil, color: UIColor.redColor(), size: size, position: position, scrollSpeed: scrollSpeed, scroller: scroller);
+        let myTexture = SKTexture(imageNamed: "dragon_ball")
+        super.init(texture: myTexture, color: UIColor.redColor(), size: size, position: position, scrollSpeed: scrollSpeed, scroller: scroller);
         
-        self.name = "Break Through"
+        self.name = "Multiply"
     }
     
     override func touchedBy(pod: Pod) {
@@ -26,6 +26,7 @@ class Multiply: Item {
     override func use() {
         super.use();
         myScroller.gameScene.addPod(myScroller.gameScene.size)
+        performSelector("end", withObject: nil, afterDelay: 3)
     }
     
     override func end(){

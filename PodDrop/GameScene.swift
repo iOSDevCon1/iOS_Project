@@ -12,7 +12,7 @@ import CoreMotion
 import Parse
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
-    
+    var viewController: GameViewController!
     
     // Gravity
     static let GRAVITY:CGFloat = -1;
@@ -24,6 +24,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     //var scoreLabel = UILabel(frame: CGRectMake(0, 0, 200, 21))
     var score = 0
     var scoreLabel = SKLabelNode(text: String(0))
+    var itemLabel = SKLabelNode(text: nil)
     
     var background: SKSpriteNode!
     var pods = [Pod]()
@@ -42,6 +43,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.fontSize = 60
         scoreLabel.position = CGPointMake(view.frame.size.width/2, view.frame.size.height-100)
         self.addChild(scoreLabel)
+        itemLabel.fontSize = 30
+        itemLabel.fontColor = UIColor.yellowColor()
+        itemLabel.position = CGPointMake(view.frame.size.width/5, view.frame.size.height-50)
+        self.addChild(itemLabel)
     }
     
     required init(coder aDecoder: NSCoder){
@@ -230,5 +235,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             gameOverScene.game = self
             view!.presentScene(gameOverScene, transition: SKTransition.doorsOpenHorizontalWithDuration(1.0))
         }
+    }
+    
+    func toMainMenu(){
+        self.viewController.performSegueWithIdentifier("gameToMainMenu", sender: self.viewController)
     }
 }

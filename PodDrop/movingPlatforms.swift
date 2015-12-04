@@ -9,9 +9,9 @@ import SpriteKit
 class MovingPlatforms: Item {
 
     init(size: CGSize, position:CGPoint, scrollSpeed:CGFloat, scroller:ScrollHandler) {
-        //let myTexture = SKTexture(imageNamed: "xyReversal")
-        super.init(texture: nil, color: UIColor.whiteColor(), size: size, position: position, scrollSpeed: scrollSpeed, scroller: scroller);
-        self.name = "MovingPlatforms"
+        let myTexture = SKTexture(imageNamed: "dragon_ball")
+        super.init(texture: myTexture, color: UIColor.whiteColor(), size: size, position: position, scrollSpeed: scrollSpeed, scroller: scroller);
+        self.name = "Moving Platforms"
 
     }
 
@@ -23,7 +23,7 @@ class MovingPlatforms: Item {
     override func use() {
         super.use();
 
-        performSelector("end", withObject: nil, afterDelay: 2)
+        performSelector("end", withObject: nil, afterDelay: 3)
     }
 
     required init?(coder aDecoder: NSCoder) {

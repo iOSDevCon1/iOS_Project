@@ -12,10 +12,10 @@ import SpriteKit
 class SpeedUp: Item {
     
     init(size: CGSize, position:CGPoint, scrollSpeed:CGFloat, scroller:ScrollHandler) {
-        //let myTexture = SKTexture(imageNamed: "dragon_ball")
-        super.init(texture: nil, color: UIColor.blueColor(), size: size, position: position, scrollSpeed: scrollSpeed, scroller: scroller);
+        let myTexture = SKTexture(imageNamed: "dragon_ball")
+        super.init(texture: myTexture, color: UIColor.blueColor(), size: size, position: position, scrollSpeed: scrollSpeed, scroller: scroller);
         
-        self.name = "SpeedUp"
+        self.name = "Speed Up"
     }
     
     override func touchedBy(pod: Pod) {
@@ -26,7 +26,7 @@ class SpeedUp: Item {
     override func use() {
         super.use();
         myScroller.SCROLL_SPEED = myScroller.SCROLL_SPEED * 1.20
-        myScroller.endAllItems()
+        performSelector("end", withObject: nil, afterDelay: 3)
         
     }
     

@@ -14,6 +14,7 @@ class Blurry: Item {
     init(size: CGSize, position:CGPoint, scrollSpeed:CGFloat, scroller:ScrollHandler) {
         let myTexture = SKTexture(imageNamed: "dragon_ball")
         super.init(texture: myTexture, color: UIColor.blackColor(), size: size, position: position, scrollSpeed: scrollSpeed, scroller: scroller);
+        self.name = "Blurry"
     }
     
     override func touchedBy(pod: Pod) {
@@ -26,7 +27,7 @@ class Blurry: Item {
 //            platform.blurNode.filter = CIFilter(name: "CIGaussianBlur", withInputParameters: ["inputRadius": 75.0])
 //        }
 
-        performSelector("end", withObject: nil, afterDelay: 30)
+        performSelector("end", withObject: nil, afterDelay: 20)
         
     }
     

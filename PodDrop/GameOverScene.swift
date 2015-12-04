@@ -26,6 +26,10 @@ class GameOverScene: SKScene {
             self.createContent()
             self.contentCreated = true
         }
+        let button = ExitSceneButton(fontNamed: "Courier")
+        button.userInteractionEnabled = true
+        button.position = CGPoint(x: view.frame.width/2,y: view.frame.height - 100)
+        self.addChild(button)
     }
     
     func createContent() {
@@ -95,7 +99,6 @@ class GameOverScene: SKScene {
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
         let gameScene = GameScene(size: self.size)
         gameScene.scaleMode = .AspectFill
         

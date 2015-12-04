@@ -20,6 +20,9 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="iLd-IK-MVn" kind="show" identifier="gameToMainMenu" id="yaZ-Gd-NIL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="3b7-zN-edg">
@@ -194,17 +197,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="milkyWay" translatesAutoresizingMaskIntoConstraints="NO" id="1cg-zc-o80">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="milkyWay" translatesAutoresizingMaskIntoConstraints="NO" id="1cg-zc-o80">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="XLS-RF-zgk"/>
+                                    <constraint firstAttribute="height" constant="600" id="bMo-LU-tea"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="INSTRUCTIONS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54e-xF-aBr">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="INSTRUCTIONS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54e-xF-aBr">
                                 <rect key="frame" x="232" y="28" width="136" height="39"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                 <color key="textColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAf-jW-d6d">
-                                <rect key="frame" x="26" y="30" width="78" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAf-jW-d6d">
+                                <rect key="frame" x="124" y="28" width="78" height="35"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                 <state key="normal" title="&lt;&lt; BACK">
                                     <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -213,14 +220,53 @@
                                     <segue destination="iLd-IK-MVn" kind="show" id="Zwl-pf-Jih"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tMk-Je-PmC">
+                                <rect key="frame" x="32" y="167" width="325" height="348"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zPY-a1-Qo7">
+                                        <rect key="frame" x="0.0" y="0.0" width="325" height="348"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yAM-jA-7dh">
+                                                <rect key="frame" x="0.0" y="0.0" width="325" height="348"/>
+                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.63" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="325" id="9uT-S4-2nt"/>
+                                                    <constraint firstAttribute="height" constant="348" id="uac-jd-BhS"/>
+                                                </constraints>
+                                                <string key="text">Your job is to guide the Saiyan pod through space!                                                                     You must pass through the approaching platforms without touching the left or right edges of the screen. 
+Don't fall too far behind and touch the top of the screen!
+The pod will accelerate over time and while on your journey, you will stumble upon Dragon Balls that will either help you or hurt you.
+Try to beat your high score and good luck!
+</string>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="54e-xF-aBr" firstAttribute="centerX" secondItem="yjy-2D-wHd" secondAttribute="centerX" id="8Nq-3S-hHd"/>
+                            <constraint firstItem="1cg-zc-o80" firstAttribute="centerY" secondItem="yjy-2D-wHd" secondAttribute="centerY" id="EK5-gz-gFx"/>
                             <constraint firstItem="1cg-zc-o80" firstAttribute="leading" secondItem="aAf-jW-d6d" secondAttribute="trailing" constant="-79" id="FNa-H4-oX9"/>
+                            <constraint firstItem="1cg-zc-o80" firstAttribute="centerX" secondItem="yjy-2D-wHd" secondAttribute="centerX" id="FZO-d7-6TZ"/>
                             <constraint firstItem="1cg-zc-o80" firstAttribute="top" secondItem="aAf-jW-d6d" secondAttribute="bottom" constant="-63" id="OaE-v2-zl9"/>
                             <constraint firstItem="1cg-zc-o80" firstAttribute="top" secondItem="54e-xF-aBr" secondAttribute="bottom" constant="-67" id="cw9-Na-ZuY"/>
+                            <constraint firstItem="1cg-zc-o80" firstAttribute="top" secondItem="54e-xF-aBr" secondAttribute="bottom" constant="-67" id="fTa-0l-Vbb"/>
+                            <constraint firstItem="54e-xF-aBr" firstAttribute="leading" secondItem="aAf-jW-d6d" secondAttribute="trailing" constant="30" id="nJc-Nz-HSS"/>
+                            <constraint firstItem="1cg-zc-o80" firstAttribute="top" secondItem="aAf-jW-d6d" secondAttribute="bottom" constant="-65" id="oXj-XJ-5dg"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="FNa-H4-oX9"/>
+                                <exclude reference="OaE-v2-zl9"/>
+                                <exclude reference="cw9-Na-ZuY"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zPt-aF-mXy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -239,9 +285,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="milkyWay" translatesAutoresizingMaskIntoConstraints="NO" id="TCz-yB-70r">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="LEADERBOARD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHN-bt-ze0">
                                 <rect key="frame" x="232" y="43" width="136" height="39"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
@@ -302,6 +345,9 @@
                                     <outlet property="delegate" destination="h4D-1j-3sg" id="H6y-KR-GmQ"/>
                                 </connections>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="milkyWay" translatesAutoresizingMaskIntoConstraints="NO" id="TCz-yB-70r">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -462,7 +508,7 @@
         <image name="milkyWay" width="1200" height="1920"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mvz-AP-hKh"/>
-        <segue reference="uAo-wK-xcR"/>
+        <segue reference="T5L-y0-n3N"/>
+        <segue reference="Zwl-pf-Jih"/>
     </inferredMetricsTieBreakers>
 </document>
