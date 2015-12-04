@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		020FEA811BD2CE3000B97B00 /* Boundary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020FEA801BD2CE3000B97B00 /* Boundary.swift */; };
+		0240AC111C113E0B00B15D40 /* ScoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0240AC101C113E0B00B15D40 /* ScoreCell.swift */; settings = {ASSET_TAGS = (); }; };
 		02B58A4B1BF7988000F30FD7 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B58A4A1BF7988000F30FD7 /* MainMenuViewController.swift */; };
 		02B58A4D1BF7A8DB00F30FD7 /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B58A4C1BF7A8DB00F30FD7 /* LeaderboardViewController.swift */; };
 		02B58A4F1BF7AB0300F30FD7 /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B58A4E1BF7AB0300F30FD7 /* InstructionsViewController.swift */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		020FEA801BD2CE3000B97B00 /* Boundary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Boundary.swift; sourceTree = "<group>"; };
+		0240AC101C113E0B00B15D40 /* ScoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCell.swift; sourceTree = "<group>"; };
 		02B58A4A1BF7988000F30FD7 /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		02B58A4C1BF7A8DB00F30FD7 /* LeaderboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
 		02B58A4E1BF7AB0300F30FD7 /* InstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				14AEA4891BFEAD4E00005DBB /* GameOverScene.swift */,
 				02B58A4E1BF7AB0300F30FD7 /* InstructionsViewController.swift */,
 				02B58A4C1BF7A8DB00F30FD7 /* LeaderboardViewController.swift */,
+				0240AC101C113E0B00B15D40 /* ScoreCell.swift */,
 				02B58A4A1BF7988000F30FD7 /* MainMenuViewController.swift */,
 			);
 			name = Views;
@@ -451,6 +454,7 @@
 				14AEA47D1BFD8FC100005DBB /* ScrollHandler.swift in Sources */,
 				A8D9E3651BBCA958005B2719 /* AppDelegate.swift in Sources */,
 				020FEA811BD2CE3000B97B00 /* Boundary.swift in Sources */,
+				0240AC111C113E0B00B15D40 /* ScoreCell.swift in Sources */,
 				14DAD8D91BF7A574001B75C9 /* Item.swift in Sources */,
 				14DAD8DB1BFBFDF3001B75C9 /* Constants.swift in Sources */,
 				D0B4321311FF73211684B505 /* XYReversal.swift in Sources */,
