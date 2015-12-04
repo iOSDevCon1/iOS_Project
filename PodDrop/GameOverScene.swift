@@ -8,6 +8,7 @@
 
 import UIKit
 import SpriteKit
+import Parse
 
 class GameOverScene: SKScene {
     
@@ -29,18 +30,24 @@ class GameOverScene: SKScene {
     
     func createContent() {
         
+        
         let gameOverLabel = SKLabelNode(fontNamed: "Courier")
-        gameOverLabel.fontSize = 50
         gameOverLabel.fontColor = SKColor.whiteColor()
-        gameOverLabel.text = "Game Over!"
         gameOverLabel.position = CGPointMake(self.size.width/2, 2.0 / 3.0 * self.size.height);
+        if (game.score > PFUser.currentUser()?.objectForKey("highScore") as! Int){
+            gameOverLabel.text = "New High Score!"
+            gameOverLabel.fontSize = 40
+        }else{
+            gameOverLabel.text = "Game Over!"
+            gameOverLabel.fontSize = 50
+        }
         
         self.addChild(gameOverLabel)
         
         let scoreLabel = SKLabelNode(fontNamed: "Courier")
         scoreLabel.fontSize = 70
         scoreLabel.fontColor = SKColor.whiteColor()
-        scoreLabel.text = String(game.score)
+        scoreLabel.text = "\(game.score)"
         scoreLabel.position = CGPointMake(self.size.width/2, 2.0 / 4.0 * self.size.height);
         
         self.addChild(scoreLabel)
@@ -55,6 +62,23 @@ class GameOverScene: SKScene {
         
         // black space color
         self.backgroundColor = SKColor.blackColor()
+        
+        let this_user = PFUser.currentUser()
+        var user_high_score: Int
+        user_high_score = Int((this_user?.objectForKey("highScore"))! as! NSNumber)
+        if (game.score > user_high_score){
+            this_user?.setObject(game.score, forKey: "highScore")
+            this_user!.saveInBackgroundWithBlock {
+                (success: Bool, error: NSError?) -> Void in
+                if (success) {
+                    // The object has been saved.
+                    print("score has been saved")
+                } else {
+                    // There was a problem, check error.description
+                    print("error saving score")
+                }
+            }
+        }
         
     }
     

@@ -21,20 +21,20 @@ class Blurry: Item {
     }
     
     override func use() {
-        let platforms = myScroller.platforms
-        for platform:Platform in platforms {
-            platform.blurNode.filter = CIFilter(name: "CIGaussianBlur", withInputParameters: ["inputRadius": 75.0])
-        }
+        let platforms = myGameScene.scroller.platforms
+//        for platform:Platform in platforms {
+//            platform.blurNode.filter = CIFilter(name: "CIGaussianBlur", withInputParameters: ["inputRadius": 75.0])
+//        }
 
         performSelector("end", withObject: nil, afterDelay: 30)
         
     }
     
     override func end(){
-        let platforms = myScroller.platforms
-        for platform:Platform in platforms {
-            platform.blurNode.filter = CIFilter(name: "CIGaussianBlur", withInputParameters: ["inputRadius": 25.0])
-        }
+        let platforms = myGameScene.scroller.platforms
+//        for platform:Platform in platforms {
+//            platform.blurNode.filter = CIFilter(name: "CIGaussianBlur", withInputParameters: ["inputRadius": 25.0])
+//        }
     }
     
     required init?(coder aDecoder: NSCoder) {
