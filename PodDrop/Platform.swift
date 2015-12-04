@@ -19,7 +19,8 @@ class Platform: Scrollable {
     var center:CGFloat!
     var max:CGFloat
     var scored:Bool!
-    
+    var blurNode : SKEffectNode!
+
     override init(texture: SKTexture?, color: UIColor, size: CGSize, position: CGPoint, scrollSpeed: CGFloat) {
         
         
@@ -27,7 +28,7 @@ class Platform: Scrollable {
         self.center = CGFloat(arc4random_uniform(UInt32(max * 2 ))) - max;
         
         let platformPhysicsBody = SKPhysicsBody(rectangleOfSize: size);
-        
+
         platformPhysicsBody.categoryBitMask = Category.platform;
         //platformPhysicsBody.linearDamping = 0;
         //platformPhysicsBody.restitution = 0;
@@ -57,35 +58,42 @@ class Platform: Scrollable {
         self.centerPlatform.physicsBody?.categoryBitMask = Category.centerPlatform
         self.centerPlatform.physicsBody?.collisionBitMask = 0
         self.centerPlatform.physicsBody?.contactTestBitMask = Category.pod
-        
-        
-                
+
+
+
         super.init(texture: texture, color: UIColor.clearColor(), size: size, position: position, scrollSpeed: scrollSpeed)
-        
-        self.addChild(leftPlatform)
-        self.addChild(rightPlatform)
-        self.addChild(centerPlatform)
-        
+
+        blurNode = SKEffectNode()
+        blurNode.shouldEnableEffects = true
+        let blur = CIFilter(name: "CIGaussianBlur", withInputParameters: ["inputRadius": 25.0])
+        //blurNode.filter = blur
+
+        blurNode.addChild(leftPlatform);
+        blurNode.addChild(rightPlatform);
+        blurNode.addChild(centerPlatform)
+
+        self.addChild(blurNode)
+
         self.centerPlatform.position.x = center
-        
+
         self.leftPlatform.position.x = center - self.size.width / 2 - Platform.HORIZONTAL_GAP / 2;
         
         self.rightPlatform.position.x = center + self.size.width / 2 + Platform.HORIZONTAL_GAP / 2;
         
         self.scored = false;
-        
-        
+
+
     }
     
     override func reset(newY: CGFloat) {
         super.reset(newY);
         
         self.scored = false;
-        
+
         self.center = CGFloat(arc4random_uniform(UInt32(max * 2 ))) - max;
         
         self.centerPlatform.position.x = center
-        
+
         self.leftPlatform.position.x = center - self.size.width / 2 - Platform.HORIZONTAL_GAP / 2;
         
         self.rightPlatform.position.x = center + self.size.width / 2 + Platform.HORIZONTAL_GAP / 2;

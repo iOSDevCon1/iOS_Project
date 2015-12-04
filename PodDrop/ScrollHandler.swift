@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 
 class ScrollHandler {
-    private var platforms=[Platform]();
+    var platforms=[Platform]();
     var items=[Item]();
     var gameScene: GameScene;
 
@@ -84,7 +84,7 @@ class ScrollHandler {
             item.update(currentTime,newScrollSpeed: self.SCROLL_SPEED);
             if(item.isScrolledUp){
                 item.removeFromParent();
-                
+
                 if(!item.taken){
                     items.removeAtIndex(items.indexOf(item)!);
                 }
@@ -99,11 +99,11 @@ class ScrollHandler {
             platforms[0].reset(
                 platforms[platforms.endIndex-1].getTailY() - SCROLLABLE_GAP
             );
-            
+
             self.increaseSpeedBy(0.2);
             self.gameScene.score += 5;
             self.gameScene.setScoreBoard(String(self.gameScene.score))
-            
+
             addItem(platforms[0].getTailY() - SCROLLABLE_GAP / 2);
         }
         
@@ -112,7 +112,7 @@ class ScrollHandler {
                 platforms[i].reset(
                     platforms[i-1].getTailY() - SCROLLABLE_GAP
                 );
-                
+
                 self.increaseSpeedBy(0.2);
                 self.gameScene.score += 5;
                 self.gameScene.setScoreBoard(String(self.gameScene.score))
@@ -128,7 +128,7 @@ class ScrollHandler {
     func setSpeed( speed: CGFloat){
         self.SCROLL_SPEED = speed
     }
-    
+
     func stop(){
         for platform:Scrollable in platforms {
             platform.stop();
