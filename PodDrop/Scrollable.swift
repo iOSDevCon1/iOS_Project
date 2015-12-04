@@ -27,8 +27,8 @@ class Scrollable:SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func update(currentTime: CFTimeInterval){
-            
+    func update(currentTime: CFTimeInterval, newScrollSpeed: CGFloat){
+        self.velocity = newScrollSpeed
         self.position.y += velocity;
         
         if(position.y-size.height > self.scene?.size.height){
