@@ -32,11 +32,19 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
         if let _ = this_user.objectForKey("highScore"){
             cell.score_label.text = String(this_user.objectForKey("highScore")!)
         }
+        
+        cell.backgroundColor = UIColor.clearColor()
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("You selected cell #\(indexPath.row)!")
+    }
+    
+    func tableView(tableView: UITableView,
+        willDisplayCell cell: UITableViewCell,
+        forRowAtIndexPath indexPath: NSIndexPath){
+            
     }
     
     // This function queries Parse for images
@@ -65,6 +73,7 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
                         
                     }
                 }
+                query?.orderByDescending("highScore")
             } else {
                 // Log details of the failure
                 print("Error: \(error!) \(error!.userInfo)")

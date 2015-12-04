@@ -13,7 +13,6 @@ class ScoreCell: UITableViewCell {
     @IBOutlet weak var username_label: UILabel!
     @IBOutlet weak var score_label: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
