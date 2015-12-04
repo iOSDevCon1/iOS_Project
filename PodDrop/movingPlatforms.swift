@@ -8,18 +8,20 @@ import SpriteKit
 
 class MovingPlatforms: Item {
 
-    init(size: CGSize, position:CGPoint, scrollSpeed:CGFloat, gameScene:GameScene) {
+    init(size: CGSize, position:CGPoint, scrollSpeed:CGFloat, scroller:ScrollHandler) {
         //let myTexture = SKTexture(imageNamed: "xyReversal")
-        super.init(texture: nil, color: UIColor.whiteColor(), size: size, position: position, scrollSpeed: scrollSpeed, gameScene: gameScene);
+        super.init(texture: nil, color: UIColor.whiteColor(), size: size, position: position, scrollSpeed: scrollSpeed, scroller: scroller);
+        self.name = "MovingPlatforms"
 
     }
 
     override func touchedBy(pod: Pod) {
+        super.touchedBy(pod)
         self.use();
     }
 
     override func use() {
-        print("movingPlatforms")
+        super.use();
 
         performSelector("end", withObject: nil, afterDelay: 2)
     }

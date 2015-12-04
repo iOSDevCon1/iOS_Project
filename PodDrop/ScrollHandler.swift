@@ -11,8 +11,8 @@ import SpriteKit
 
 class ScrollHandler {
     private var platforms=[Platform]();
-    private var items=[Item]();
-    private var gameScene: GameScene;
+    var items=[Item]();
+    var gameScene: GameScene;
 
     var SCROLL_SPEED:CGFloat = 2;
     static let NUMBER_OF_PLATFORMS = 4; //MIN 1
@@ -60,7 +60,7 @@ class ScrollHandler {
 
         //adding ball to view
 
-        let itemSz = CGSize(width: self.gameScene.size.width/18, height: self.gameScene.size.height/18)
+        let itemSz = CGSize(width: self.gameScene.size.height/16, height: self.gameScene.size.height/16)
 
         let randX = CGFloat(arc4random_uniform( UInt32(gameScene.size.width - itemSz.width * 2) ) ) + itemSz.width;
 
@@ -71,7 +71,7 @@ class ScrollHandler {
                 itemSz,
                 position: itemPos,
                 scrollSpeed: self.SCROLL_SPEED,
-                gameScene: self.gameScene
+                scroller: self
             )
         )
 
@@ -80,10 +80,14 @@ class ScrollHandler {
     
     func update(currentTime: CFTimeInterval){
 
-        for item:Scrollable in items {
+        for item:Item in items {
             item.update(currentTime,newScrollSpeed: self.SCROLL_SPEED);
             if(item.isScrolledUp){
                 item.removeFromParent();
+                
+                if(!item.taken){
+                    items.removeAtIndex(items.indexOf(item)!);
+                }
             }
         }
         

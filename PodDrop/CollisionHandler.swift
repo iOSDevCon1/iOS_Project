@@ -18,9 +18,9 @@ extension GameScene {
         switch contactMask {
         
             
-        case Category.pod | Category.boundary :
+        case (Category.pod | Category.boundary) :
             //print(podInvinciable)
-            if(!podInvinciable){
+            if(!podInvincible){
                 if contact.bodyA.categoryBitMask == Category.pod {
                     endGame();
                 } else {
@@ -29,7 +29,7 @@ extension GameScene {
             }
             break;
             
-        case Category.pod | Category.item :
+        case (Category.pod | Category.item) :
             var pod:Pod!;
             var item:Item!;
             if contact.bodyA.categoryBitMask == Category.pod {

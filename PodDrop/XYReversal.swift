@@ -11,28 +11,30 @@ import SpriteKit
 
 class XYReversal: Item {
     
-    init(size: CGSize, position:CGPoint, scrollSpeed:CGFloat, gameScene:GameScene) {
+    init(size: CGSize, position:CGPoint, scrollSpeed:CGFloat, scroller:ScrollHandler) {
         let myTexture = SKTexture(imageNamed: "xyReversal")
-        super.init(texture: myTexture, color: UIColor.blackColor(), size: size, position: position, scrollSpeed: scrollSpeed, gameScene: gameScene);
+        super.init(texture: myTexture, color: UIColor.blackColor(), size: size, position: position, scrollSpeed: scrollSpeed, scroller: scroller);
+        self.name = ("XYReversal")
         
     }
     
-    override func touchedBy(pod: Pod)
-    {
-        self.use();
+    override func touchedBy(pod: Pod) {
+        super.touchedBy(pod)
+        self.use()
     }
     
     override func use() {
-        self.myGameScene.consumedReversal = true
-        print("reversed")
+        super.use()
+        myScroller.gameScene.consumedReversal = true
+
         
         performSelector("end", withObject: nil, afterDelay: 2)
         
     }
     
     override func end(){
-        self.myGameScene.consumedReversal = false;
-        print("reverse end")
+        myScroller.gameScene.consumedReversal = false
+        super.end()
     }
 
     required init?(coder aDecoder: NSCoder) {

@@ -11,19 +11,22 @@ import SpriteKit
 
 class Item:Scrollable{
 
-    var myGameScene: GameScene!
+    var myScroller: ScrollHandler!
     var pod: Pod!;
+    var taken:Bool!;
     
-    init(texture: SKTexture?, color: UIColor, size: CGSize, position:CGPoint, scrollSpeed:CGFloat, gameScene:GameScene) {
+    init(texture: SKTexture?, color: UIColor, size: CGSize, position:CGPoint, scrollSpeed:CGFloat, scroller:ScrollHandler) {
         super.init(texture: texture, color: color, size: size, position: position, scrollSpeed: scrollSpeed);
 
-        self.myGameScene = gameScene
+        self.name = "Unnamed Item"
+        self.myScroller = scroller
         let radius = self.size.width/2;
         self.physicsBody = SKPhysicsBody(circleOfRadius: radius)
         self.physicsBody?.collisionBitMask = 0;
         self.physicsBody?.categoryBitMask = Category.item;
         self.physicsBody!.contactTestBitMask = Category.pod;
         self.physicsBody?.dynamic = false;
+        self.taken = false;
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -31,13 +34,25 @@ class Item:Scrollable{
     }
     
     func touchedBy(pod:Pod){
+        self.taken = true;
         self.pod = pod;
         pod.addItem(self);
     }
     
     func use(){
-        self.pod.removeItem(self)
+        if (pod != nil){
+            self.pod.removeItem(self)
+        }
+
+        print(name! + " start")
     }
     
-    func end(){}
+    func end(){
+        print(name! + " end")
+        if let i = myScroller.items.indexOf(self){
+            myScroller.items.removeAtIndex(i);
+        }
+        
+
+    }
 }

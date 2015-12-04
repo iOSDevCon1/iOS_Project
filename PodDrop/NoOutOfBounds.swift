@@ -11,20 +11,21 @@ class NoOutOfBounds: Item {
     var leftBoundary:SKShapeNode!;
     var rightBoundary:SKShapeNode!;
 
-    init(size: CGSize, position:CGPoint, scrollSpeed:CGFloat, gameScene:GameScene) {
+    init(size: CGSize, position:CGPoint, scrollSpeed:CGFloat, scroller:ScrollHandler) {
         //let myTexture = SKTexture(imageNamed: "dragon_ball")
-        super.init(texture: nil, color: UIColor.redColor(), size: size, position: position, scrollSpeed: scrollSpeed, gameScene: gameScene);
-
+        super.init(texture: nil, color: UIColor.redColor(), size: size, position: position, scrollSpeed: scrollSpeed, scroller: scroller);
+        self.name = "NoOutOfBounds"
     }
 
     override func touchedBy(pod: Pod) {
+        super.touchedBy(pod)
         self.use();
     }
 
     override func use() {
-        print("NoOutOfBounds")
+        super.use();
 
-        var boundarySize = myGameScene.size;
+        var boundarySize = self.myScroller.gameScene.size;
 
         boundarySize.width = CGFloat(3);
 
@@ -32,14 +33,14 @@ class NoOutOfBounds: Item {
         rightBoundary = SKShapeNode(rectOfSize: boundarySize);
 
 
-        leftBoundary.position.y = myGameScene.size.height/2;
+        leftBoundary.position.y = myScroller.gameScene.size.height/2;
         leftBoundary.position.x = 1;
 
-        rightBoundary.position.y = myGameScene.size.height/2;
-        rightBoundary.position.x = myGameScene.size.width - 1;
+        rightBoundary.position.y = myScroller.gameScene.size.height/2;
+        rightBoundary.position.x = myScroller.gameScene.size.width - 1;
 
-        myGameScene.addChild(leftBoundary);
-        myGameScene.addChild(rightBoundary);
+        myScroller.gameScene.addChild(leftBoundary);
+        myScroller.gameScene.addChild(rightBoundary);
 
         performSelector("end", withObject: nil, afterDelay: 2)
     }
@@ -49,7 +50,7 @@ class NoOutOfBounds: Item {
         leftBoundary.removeFromParent();
         rightBoundary.removeFromParent();
 
-        print("NoOutOfBounds end")
+        super.end();
     }
 
     required init?(coder aDecoder: NSCoder) {
