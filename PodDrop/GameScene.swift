@@ -26,7 +26,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var scoreLabel = SKLabelNode(text: String(0))
     
     var background: SKSpriteNode!
-    var pod: Pod!
+    var pods = [Pod]()
     
     //pod Attributes
     var consumedReversal:Bool = false
@@ -76,8 +76,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func addPod(canvasSize: CGSize){
         //adding ball to view
         let podSize = CGSize.init(width: canvasSize.height/15, height: canvasSize.height/15)
-        pod = Pod(imageName: "pod.png", size: podSize)
+        let pod = Pod(imageName: "pod.png", size: podSize)
         pod.position = CGPoint(x: canvasSize.width/2, y: canvasSize.height/2)
+        pods.append(pod)
         addChild(pod)
     }
     
@@ -97,25 +98,33 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // Helper method used when GameScene is touched
     func applyForceToPod(forceStrength: CGFloat) {
-        if let thisPod = pod{
+        for pod in pods {
             if(consumedReversal){
-                thisPod.physicsBody?.applyImpulse(CGVector(dx: -forceStrength, dy: 0))
+                pod.physicsBody?.applyImpulse(CGVector(dx: -forceStrength, dy: 0))
             } else {
-                thisPod.physicsBody?.applyImpulse(CGVector(dx: forceStrength, dy: 0))
+                pod.physicsBody?.applyImpulse(CGVector(dx: forceStrength, dy: 0))
             }
-            
-
         }
     }
+    
+    // Helper method for the BreakThrough item
+//    func podBreakThrough(){
+//        if let thisPod = pod{
+//            let physics = thisPod.physicsBody
+//            thisPod.physicsBody = nil
+//            //thisPod.position = CGPoint(x: thisPod.position.x, y: 50)
+//            thisPod.physicsBody = physics
+//        }
+//    }
+    
     
     // Transition handler for 'moving touches' on the screen
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         var diff: CGFloat!
         for touch: UITouch in touches{
             let positionInScene = touch.locationInNode(self);
-            let podPosition = pod.position;
 
-            diff = positionInScene.x - podPosition.x;
+            diff = positionInScene.x - self.size.width/2;
         }
 
         applyForceToPod(diff/10)
@@ -191,10 +200,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     //pod moving left and right
     func processUserMotionForUpdate(currentTime: CFTimeInterval, reversal:Bool) {
         if let data = motionManager.accelerometerData {
-            if(reversal){
-                 pod.physicsBody!.applyForce(CGVectorMake(-80.0*CGFloat(data.acceleration.x),0))
-            } else {
-                pod.physicsBody!.applyForce(CGVectorMake(80.0*CGFloat(data.acceleration.x),0))
+            for pod in pods{
+                if(reversal){
+                    pod.physicsBody!.applyForce(CGVectorMake(-80.0*CGFloat(data.acceleration.x),0))
+                } else {
+                    pod.physicsBody!.applyForce(CGVectorMake(80.0*CGFloat(data.acceleration.x),0))
+                }
             }
         }
     }
