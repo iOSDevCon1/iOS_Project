@@ -68,6 +68,13 @@ class ScrollHandler {
                 scrollSpeed: self.SCROLL_SPEED,
                 gameScene: self.gameScene )
         )
+        
+        items.append(Invincibility(
+            size: itemSz,
+            position: itemPos,
+            scrollSpeed: self.SCROLL_SPEED,
+            gameScene: self.gameScene )
+        )
 
         self.gameScene.addChild(items[items.endIndex-1]);
     }
@@ -111,6 +118,13 @@ class ScrollHandler {
         }
     }
     
-    
-
+    func endAllItems(){
+        for item in items {
+            
+            if item is Invincibility {
+            } else{
+            item.end()
+            }
+        }
+    }
 }

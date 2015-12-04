@@ -29,7 +29,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     //pod Attributes
     var consumedReversal:Bool = false
-
+    var podInvinciable:Bool = false
 
     let motionManager: CMMotionManager = CMMotionManager()
     

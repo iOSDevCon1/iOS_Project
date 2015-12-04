@@ -12,7 +12,7 @@ import SpriteKit
 class Pod: SKSpriteNode {
     let items:ItemQueue = ItemQueue();
     
-    
+
     init(imageName: String, size:CGSize) {
         super.init(texture: SKTexture(imageNamed: imageName), color: UIColor.clearColor(), size: size)
         
