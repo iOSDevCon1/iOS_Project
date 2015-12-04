@@ -6,7 +6,7 @@
 import Foundation
 import SpriteKit
 
-class movingPlatforms: Item {
+class NoOutOfBounds: Item {
 
     init(size: CGSize, position:CGPoint, scrollSpeed:CGFloat, gameScene:GameScene) {
         let myTexture = SKTexture(imageNamed: "xyReversal")
@@ -19,11 +19,13 @@ class movingPlatforms: Item {
     }
 
     override func use() {
-        print("movingPlatforms")
+        print("NoOutOfBounds")
 
         performSelector("end", withObject: nil, afterDelay: 2)
+    }
 
-
+    func end(){
+        print("NoOutOfBounds end")
     }
 
     required init?(coder aDecoder: NSCoder) {
