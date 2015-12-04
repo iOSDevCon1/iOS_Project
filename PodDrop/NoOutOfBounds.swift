@@ -24,7 +24,7 @@ class NoOutOfBounds: Item {
         performSelector("end", withObject: nil, afterDelay: 2)
     }
 
-    func end(){
+    override func end(){
         print("NoOutOfBounds end")
     }
 
