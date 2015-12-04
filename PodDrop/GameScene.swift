@@ -31,7 +31,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     //pod Attributes
     var consumedReversal:Bool = false
-    var podInvincible:Bool = false
 
     let motionManager: CMMotionManager = CMMotionManager()
     
@@ -199,6 +198,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
 
     override func update(currentTime: CFTimeInterval) {
+
+        for pod:Pod in pods {
+            if(pod.position.y > self.size.height - pod.size.height/2){
+                pod.position.y = self.size.height - pod.size.height/2
+            }
+        }
         self.scroller.update(currentTime);
         processUserMotionForUpdate(currentTime, reversal: consumedReversal)
     }

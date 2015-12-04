@@ -22,8 +22,23 @@ class MovingPlatforms: Item {
 
     override func use() {
         super.use();
+        
+        let platforms = myScroller.platforms
+        for platform:Platform in platforms{
+            platform.shouldMoveLeftRight = true;
+        }
 
-        performSelector("end", withObject: nil, afterDelay: 3)
+        performSelector("end", withObject: nil, afterDelay: 10)
+    }
+
+    override func end(){
+        let platforms = myScroller.platforms
+        for platform:Platform in platforms{
+            platform.shouldMoveLeftRight = false;
+        }
+
+
+        super.end();
     }
 
     required init?(coder aDecoder: NSCoder) {

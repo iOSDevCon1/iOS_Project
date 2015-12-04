@@ -20,6 +20,9 @@ class Platform: Scrollable {
     var max:CGFloat
     var scored:Bool!
     var blurNode : SKEffectNode!
+    var toMove:CGFloat!
+
+    var shouldMoveLeftRight:Bool;
 
     override init(texture: SKTexture?, color: UIColor, size: CGSize, position: CGPoint, scrollSpeed: CGFloat) {
         
@@ -58,7 +61,10 @@ class Platform: Scrollable {
         self.centerPlatform.physicsBody?.categoryBitMask = Category.centerPlatform
         self.centerPlatform.physicsBody?.collisionBitMask = 0
         self.centerPlatform.physicsBody?.contactTestBitMask = Category.pod
-
+        
+        
+        
+        self.shouldMoveLeftRight = false;
 
 
         super.init(texture: texture, color: UIColor.clearColor(), size: size, position: position, scrollSpeed: scrollSpeed)
@@ -66,7 +72,7 @@ class Platform: Scrollable {
         blurNode = SKEffectNode()
         blurNode.shouldEnableEffects = true
         let blur = CIFilter(name: "CIGaussianBlur", withInputParameters: ["inputRadius": 25.0])
-        //blurNode.filter = blur
+        blurNode.filter = blur
 
         blurNode.addChild(leftPlatform);
         blurNode.addChild(rightPlatform);
@@ -82,11 +88,31 @@ class Platform: Scrollable {
         
         self.scored = false;
 
+        setToMove();
+
 
     }
-    
+    func setToMove(){
+        let rando = arc4random_uniform(2);
+        self.toMove = 5
+        if (rando == 1) {
+            self.toMove = -5;
+        }
+    }
+
+    override func update(currentTime: CFTimeInterval, newScrollSpeed: CGFloat){
+        super.update(currentTime, newScrollSpeed: newScrollSpeed )
+        if(shouldMoveLeftRight) {
+            moveLeftRight();
+        }
+    }
+
     override func reset(newY: CGFloat) {
         super.reset(newY);
+
+        if(shouldMoveLeftRight) {
+            setToMove()
+        }
         
         self.scored = false;
 
@@ -99,6 +125,16 @@ class Platform: Scrollable {
         self.rightPlatform.position.x = center + self.size.width / 2 + Platform.HORIZONTAL_GAP / 2;
         
         
+    }
+
+    func moveLeftRight(){
+        if( self.position.x > self.size.width - center - Platform.HORIZONTAL_GAP / 2){
+             self.toMove = -5;
+        } else if ( self.position.x < 0 - center + Platform.HORIZONTAL_GAP / 2){
+            self.toMove = 5;
+        }
+
+        self.position.x += self.toMove;
     }
 
 

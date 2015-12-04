@@ -13,6 +13,8 @@ class ItemFactory {
         //print(randomInt);
 
         switch randomInt{
+        case 0:
+            return Invincibility(size: size, position:position, scrollSpeed:scrollSpeed, scroller:scroller);
         case 1:
             return XYReversal(size: size, position:position, scrollSpeed:scrollSpeed, scroller:scroller);
         case 2:

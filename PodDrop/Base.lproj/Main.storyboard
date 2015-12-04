@@ -285,6 +285,9 @@ Try to beat your high score and good luck!
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="milkyWay" translatesAutoresizingMaskIntoConstraints="NO" id="TCz-yB-70r">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="LEADERBOARD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHN-bt-ze0">
                                 <rect key="frame" x="232" y="43" width="136" height="39"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
@@ -302,7 +305,7 @@ Try to beat your high score and good luck!
                                 </connections>
                             </button>
                             <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pn2-i1-LeD">
-                                <rect key="frame" x="145" y="105" width="311" height="222"/>
+                                <rect key="frame" x="39" y="207" width="311" height="222"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -345,9 +348,6 @@ Try to beat your high score and good luck!
                                     <outlet property="delegate" destination="h4D-1j-3sg" id="H6y-KR-GmQ"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="milkyWay" translatesAutoresizingMaskIntoConstraints="NO" id="TCz-yB-70r">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -362,6 +362,12 @@ Try to beat your high score and good luck!
                             <constraint firstItem="TCz-yB-70r" firstAttribute="leading" secondItem="kCC-dy-Cvo" secondAttribute="leadingMargin" constant="-20" id="iFe-4Y-zPi"/>
                             <constraint firstItem="iaQ-OP-vcn" firstAttribute="top" secondItem="TCz-yB-70r" secondAttribute="bottom" id="l8G-zy-kvW"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="P38-Dq-ZrK"/>
+                                <exclude reference="QW8-Nk-6jU"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="scoreTable" destination="pn2-i1-LeD" id="Yw9-WG-5ZW"/>
@@ -509,6 +515,6 @@ Try to beat your high score and good luck!
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="T5L-y0-n3N"/>
-        <segue reference="Zwl-pf-Jih"/>
+        <segue reference="mvz-AP-hKh"/>
     </inferredMetricsTieBreakers>
 </document>

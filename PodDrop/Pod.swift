@@ -11,6 +11,8 @@ import SpriteKit
 
 class Pod: SKSpriteNode {
     let items:ItemQueue = ItemQueue();
+    var invinsible:Bool!
+
 
     init(imageName: String, size:CGSize) {
         super.init(texture: SKTexture(imageNamed: imageName), color: UIColor.clearColor(), size: size)
@@ -22,6 +24,8 @@ class Pod: SKSpriteNode {
         //self.physicsBody?.linearDamping = 0;
         self.physicsBody?.friction = 1;
         self.physicsBody?.restitution = 0;
+
+        self.invinsible = false;
 
     }
     
@@ -44,11 +48,11 @@ class Pod: SKSpriteNode {
         }
         
     }
-    
+
     func startBreakThrough(){
         self.physicsBody?.collisionBitMask = Category.boundary | Category.obstacle;
     }
-    
+
     func stopBreakThrough(){
         self.physicsBody?.collisionBitMask = Category.boundary | Category.platform | Category.obstacle;
     }
