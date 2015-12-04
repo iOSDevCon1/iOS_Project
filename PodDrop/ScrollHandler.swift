@@ -89,7 +89,7 @@ class ScrollHandler {
             platforms[0].reset(
                 platforms[platforms.endIndex-1].getTailY() - SCROLLABLE_GAP
             );
-            self.SCROLL_SPEED = self.SCROLL_SPEED + 5
+            self.SCROLL_SPEED = self.SCROLL_SPEED + 1
             addItem(platforms[0].getTailY() - SCROLLABLE_GAP / 2);
         }
         
@@ -98,7 +98,7 @@ class ScrollHandler {
                 platforms[i].reset(
                     platforms[i-1].getTailY() - SCROLLABLE_GAP
                 );
-                self.gameScene.score += 1
+                self.gameScene.score += 5
                 self.gameScene.setScoreBoard(String(self.gameScene.score))
             }
         }
